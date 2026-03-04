@@ -1,0 +1,30 @@
+{
+  "broadcast": {
+    "한국경제TV": {
+      "id": "UCF8AeLlUbEpKju6v1H6p8Eg",
+      "url": "https://www.youtube.com/@hkwowtv"
+    },
+    "SBS Biz": {
+      "id": "UCbMjg2EvXs_RUGW-KrdM3pw",
+      "url": "https://www.youtube.com/@SBSBiz2021"
+    },
+    "서울경제TV": {
+      "id": "UCZKBS37Y0TmrFBfYBuBibtQ",
+      "url": "https://www.youtube.com/@sentv"
+    }
+  },
+  "youtuber": {
+    "슈카월드": {
+      "id": "UCsJ6RuBiTVWOlN3n3-BbELg",
+      "url": "https://www.youtube.com/@syukaworld"
+    },
+    "삼프로TV": {
+      "id": "UCTg-AH4JkXJMUWJsFQpABJw",
+      "url": "https://www.youtube.com/@3PROTV"
+    },
+    "신사임당": {
+      "id": "UCep5LSsJGJfuYjU8F4bXjzA",
+      "url": "https://www.youtube.com/@SSID"
+    }
+  }
+}
