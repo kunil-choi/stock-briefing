@@ -1,0 +1,962 @@
+[
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "중동전쟁 직격탄 맞은 韓 증시…은행·보험·통신, 피난처로 뜬다",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030491671",
+    "published": "2026-03-04T08:23:58"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "[특징주 & 리포트] '\"채권 투자, 안전지대 아니야\"' 등",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030491681",
+    "published": "2026-03-04T08:22:51"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "미국 중앙은행(Fed) 베이지북",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030491651",
+    "published": "2026-03-04T08:21:13"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "'주도주+바이오' 바벨 전략으로 70% 수익",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030491631",
+    "published": "2026-03-04T08:19:53"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "레버리지 달려간 전투개미…이틀만에 26% 급락 '울상'",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030491641",
+    "published": "2026-03-04T08:19:08"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "외국인, 코스닥선 1.2조 샀다",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030491691",
+    "published": "2026-03-04T08:18:25"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "한화운용 \"3년내 ETF 순자산 100조\"",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030491661",
+    "published": "2026-03-04T08:17:30"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "해외 사모대출펀드 잔액 급증…금감원 \"리스크 관리 강화\"",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030490901",
+    "published": "2026-03-04T08:06:40"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "코스피 6000시대 대응법…\"7000 간다 vs 하방 경계\"",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030477971",
+    "published": "2026-03-04T08:00:35"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "AI시대의 '자산관리 습관'…자녀에 물려줄 가장 강력한 유산",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478091",
+    "published": "2026-03-04T08:00:18"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "400조 육박한 ETF 시장…국내 주식형이 해외 제쳤다",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478151",
+    "published": "2026-03-04T07:59:52"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "고성장 중인 글로벌 반도체, ETF로 투자를",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478141",
+    "published": "2026-03-04T07:59:42"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "포스트 차이나 환상 깨진 인도…대안은 '사람'",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478131",
+    "published": "2026-03-04T07:58:37"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "'벚꽃 배당' 우선주의 계절…배당 수익에 시세차익까지 노린다",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478231",
+    "published": "2026-03-04T07:58:07"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "올 들어 오른 코스피…PBR 저평가 종목은",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478221",
+    "published": "2026-03-04T07:57:57"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "이란 공습…美 방산주 '빅사이클' 탄다",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478191",
+    "published": "2026-03-04T07:57:48"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "증권주 코스피 상승폭 추월했다…\"조정 거쳐 랠리 재개할 것\"",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478051",
+    "published": "2026-03-04T07:56:36"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "미래에셋증권, 알고리즘으로 시장 상황 맞춰 포트폴리오 변경",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478041",
+    "published": "2026-03-04T07:56:27"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "NH투자증권, 수익률·배당 다 잡은 증권주 ETF '고공행진'",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030478031",
+    "published": "2026-03-04T07:56:19"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "KB증권, IRP 적립금 56% 늘어…맞춤 컨설팅 통했다",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030477851",
+    "published": "2026-03-04T07:56:06"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "삼성증권, 디폴트옵션 수익률…퇴직연금 평균의 두배",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030477841",
+    "published": "2026-03-04T07:56:00"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "한국투자증권, 매일·매주 원하는 만큼…연금 ETF 자동 투자",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030477881",
+    "published": "2026-03-04T07:55:54"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "신한투자증권, 주식·채권 비중 알아서 조정…탄력적 자산 배분",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030477871",
+    "published": "2026-03-04T07:55:48"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "코스피·코스닥 '역대 최대 하락률'…공포의 수요일 [HK영상]",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/202603049034i",
+    "published": "2026-03-04T07:52:59"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "ESG 공시 로드맵 공개…전문가들 \"거래소 공시로는 부족\"",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/202603048861i",
+    "published": "2026-03-04T07:15:31"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "코스피 12% 폭락…9·11 테러 때보다 더 떨어졌다",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030487126",
+    "published": "2026-03-04T06:59:55"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "[속보] 코스피, 12.06% 급락한 5093.54 마감",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030487396",
+    "published": "2026-03-04T06:34:01"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "금융위, 올해 첫 가상자산委…디지털자산기본법 정부안 윤곽",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030486676",
+    "published": "2026-03-04T06:22:09"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "\"美 제조업 공백, 韓이 채운다\"…한화운용, 액티브 ETF 3종 출격",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/2026030481316",
+    "published": "2026-03-04T06:10:25"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "한국경제_증권",
+    "title": "\"기름값 왜 벌써 올라?\"…직원 27명 규모 주유소만 '상한가' [선한결의 이기업 왜이래]",
+    "summary": "",
+    "link": "https://www.hankyung.com/article/202603048584i",
+    "published": "2026-03-04T05:49:06"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "[표] 외국환율고시표",
+    "summary": "",
+    "link": "https://www.mk.co.kr/news/economy/11978720",
+    "published": "2026-03-04T08:51:22"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "[포토] 저축은행 CEO 만난 금감원장",
+    "summary": "",
+    "link": "https://www.mk.co.kr/news/economy/11978719",
+    "published": "2026-03-04T08:51:22"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "[표] 당좌거래정지",
+    "summary": "",
+    "link": "https://www.mk.co.kr/news/economy/11978718",
+    "published": "2026-03-04T08:51:21"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "주주가치 제고 앞장서는 삼성화재",
+    "summary": "삼성화재가 이사회의 직무 수행 평가지표에 상법 개정에 따른 '이사의 충실 의무'를 명문화했다. 지배구조 개선과 주주가치 제고를 위한 이사의 역할·책임 강화를 위한 선제적 조치로 풀..",
+    "link": "https://www.mk.co.kr/news/economy/11978717",
+    "published": "2026-03-04T08:51:21"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "\"비거주 1주택자 전세대출 막히면…월세화 현상 빨라질것\"",
+    "summary": "지난 3일 정부의 부동산 대책 회의에서 1주택자에 대한 수도권 전세대출 보증 제한 추진이 논의된 배경에는 이재명 대통령의 '비거주 1주택'에 대한 규제 강화 지시가 자리 잡고 있다..",
+    "link": "https://www.mk.co.kr/news/economy/11978714",
+    "published": "2026-03-04T08:51:20"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "장특공제·보유세도 손질나서",
+    "summary": "정부가 비거주 1주택자에 대한 전세대출 제한 외에도 보유세 강화와 장기보유특별공제(장특공제) 혜택 축소 등 추가 규제 카드를 만지작거리고 있다.\n정부가 검토 중인 비거주 1주택자 ..",
+    "link": "https://www.mk.co.kr/news/economy/11978715",
+    "published": "2026-03-04T08:51:20"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "'경영개선요구' 받은 롯데손보 … 2개월내 자본적정성 계획 내야",
+    "summary": "금융위원회가 4일 정례회의에서 롯데손해보험에 '경영개선요구' 조치를 의결했다고 밝혔다. 지난해 11월 '경영개선권고' 조치를 받은 롯데손보가 제출한 경영개선계획이 구체성과 실현 가..",
+    "link": "https://www.mk.co.kr/news/economy/11978716",
+    "published": "2026-03-04T08:51:20"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "반도체 숨 고르자 … 생산 석달만에 뚝",
+    "summary": "지난 1월 전산업 생산이 세 달 만에 감소세로 돌아섰다. 작년 하반기 반도체 생산이 정점을 찍은 뒤 일시 조정을 받은 영향으로 분석된다.\n4일 국가데이터처가 발표한 1월 산업활동동..",
+    "link": "https://www.mk.co.kr/news/economy/11978694",
+    "published": "2026-03-04T08:45:45"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "'통화 사령탑' 韓銀총재 인선 스타트 … 연임론 속 국제통 후보 부상",
+    "summary": "이창용 한국은행 총재의 임기 종료가 46일 앞으로 다가왔지만 여전히 차기 총재가 누가 될지 오리무중인 상황이다. 지난 4년간 적극적으로 한은의 활동 범위를 넓혀온 이 총재가 연임할..",
+    "link": "https://www.mk.co.kr/news/economy/11978695",
+    "published": "2026-03-04T08:45:45"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "[포토] 불안한 환율",
+    "summary": "이란 전쟁 여파로 원·달러 환율이 급등하는 등 금융시장이 요동친 4일 서울 중구 명동의 환전소 전광판에 환율 시세가 표시되고 있다. 원·달러 환율은 이날 새벽 야간 거래에서 150..",
+    "link": "https://www.mk.co.kr/news/economy/11978588",
+    "published": "2026-03-04T07:41:41"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "[포토] 요동치는 환율",
+    "summary": "이란 전쟁 여파로 원·달러 환율이 급등하는 등 금융시장이 요동친 4일 서울 중구 명동의 환전소 전광판에 환율 시세가 표시되고 있다. 원·달러 환율은 이날 새벽 야간 거래에서 150..",
+    "link": "https://www.mk.co.kr/news/economy/11978587",
+    "published": "2026-03-04T07:41:38"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "“빚투 32조, 더 이상 안돼요”…증권사들, 신용거래 일시 중단",
+    "summary": "일명 ‘빚투’(빚내서 투자) 금액이 32조원을 넘어선 가운데 일부 증권사들이 신용공여 한도 소진 여파로 신용거래융자 신규 거래를 일시 중단했다. 한국투자증권은 4일 오전 8시부터 ..",
+    "link": "https://www.mk.co.kr/news/economy/11978529",
+    "published": "2026-03-04T06:54:27"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "금융당국, 롯데손보에 ‘경영개선요구’…“2개월 내 개선 계획 제출해야”",
+    "summary": "자본건전성 관리 예방적 조치…정상 영업롯데손해보험이 금융당국으로부터 ‘경영개선요구’ 조치를 받았다. 이 회사의 지급여력비율은 지난해 9월 말 기준 142% 수준이다. 4일 금융위원..",
+    "link": "https://www.mk.co.kr/news/economy/11978503",
+    "published": "2026-03-04T06:36:35"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "수은, 필리핀 전력사 협력...현지 K-원전 진출 돕는다",
+    "summary": "한국수출입은행이 필리핀 원자력 발전 사업을 지원하는 핵심 금융 동반자로 나선다고 4일 밝혔다. 4일(현지시간) 수은은 한국수력원자력, 필리핀 최대 민간 전력기업 메랄코와 ‘필리핀 ..",
+    "link": "https://www.mk.co.kr/news/economy/11978491",
+    "published": "2026-03-04T06:33:46"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "코스피 급락·커지는 환율 변동성에…금융당국도 대책 마련 고심",
+    "summary": "코스피 급락·환율 변동 커져 한은 “과거와 달리 유동성 풍부” 정부, 석유·가스 비축량 충분미국·이란의 교전 장기화 조짐과 호르무즈 해협 봉쇄 등의 여파로 국내 증시와 환율이 큰 ..",
+    "link": "https://www.mk.co.kr/news/economy/11978460",
+    "published": "2026-03-04T06:01:26"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "알뜰폰 통신비 6개월 간 ‘0원’으로... 우리은행 이벤트 혜택 누리세요",
+    "summary": "최대 37만원 혜택 제공우리은행은 알뜰폰 서비스 ‘우리WON모바일’ 신규 개통 고객에게 6개월간 통신비 체감가를 ‘0원’으로 낮춰주는 ‘통신비 자유선언’ 이벤트를 이달 31일까지 ..",
+    "link": "https://www.mk.co.kr/news/economy/11978353",
+    "published": "2026-03-04T04:21:37"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "“가득 채워 주세요” 더 오르기 전에 주유소로 직행…서울 휘발유 1800원 돌파",
+    "summary": "서울 경유 1760원, 29개월새 최고 중동 전쟁 소식에 ‘패닉 바잉’ 현상 원달러 상승 겹치며 상승폭 확대미국과 이란의 무력 충돌로 중동 지역 긴장이 고조되면서 국내 주유소 기름..",
+    "link": "https://www.mk.co.kr/news/economy/11978262",
+    "published": "2026-03-04T02:24:14"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "“6000원짜리 폴로티, 17만원 태그 달았는데”...짝퉁 5만점 유통 직전에 걸렸다",
+    "summary": "해외서 가짜 폴로 제작, 한국서 로고 새겨  폴로 측 “인천세관에 감사패 수여 예정”중국 등에서 유명 브랜드를 모방해 만든 짝퉁 옷을 국내로 들여와 위조 상표를 붙여 판매하려던 일..",
+    "link": "https://www.mk.co.kr/news/economy/11978210",
+    "published": "2026-03-04T02:10:41"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "OK저축은행, 업계 첫 결제 플랫폼 선불충전금에 예금 기능 더한 상품 출시",
+    "summary": "OK금융그룹의 주력 계열사인 OK저축은행이 업계 첫 선불충전금에 이자를 제공하는 상품을 선보였다. 4일 OK저축은행은 통합 결제 비즈니스전문기업 다날과 제휴를 맺고 수시입출금통장인..",
+    "link": "https://www.mk.co.kr/news/economy/11978163",
+    "published": "2026-03-04T01:32:33"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "신한금융, PF 정상화로 ‘공덕역 주상복합 개발사업’ 재시동",
+    "summary": "‘신한 PF 정상화펀드’ 통해  1400억원 금융주선 완료신한금융그룹은 한국자산관리공사(캠코)와 공동 출자한 ‘신한 PF 정상화펀드’를 통해 서울 마포구 ‘공덕역 주상복합 개발사업..",
+    "link": "https://www.mk.co.kr/news/economy/11978146",
+    "published": "2026-03-04T01:12:49"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "보험연구원 부원장에 정성희 선임연구위원 선임",
+    "summary": "보험산업 정책 싱크탱크인 보험연구원이 신임 부원장에 정성희 선임연구위원을 선임했다고 4일 밝혔다. 정 신임 부원장은 1971년생으로, 서울대에서 계산통계학 학사와 통계학 석·박사 ..",
+    "link": "https://www.mk.co.kr/news/economy/11978121",
+    "published": "2026-03-04T00:51:47"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "[속보] 반도체 줄며 1월 산업생산 1.3%↓…설비투자는 6.8% 급증",
+    "summary": "반도체 생산 -4.4%…소매판매 2.3%↑반도체 생산 감소 영향으로 산업생산이 석 달 만에 줄었다. 소비와 설비투자는 증가하며 지표 간 흐름이 엇갈렸다. 국가데이터처가 4일 발표한..",
+    "link": "https://www.mk.co.kr/news/economy/11978019",
+    "published": "2026-03-03T23:02:43"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "확전·장기전 우려에 美증시 급락...트럼프 “유조선 호위” [월가월부]",
+    "summary": "美 3대 증시 1% 안팎 급락  중동 산유국 잇단 생산 중단에 유가 급등이란 전쟁이 확전과 장기전 양상으로 흘러가면서 3일(현지시간) 뉴욕증시가 하루만에 급락했다. 미국과 이스라엘..",
+    "link": "https://www.mk.co.kr/news/economy/11977960",
+    "published": "2026-03-03T21:33:53"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "원·달러 환율 한때 1500원 돌파…2009년來 처음",
+    "summary": "미국·이스라엘과 이란간 무력 충돌로 달러화 가치가 급등하면서 원달러 환율이 한때 심리적 지지선인 1500원선을 돌파했다. 로이터통신 등 외신에 따르면 한국시간 4일 0시 20분께 ..",
+    "link": "https://www.mk.co.kr/news/economy/11977877",
+    "published": "2026-03-03T15:57:26"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "막무가내 이란 “선박 다 불태울 것”…원유·가스 초비상",
+    "summary": "카타르 생산차질, 호르무즈해협 봉쇄 국제유가, 천연가스 급등 이란 “해협 통과하면 불태울것” 경고 컨테이너선 10% 해협 인근 발묶여 美 “에너지가격 완화 조치 시행할것”이란 전쟁..",
+    "link": "https://www.mk.co.kr/news/economy/11977811",
+    "published": "2026-03-03T14:07:32"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "역대급 ‘빚투’에…5일부터 신용거래 일시중단 하는 NH투자증권",
+    "summary": "최근 개인 투자자들의 ‘빚투(빚내서 투자)’ 규모가 역대급으로 치솟으면서 신용공여 한도가 소진된 NH투자증권이 신용거래를 일시 중단키로 했다. NH증권은 신용공여 한도 소진에 따라..",
+    "link": "https://www.mk.co.kr/news/economy/11977799",
+    "published": "2026-03-03T13:53:06"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "“이래도 안팔아?”…정부, 이젠 비거주용 고가 1주택자 칼 겨눈다",
+    "summary": "투기·실거주용 대출 가려낼 기준 모색정부가 투기성 고가 1주택자를 어떤 기준으로 판별할지를 두고 고심하는 것으로 알려졌다. 3일 금융위원회는 이날 오후 권대영 금융위 부위원장 주재..",
+    "link": "https://www.mk.co.kr/news/economy/11977750",
+    "published": "2026-03-03T12:35:36"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "‘비상 걸린’ 환율, 연장거래서 1480원대 돌파…연고점 경신",
+    "summary": "원달러 환율이 연장거래 시간대에 1480원대를 돌파하며 연고점을 경신하고 있다. 3일 외환시장에 따르면 이날 오후 8시50분께 원달러 환율은 1480원선에서 오르락 내리락을 반복하..",
+    "link": "https://www.mk.co.kr/news/economy/11977711",
+    "published": "2026-03-03T12:02:05"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "미국, AI로 표적동선 손안에…손 쓸 틈도 없이 제거한다",
+    "summary": "美사이버공격에 이란 통신망·대응망 무력화 하메네이 폭사 뒤엔 AI 동선분석 기술 AI파괴론 엔스로픽 클로드로 압도적 첨단전력 베네수엘라 이어 이란공격 때도 활용  이란은 3천만원 ..",
+    "link": "https://www.mk.co.kr/news/economy/11977685",
+    "published": "2026-03-03T11:27:47"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "널뛰는 원화값, 남미보다 더 흔들렸다…일평균 변동성 세계 6위",
+    "summary": "올들어 日평균 7.4원 널뛰기 세계서 6번째로 변동성 높아  태국·브라질보다 취약해  중동리스크에 1500원대 전망도 “韓경제 체력 강화해야”올 들어 대한민국 원화가 고물가와 경제..",
+    "link": "https://www.mk.co.kr/news/economy/11977636",
+    "published": "2026-03-03T10:26:32"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "전쟁이 데이터센터까지 노렸다…이란전 속 IT업계 긴장(종합)",
+    "summary": "(서울=연합뉴스) 조성미 기자 = 미국·이스라엘과 이란 전쟁에 국내 정보기술(IT) 업계는 글로벌 경기 침체에 따른 수출·투자 위축 등 단기적으...",
+    "link": "https://www.yna.co.kr/view/AKR20260304133551017",
+    "published": "2026-03-04T08:42:19"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "서울 휘발유 1천800원 돌파…\"더 오르기 전에 넣자\" 주유소 '북적'(종합)",
+    "summary": "(서울=연합뉴스) 강태우 기자 = 지난달 28일(현지시간) 발발한 미국과 이스라엘의 이란 공습 여파로 국내 주유소 휘발유와 경유 가격이 가파르게...",
+    "link": "https://www.yna.co.kr/view/AKR20260304147051003",
+    "published": "2026-03-04T08:36:50"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "화성시, 동탄트램 1단계 공사 입찰 재공고…사업 절차 재개",
+    "summary": "(화성=연합뉴스) 김광호 기자 = 경기 화성시는 사업자 선정이 잇따라 무산됐던 동탄 도시철도(동탄트램) 건설사업 1단계 공사 사업자 선정을 위한...",
+    "link": "https://www.yna.co.kr/view/AKR20260304162800061",
+    "published": "2026-03-04T08:36:09"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "[특징주] 삼성전자, 12% 내려 '17만전자'…글로벌 시총 순위 15위로(종합)",
+    "summary": "(서울=연합뉴스) 황철환 기자 = 이란 사태로 인한 글로벌 증시 충격이 가시지 않는 가운데 삼성전자[005930]와 SK하이닉스[000660]가...",
+    "link": "https://www.yna.co.kr/view/AKR20260304044952008",
+    "published": "2026-03-04T08:33:30"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "오텍 \"종속회사 씨알케이 주식 155억원에 추가취득\"",
+    "summary": "(서울=연합뉴스) 코스닥 상장사 오텍[067170]은 냉동냉장설비 종속회사 씨알케이의 주식 310만3천200주를 약 155억원에 추가 취득한다고...",
+    "link": "https://www.yna.co.kr/view/AKR20260304161500008",
+    "published": "2026-03-04T08:27:08"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "중동발 쇼크에 '안전자산' 채권도 속수무책…금리 연일 오름세",
+    "summary": "(서울=연합뉴스) 김지연 기자 = 미국의 대이란 공격으로 터진 중동 사태가 금융시장에 미친 충격은 전통적 안전자산으로 취급되는 채권도 피해 가지...",
+    "link": "https://www.yna.co.kr/view/AKR20260304153500008",
+    "published": "2026-03-04T08:25:33"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "'중동사태 대응' 충북도, 경제기관·단체와 긴급회의 열어",
+    "summary": "(청주=연합뉴스) 전창해 기자 = 충북도는 미국·이스라엘과 이란의 군사적 충돌에 따른 지역의 실물경제 영향을 최소화하고자 4일 도내 경제기관·단...",
+    "link": "https://www.yna.co.kr/view/AKR20260304157300064",
+    "published": "2026-03-04T08:22:45"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "한국거래소, 고배당기업 기업가치제고 공시 설명회 개최",
+    "summary": "(서울=연합뉴스) 황철환 기자 = 한국거래소는 4일 고배당기업의 기업가치 제고 계획 공시 관련 공시책임자·담당자 온라인 설명회를 개최했다고 밝혔...",
+    "link": "https://www.yna.co.kr/view/AKR20260304159200008",
+    "published": "2026-03-04T08:22:36"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "중동발 쇼크에 주식은 물론 원화·채권·금까지 '쿼드러플 약세'(종합)",
+    "summary": "(서울=연합뉴스) 황철환 임지우 기자 = 미국과 이스라엘의 공격으로 시작된 이란과의 무력 충돌이 장기화할 수 있다는 우려가 커지면서 전 세계 금...",
+    "link": "https://www.yna.co.kr/view/AKR20260304153900008",
+    "published": "2026-03-04T08:21:24"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "가평군, 재난피해 주택 신축 때 설계·감리비 50% 감면",
+    "summary": "(가평=연합뉴스) 김도윤 기자 = 경기 가평군은 4일 군청 소회의실에 지역 건축사회와 &apos;재난 피해 주택 신축 지원을 위한 업무 협약&apos;을 체결했다...",
+    "link": "https://www.yna.co.kr/view/AKR20260304160100060",
+    "published": "2026-03-04T08:19:35"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "세계관·감성까지 공유…라운드어라운드·테토 팝업 가보니",
+    "summary": "(서울=연합뉴스) 김채린 기자 = &quot;인터넷으로 찾아보고 왔어요, 세련되고 멋져요.&quot;",
+    "link": "https://www.yna.co.kr/view/AKR20260304156500030",
+    "published": "2026-03-04T08:15:36"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "국고채 금리, 중동 전쟁에 이틀째 상승…3년물 연 3.223%(종합)",
+    "summary": "(서울=연합뉴스) 김태종 기자 = 미국과 이란 간 전쟁 파장으로 주요 국고채 금리가 이틀째 상승세(채권 약세)를 보였다.",
+    "link": "https://www.yna.co.kr/view/AKR20260304152051008",
+    "published": "2026-03-04T08:08:22"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "CSA 코스믹 \"블루원 주식 13억원어치 취득…지분율 36.7%\"",
+    "summary": "(서울=연합뉴스) 코스닥 상장사 CSA 코스믹[083660]은 서비스업체 블루원의 주식 26만주를 13억원에 취득한다고 4일 공시했다.",
+    "link": "https://www.yna.co.kr/view/AKR20260304155900008",
+    "published": "2026-03-04T08:05:00"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "코스피 하락률, 9.11 테러 때보다 높았다…불명예 기록도 속출",
+    "summary": "(서울=연합뉴스) 이민영 기자 = 국내 증시가 4일 미국과 이란 간 전쟁 발발 여파로 폭락하면서 각종 불명예 기록도 속출했다.",
+    "link": "https://www.yna.co.kr/view/AKR20260304152900008",
+    "published": "2026-03-04T08:03:35"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "롯데웰푸드, 신동빈 회장 사내이사 재선임…자사주 10만주 소각",
+    "summary": "(서울=연합뉴스) 한주홍 기자 = 롯데웰푸드[280360]는 오는 20일 정기 주주총회를 열고 신동빈 롯데 회장을 사내이사로 재선임할 예정이라고...",
+    "link": "https://www.yna.co.kr/view/AKR20260304155500030",
+    "published": "2026-03-04T08:01:41"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "환갑 맞은 국세청, 'K-AI 대전환' 60대 미래혁신안 발표",
+    "summary": "(세종=연합뉴스) 이대희 기자 = 국세청이 인공지능(AI) 대전환을 뼈대로 미래 청사진을 제시했다.",
+    "link": "https://www.yna.co.kr/view/AKR20260304149800002",
+    "published": "2026-03-04T08:00:00"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "삼성전자-협력업체 분쟁에 공정위 조사…삼성전자 \"위법 없었다\"(종합)",
+    "summary": "(세종=연합뉴스) 이세원 기자 = 삼성전자[005930]가 위탁 물량을 부당하게 줄이는 바람에 피해를 봤다고 하도급업체가 신고해 공정거래위원회가...",
+    "link": "https://www.yna.co.kr/view/AKR20260304083551002",
+    "published": "2026-03-04T07:58:47"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "코스피 이틀째 급락…공포지수 사상 처음 80선 넘어 개미들 패닉(종합)",
+    "summary": "(서울=연합뉴스) 김유향 기자 = &quot;투자처가 아니라 도박장에서 오르내리는 것 같다.&quot;",
+    "link": "https://www.yna.co.kr/view/AKR20260304094451008",
+    "published": "2026-03-04T07:48:31"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "[충남소식] 청양군, 5번째 청년 셰어하우스 준공",
+    "summary": "(충남=연합뉴스) ▲ 청년 셰어하우스 &apos;함께살아U&apos; 준공 = 충남 청양군은 청년 셰어하우스 &apos;함께살아U&apos;를 준공해 운영에 들어갔다고 4일 밝혔다...",
+    "link": "https://www.yna.co.kr/view/AKR20260304151600063",
+    "published": "2026-03-04T07:47:22"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "국고채 금리 혼조세…3년물 연 3.223%",
+    "summary": "(서울=연합뉴스) 4일 국고채 금리가 혼조세를 보였다.",
+    "link": "https://www.yna.co.kr/view/AKR20260304152000008",
+    "published": "2026-03-04T07:40:30"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "고환율·고유가에 실물경제 파급 촉각…주가 급락에 내수 우려도",
+    "summary": "(서울=연합뉴스) 한지훈 임지우 기자 = 국내 금융시장이 4일 이란 사태 장기화 관측에 종일 패닉 상황을 빠져나오지 못했다.",
+    "link": "https://www.yna.co.kr/view/AKR20260304145000002",
+    "published": "2026-03-04T07:38:42"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "중동 전쟁 파장에…원/달러 환율 10.1원 뛴 1,476.2원",
+    "summary": "(세종=연합뉴스) 이세원 기자 = 미국·이스라엘과 이란의 전쟁이 글로벌 경제에 먹구름을 드리운 가운데 원/달러 환율이 1,470원대 중반으로 상...",
+    "link": "https://www.yna.co.kr/view/AKR20260304145100002",
+    "published": "2026-03-04T07:34:44"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "농식품부, 조생종 양파 출하 앞두고 '중국산 양파 관리 강화'",
+    "summary": "(서울=연합뉴스) 한주홍 기자 = 농림축산식품부는 이달 하순 시작되는 국내 조생종 양파 출하를 앞두고 수입 양파에 대한 관리·감독을 강화하기 위...",
+    "link": "https://www.yna.co.kr/view/AKR20260304136700030",
+    "published": "2026-03-04T07:30:38"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "수출입은행, 필리핀 최대 전력사와 원전 협력 MOU",
+    "summary": "(서울=연합뉴스) 한지훈 기자 = 한국수출입은행은 4일 한국수력원자력, 필리핀 최대 민간 전력 기업 메랄코와 &apos;필리핀 원전 사업 개발 협력을 위...",
+    "link": "https://www.yna.co.kr/view/AKR20260304148100002",
+    "published": "2026-03-04T07:29:23"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "증시 패닉에 '반사수혜' 방산·해운·정유株도 결국 꺾여(종합)",
+    "summary": "(서울=연합뉴스) 고은지 기자 = 미국·이스라엘과 이란 간 전쟁의 반사 수혜를 볼 것으로 평가됐던 방산주와 해운주가 연이틀 이어진 폭락장에 결국...",
+    "link": "https://www.yna.co.kr/view/AKR20260304113551008",
+    "published": "2026-03-04T07:28:31"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "중동사태로 '시차 없이' 기름값 급등…서울 휘발유 1천800원 돌파",
+    "summary": "(서울=연합뉴스) 강태우 기자 = 미국과 이스라엘의 이란 공습 여파로 국내 주유소 휘발유와 경유 가격이 가파르게 상승하고 있다.",
+    "link": "https://www.yna.co.kr/view/AKR20260304147000003",
+    "published": "2026-03-04T07:25:18"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "'공포의 수요일' 코스피 12% 급락 5,000선 위태…역대최대 하락률(종합)",
+    "summary": "(서울=연합뉴스) 이민영 기자 = 코스피가 4일 미국과 이란 간 전쟁 발발 이후 지정학적 긴장감이 커지면서 12% 폭락해 5,100선마저 내줬다...",
+    "link": "https://www.yna.co.kr/view/AKR20260304145400008",
+    "published": "2026-03-04T07:21:30"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "[게시판] iM뱅크, 대구 두류공원서 1천명분 무료급식 봉사",
+    "summary": "▲ iM뱅크는 4일 대구 두류공원에서 대한적십자사 대구지사와 함께 주민들을 위한 &apos;행복한 밥상&apos; 무료 급식 봉사활동을 했다고 밝혔다. 이날 iM...",
+    "link": "https://www.yna.co.kr/view/AKR20260304145800053",
+    "published": "2026-03-04T07:18:29"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "3월부터 울릉사랑상품권 할인율 10→12%…\"인구감소지역 혜택\"",
+    "summary": "(울릉=연합뉴스) 손대성 기자 = 경북 울릉군은 3월부터 울릉사랑상품권 구매 할인율을 10%에서 12%로 상향했다고 4일 밝혔다.",
+    "link": "https://www.yna.co.kr/view/AKR20260304145200053",
+    "published": "2026-03-04T07:13:36"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스_경제",
+    "title": "올해 상승률 세계 1위 코스피, 중동 사태 충격파도 가장 컸다(종합)",
+    "summary": "(서울=연합뉴스) 고은지 기자 = 작년에 이어 올해도 압도적인 상승률을 기록해온 한국 증시가 중동 사태 여파에 세계 어느 나라보다 민감하게 반응...",
+    "link": "https://www.yna.co.kr/view/AKR20260304070751008",
+    "published": "2026-03-04T07:11:38"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "한화투자증권",
+    "title": "[인텔리안테크] 뚜렷한 턴어라운드 국면 진입",
+    "summary": "종목: 인텔리안테크, 증권사: 한화투자증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90812&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "DS투자증권",
+    "title": "[와이지엔터테인먼트] 메가IP-차세대IP-신인IP로 30주년 완벽한 라..",
+    "summary": "종목: 와이지엔터테인먼트, 증권사: DS투자증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90811&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "교보증권",
+    "title": "[올릭스] 치솟는 몸값",
+    "summary": "종목: 올릭스, 증권사: 교보증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90810&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "교보증권",
+    "title": "[SK바이오팜] 숫자와 R&D 함께 성장 중",
+    "summary": "종목: SK바이오팜, 증권사: 교보증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90809&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "교보증권",
+    "title": "[유한양행] 유럽 마일스톤의 이연",
+    "summary": "종목: 유한양행, 증권사: 교보증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90808&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[키움증권] 사야 한다",
+    "summary": "종목: 키움증권, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90807&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[RFHIC] 5G SA로의 진화 시 새로운 주가 역사 쓸 것",
+    "summary": "종목: RFHIC, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90806&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[쏠리드] 과거 쏠리드 주가는 단기 실적 아닌 스토리로..",
+    "summary": "종목: 쏠리드, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90805&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[이노와이어리스] 5G SA 시대에도 큰 수혜 예상됩니다",
+    "summary": "종목: 이노와이어리스, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90804&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[오이솔루션] 2019년 이상의 주가 상승을 경험할 겁니다",
+    "summary": "종목: 오이솔루션, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90803&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[유비쿼스] 피지컬 AI 시대 국가 대동맥",
+    "summary": "종목: 유비쿼스, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90802&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[우리넷] 피지컬 AI 덕분에 실적과 주가 모두 향상될 ..",
+    "summary": "종목: 우리넷, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90801&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[RF머트리얼즈] 텐베거 너머를 향하여",
+    "summary": "종목: RF머트리얼즈, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90800&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[케이엠더블유] 업황 개선 기대감 증폭, 실적 선반영 효과 커..",
+    "summary": "종목: 케이엠더블유, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90799&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "하나증권",
+    "title": "[아이씨티케이] 5G SA 시대에는 ICTK의 진면목이 드러날 것",
+    "summary": "종목: 아이씨티케이, 증권사: 하나증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90798&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유안타증권",
+    "title": "[대한전선] 구조적 전환을 반영하는 주가",
+    "summary": "종목: 대한전선, 증권사: 유안타증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90797&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유안타증권",
+    "title": "[일진전기] 증설 효과 본격화, 이익 체질 상향 구간",
+    "summary": "종목: 일진전기, 증권사: 유안타증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90796&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유안타증권",
+    "title": "[산일전기] 수급 해소 이후 본격 레벨업",
+    "summary": "종목: 산일전기, 증권사: 유안타증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90795&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유안타증권",
+    "title": "[HD현대일렉트릭] 고마진이 정당화하는 멀티플",
+    "summary": "종목: HD현대일렉트릭, 증권사: 유안타증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90794&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유안타증권",
+    "title": "[LS ELECTRIC] 밸류에이션 상단을 허물다",
+    "summary": "종목: LS ELECTRIC, 증권사: 유안타증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90793&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유안타증권",
+    "title": "[효성중공업] 고점을 논하기엔 이른 이유",
+    "summary": "종목: 효성중공업, 증권사: 유안타증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90792&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유안타증권",
+    "title": "[대한조선] 선대 구축과 재편의 수혜가 오버행을 압도",
+    "summary": "종목: 대한조선, 증권사: 유안타증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90791&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유안타증권",
+    "title": "[롯데케미칼] 대산공장 구조조정으로, 2,000억원 절감 기대..",
+    "summary": "종목: 롯데케미칼, 증권사: 유안타증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90790&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "IBK투자증권",
+    "title": "[와이지엔터테인먼트] 빅뱅 20주년 기념 월드투어 발표!",
+    "summary": "종목: 와이지엔터테인먼트, 증권사: IBK투자증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90789&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "대신증권",
+    "title": "[티엘비] 2026년 차별된 성장!",
+    "summary": "종목: 티엘비, 증권사: 대신증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90788&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "대신증권",
+    "title": "[심텍] 2Q에 회복을 예상",
+    "summary": "종목: 심텍, 증권사: 대신증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90787&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "대신증권",
+    "title": "[KH바텍] 2026년 긴호흡의 전략!",
+    "summary": "종목: KH바텍, 증권사: 대신증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90786&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유진투자증권",
+    "title": "[골프존] 해외 매출비중 분기 30%대, 연간 20%대 첫 돌..",
+    "summary": "종목: 골프존, 증권사: 유진투자증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90785&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "신한투자증권",
+    "title": "[이수페타시스] 증설로 보는 성장 스토리",
+    "summary": "종목: 이수페타시스, 증권사: 신한투자증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90784&page=1",
+    "published": "26.03.04"
+  },
+  {
+    "source_type": "애널리스트",
+    "source_name": "유진투자증권",
+    "title": "[가온그룹] 통신과 로봇 가온나!",
+    "summary": "종목: 가온그룹, 증권사: 유진투자증권",
+    "link": "https://finance.naver.com/research/company_read.naver?nid=90783&page=1",
+    "published": "26.03.04"
+  }
+]
