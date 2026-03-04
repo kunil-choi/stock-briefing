@@ -242,10 +242,26 @@
   {
     "source_type": "뉴스",
     "source_name": "매일경제_증권",
-    "title": "[표] 외국환율고시표",
-    "summary": "",
-    "link": "https://www.mk.co.kr/news/economy/11978720",
-    "published": "2026-03-04T08:51:22"
+    "title": "\"20cm 과속 방지턱도 문제없죠\" 바퀴 달린 물류로봇 사전 판매",
+    "summary": "현대자동차그룹이 차세대 자율주행 모빌리티 로봇 '모베드'의 국내 판매에 나섰다. '아틀라스' 등 휴머노이드 로봇 양산 이전에 물류·배송·광고에 활용할 수 있는 맞춤형 로봇 시장부터..",
+    "link": "https://www.mk.co.kr/news/economy/11978738",
+    "published": "2026-03-04T08:55:55"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "强달러에 원화값 급락 … 17년 만에 '1500원대' 위기",
+    "summary": "중동발 지정학적 리스크가 확대되자 달러당 원화값이 장중 '심리적 저지선'인 1480원대까지 밀렸다. 안전자산 선호 심리가 글로벌 금융시장을 뒤덮은 영향으로 풀이된다. 한국은 두바이..",
+    "link": "https://www.mk.co.kr/news/economy/11978732",
+    "published": "2026-03-04T08:53:15"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "매일경제_증권",
+    "title": "[단독] 1주택자 전세대출 보증 조인다",
+    "summary": "정부가 다주택자에 이어 '비거주 1주택자'에 대한 규제 강화에 나선다. 1주택자가 자기 집에 거주하지 않고 수도권과 규제지역에서 전세를 살기 위해 대출을 받을 때 공적 보증을 제한..",
+    "link": "https://www.mk.co.kr/news/economy/11978727",
+    "published": "2026-03-04T08:52:19"
   },
   {
     "source_type": "뉴스",
@@ -258,17 +274,17 @@
   {
     "source_type": "뉴스",
     "source_name": "매일경제_증권",
-    "title": "[표] 당좌거래정지",
-    "summary": "",
-    "link": "https://www.mk.co.kr/news/economy/11978718",
+    "title": "주주가치 제고 앞장서는 삼성화재",
+    "summary": "삼성화재가 이사회의 직무 수행 평가지표에 상법 개정에 따른 '이사의 충실 의무'를 명문화했다. 지배구조 개선과 주주가치 제고를 위한 이사의 역할·책임 강화를 위한 선제적 조치로 풀..",
+    "link": "https://www.mk.co.kr/news/economy/11978717",
     "published": "2026-03-04T08:51:21"
   },
   {
     "source_type": "뉴스",
     "source_name": "매일경제_증권",
-    "title": "주주가치 제고 앞장서는 삼성화재",
-    "summary": "삼성화재가 이사회의 직무 수행 평가지표에 상법 개정에 따른 '이사의 충실 의무'를 명문화했다. 지배구조 개선과 주주가치 제고를 위한 이사의 역할·책임 강화를 위한 선제적 조치로 풀..",
-    "link": "https://www.mk.co.kr/news/economy/11978717",
+    "title": "[표] 당좌거래정지",
+    "summary": "",
+    "link": "https://www.mk.co.kr/news/economy/11978718",
     "published": "2026-03-04T08:51:21"
   },
   {
@@ -465,19 +481,11 @@
   },
   {
     "source_type": "뉴스",
-    "source_name": "매일경제_증권",
-    "title": "미국, AI로 표적동선 손안에…손 쓸 틈도 없이 제거한다",
-    "summary": "美사이버공격에 이란 통신망·대응망 무력화 하메네이 폭사 뒤엔 AI 동선분석 기술 AI파괴론 엔스로픽 클로드로 압도적 첨단전력 베네수엘라 이어 이란공격 때도 활용  이란은 3천만원 ..",
-    "link": "https://www.mk.co.kr/news/economy/11977685",
-    "published": "2026-03-03T11:27:47"
-  },
-  {
-    "source_type": "뉴스",
-    "source_name": "매일경제_증권",
-    "title": "널뛰는 원화값, 남미보다 더 흔들렸다…일평균 변동성 세계 6위",
-    "summary": "올들어 日평균 7.4원 널뛰기 세계서 6번째로 변동성 높아  태국·브라질보다 취약해  중동리스크에 1500원대 전망도 “韓경제 체력 강화해야”올 들어 대한민국 원화가 고물가와 경제..",
-    "link": "https://www.mk.co.kr/news/economy/11977636",
-    "published": "2026-03-03T10:26:32"
+    "source_name": "연합뉴스_경제",
+    "title": "대한건설협회 경남도회 건설회관 공사 '부정 입찰 의혹' 고발장",
+    "summary": "(창원=연합뉴스) 정종호 기자 = 대한건설협회 경남도회(이하 도회) 건설회관 이전 공사와 관련해 회원사들이 회장의 부정 입찰 의혹을 제기하면서 ...",
+    "link": "https://www.yna.co.kr/view/AKR20260304163100052",
+    "published": "2026-03-04T08:46:38"
   },
   {
     "source_type": "뉴스",
@@ -712,12 +720,274 @@
     "published": "2026-03-04T07:13:36"
   },
   {
-    "source_type": "뉴스",
-    "source_name": "연합뉴스_경제",
-    "title": "올해 상승률 세계 1위 코스피, 중동 사태 충격파도 가장 컸다(종합)",
-    "summary": "(서울=연합뉴스) 고은지 기자 = 작년에 이어 올해도 압도적인 상승률을 기록해온 한국 증시가 중동 사태 여파에 세계 어느 나라보다 민감하게 반응...",
-    "link": "https://www.yna.co.kr/view/AKR20260304070751008",
-    "published": "2026-03-04T07:11:38"
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "코스피 급락장, 공포대로 행동하면 안됩니다.｜김수현 DS투자증권 리서치센터장",
+    "summary": "[성공투자 오후증시] ○이혜수 앵커 출연자 : 김수현 DS투자증권 리서치센터장 -------------------------------- 제작: 이영경 PD, 이현주 작가, ...",
+    "link": "https://www.youtube.com/watch?v=SdGqtext0io",
+    "published": "2026-03-04T09:00:39Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "연일 매도 사이드카 발동...코스피 폭락 대응전략 TOP6ㅣ 종목쇼 ㅣ260304",
+    "summary": "삼성전자 #한화시스템 #심텍 #대한항공 연일 매도 사이드카 발동...코스피 폭락 대응전략 TOP6ㅣ 종목쇼 ㅣ260304 [종목쇼] 월/화/수/ ...",
+    "link": "https://www.youtube.com/watch?v=tEjldO_K6mE",
+    "published": "2026-03-04T08:51:05Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "6,000 다시 회복할까요... 마지막 기회 &#39;이때&#39; 확인하세요 ㅣ조재완 체슬리투자자문 팀장 ㅣ김치형 앵커",
+    "summary": "코스피 폭락, V자 반등 가능성은? 이틀 연속 급락. 코스피 5400선 붕괴, 코스닥 서킷브레이커 발동. 삼성전자 -12% 급락. 지금 시장은 ...",
+    "link": "https://www.youtube.com/watch?v=TbuyLBcVWnk",
+    "published": "2026-03-04T08:00:23Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "코스피 ‘패닉셀링’ 극대화...한국 증시 지금이 바닥일까｜목대균 KCGI자산운용 대표｜#삼성전자 #SK하이닉스",
+    "summary": "전쟁 쇼크에 코스피·코스닥 패닉셀…지금은 '비중 조정' 구간 미국-이란 전쟁 장기화 우려가 커지며 국내 증시는 이틀 연속 극단적 ...",
+    "link": "https://www.youtube.com/watch?v=5hTpCneHBiA",
+    "published": "2026-03-04T07:52:00Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "스페이스X·이란 사태·정책...우주산업 개화 당긴다ㅣ정의훈 유진투자증권 연구원ㅣ#우주항공 #스페이스X",
+    "summary": "20260304 K스탁 라이브 ▷ 월~금 13:00 출연자 온인주 앵커 정의훈 유진투자증권 연구원 중동 리스크에 우주항공주 급등…",
+    "link": "https://www.youtube.com/watch?v=hgKgtsBAc50",
+    "published": "2026-03-04T07:45:02Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "[킥 예고] 전세계 난리난 K-스텔스 램(RAM) 기술! OOO만 남았다! | 임철균 한국전략연구소 연구위원",
+    "summary": "매주 목요일 저녁 5시 30분! 드디어 완전체 출격? K-스텔스 0.1mm 초격차 기술 진실은 숫자에 있고, 재미는 해석에 있다! 보이는 팩트 ...",
+    "link": "https://www.youtube.com/watch?v=GPu4PrWYXCo",
+    "published": "2026-03-04T07:38:06Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "패닉과 광기의 변동성... 천당 지옥 오가는 K방산 대해부ㅣ 박정언 캐스터",
+    "summary": "코스피가 하루 만에 -452포인트 폭락하며 대한민국 증시 역사상 최대 하락폭을 기록했습니다. 미국·이스라엘의 이란 공습이라는 ...",
+    "link": "https://www.youtube.com/watch?v=zrGl6D-jPJE",
+    "published": "2026-03-04T07:27:06Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "패닉 장세 &#39;환율·유가·금리&#39; 공포, 반대 매매까지..지지선은 어디",
+    "summary": "20260304 K스탁 라이브 ▷ 월~금 13:00 출연자 온인주 앵커 윤여삼 메리츠증권 투자전략팀장 (전화연결) 최성환 교보증권 여의도 ...",
+    "link": "https://www.youtube.com/watch?v=eVDRsSwRH0o",
+    "published": "2026-03-04T07:21:30Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "미-이란이 전쟁하는데...전세계가 피해입는 이유｜최진호 우리은행 WM솔루션부 이코노미스트",
+    "summary": "전쟁 쇼크에 코스피·코스닥 동반 급락…매크로 변수 점검 중동 전쟁 리스크가 금융시장을 강하게 흔들고 있습니다. 코스피는 장중 11% ...",
+    "link": "https://www.youtube.com/watch?v=N3RQqnpnJno",
+    "published": "2026-03-04T07:13:43Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "돌이켜보면 이때가 기회였다, 3월은 &#39;이렇게&#39; 대응하세요ㅣ이경수 하나증권 수석연구위원",
+    "summary": "코스피 서킷브레이커·전쟁 충격…반대매매 공포 속 시장 생존 전략 오늘 증시 핵심 요약 코스피 장중 10%대 급락…2000년 이후 ...",
+    "link": "https://www.youtube.com/watch?v=l0pf0eIr-L4",
+    "published": "2026-03-04T06:40:37Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "韓증시 패닉, 위기인가? 기회인가? | 홀짝박사 &#39;신과 함께&#39; 260304",
+    "summary": "주식투자 #종목상담 #증권방송 #한국경제TV 韓증시 패닉, 위기인가? 기회인가? | 홀짝박사 '신과 함께' 260304 ...",
+    "link": "https://www.youtube.com/watch?v=HO4sD5OrWkc",
+    "published": "2026-03-04T06:20:41Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "9·11 넘긴 &#39;역대급&#39; 하락...코스피 종가 &#39;5,230&#39;이 관건｜한민엽 유진투자증권 여의도WM센터 부센터장",
+    "summary": "진행 / 김호정 앵커 ○ 출연 / 한민엽 유진투자증권 여의도WM센터 부센터장 #한민엽 #코스피전망 #포트폴리오전략 #반도체전망 ...",
+    "link": "https://www.youtube.com/watch?v=RCWlOXUNeoQ",
+    "published": "2026-03-04T05:57:04Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "[🔴긴급 진단] 힘내라 대한민국, 급락 뒤에는 급등 온다 | 종목쇼 &#39;이경락의 히트존&#39; 260304",
+    "summary": "삼성전자 #하이닉스 #반도체 #AI #현대차 #피지컬ai #한미반도체 힘내라 대한민국, 급락 뒤에는 급등 온다 | 종목쇼 '이경락의 히트존' ...",
+    "link": "https://www.youtube.com/watch?v=DvTDq-GttH0",
+    "published": "2026-03-04T05:32:00Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "[🔴긴급진단 ] 기관수급 본질은 견고- 점찍은 반도체 미래는 유리기판 | 굿모닝작전_260304",
+    "summary": "코스피 #코스닥 #전쟁 #방산 #유가 #반도체 #에너지 #방산 #에너지 #삼성전자 #에코프로 [  긴급진단 ] 기관수급 본질은 견고- 점 ...",
+    "link": "https://www.youtube.com/watch?v=u4dfpxpaI1Y",
+    "published": "2026-03-04T03:53:57Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "야수의 심장으로 매수할 때ㅣ최성민의 빅샷_260304",
+    "summary": "현대차 #코스피 #피지컬ai #휴머노이드로봇 #sk하이닉스 #삼성전자 야수의 심장으로 매수할 때ㅣ최성민의 빅샷_260304 ...",
+    "link": "https://www.youtube.com/watch?v=M3AI0O97-HM",
+    "published": "2026-03-04T03:02:34Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[이슈체크] LNG·유가 &#39;폭등&#39;…호르무즈 봉쇄에 &#39;원유 생명선&#39; 끊겼다",
+    "summary": "[이슈체크] 호르무즈 봉쇄에 '원유 생명선' 끊겼다…LNG·유가 '폭등' [패널] 김희집 - 서울대 국제대학원 교수 - 에너아이디어 컨설팅 ...",
+    "link": "https://www.youtube.com/watch?v=UM9p_-ADcWo",
+    "published": "2026-03-04T08:46:19Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[투자의 날 (刃)] 코스피·코스닥 급락세…서킷브레이커 발동",
+    "summary": "머니쇼+ '투자의 날 (刃)' - 강성호 ◇ 머니쇼 플러스 (월~금) 15:30~16:45 홈페이지 바로가기: ...",
+    "link": "https://www.youtube.com/watch?v=lI2oZmh35Ac",
+    "published": "2026-03-04T08:33:34Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "&#39;공포의 수요일&#39; 12% 폭락…5천피도 &#39;위태&#39; [SBS Biz News 18]",
+    "summary": "NEWS 18 (월~금) 17:55~18:25 홈페이지 바로가기: https://programs.sbs.co.kr/sbsbiz/news18.",
+    "link": "https://www.youtube.com/watch?v=izDTRqbirWs",
+    "published": "2026-03-04T08:30:06Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "2026년 3월 4일 (수) 머니쇼+ 다시보기",
+    "summary": "머니쇼 플러스 (월~금) 15:30~16:45 홈페이지 바로가기: https://programs.sbs.co.kr/sbsbiz/moneyplus/articles/86000 국내증시 투자 ...",
+    "link": "https://www.youtube.com/watch?v=wr0mCW-rhFE",
+    "published": "2026-03-04T08:26:42Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[집중진단] &quot;증시 최악의 날&quot;…코스피 12% 폭락해 5천선 턱걸이 마감",
+    "summary": "[집중진단] \"증시 최악의 날\"…코스피 12% 하락해 5천선 턱걸이 마감 [패널] - 윤원태 SK증권 리서치센터 자산전략부서장 - 박형중 우리 ...",
+    "link": "https://www.youtube.com/watch?v=gcnlQfOLz6w",
+    "published": "2026-03-04T08:26:12Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[증시 인사이트] 美-이란 전쟁 장기화 우려…금융시장 긴장감 최고조",
+    "summary": "머니쇼+ '증시 인사이트' - 정의훈 유진투자증권 선임연구원, 이지은 이지스탁 대표 #SBSBiz #SBS #Biz #머니쇼플러스 #머니쇼 ...",
+    "link": "https://www.youtube.com/watch?v=ZL77rdmKm5k",
+    "published": "2026-03-04T08:26:04Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[투자 노하우] 뉴욕증시, 급락 출발 이후 트럼프 발언에 낙폭 축소",
+    "summary": "머니쇼+ '투자 노하우' - 조연주 NH투자증권 연구위원 #SBSBiz #SBS #Biz #머니쇼플러스 #머니쇼 #주식 #투자 #재테크 #경제 #증시 ...",
+    "link": "https://www.youtube.com/watch?v=GVY-n0a41SE",
+    "published": "2026-03-04T08:26:26Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[머플] 어제 오르고 오늘 내리고 추후 &#39;방산주&#39; 움직임은? #정의훈 #Shorts",
+    "summary": "[머니쇼플러스] #SBSBiz #SBS #Biz #머니쇼플러스 #머니쇼 #주식 #투자 #재테크 #경제 #증시 #강성호 #최슬기 #정의훈 #이지은 ...",
+    "link": "https://www.youtube.com/watch?v=Td5JeJnqVLY",
+    "published": "2026-03-04T08:22:47Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[머플] 트럼프가 전쟁 멈추면 반등 바로 옵니까?  #조연주 #Shorts",
+    "summary": "[머니쇼플러스] #SBSBiz #SBS #Biz #머니쇼플러스 #머니쇼 #주식 #투자 #재테크 #경제 #증시 #투자 #강성호 #최슬기 #조연주 ...",
+    "link": "https://www.youtube.com/watch?v=wfS_-MfmDDc",
+    "published": "2026-03-04T08:22:39Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[머플] 계속되는 급락장 탈출 기회? &quot;지금 매도하기엔 아쉽다&quot; #이지은 #Shorts",
+    "summary": "[머니쇼플러스] #SBSBiz #SBS #Biz #머니쇼플러스 #머니쇼 #주식 #투자 #재테크 #경제 #증시 #강성호 #최슬기 #정의훈 #이지은 ...",
+    "link": "https://www.youtube.com/watch?v=xzkSKHUdSOM",
+    "published": "2026-03-04T08:22:49Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "2026년 3월 4일 (수) 경제현장 오늘·NEWS 15·머니쇼+ 다시보기",
+    "summary": "경제현장 오늘 (월~금) 14:00~15:00 홈페이지 바로가기: https://programs.sbs.co.kr/sbsbiz/today ◇ NEWS 15 (월~금) 15:00~15:30 ...",
+    "link": "https://www.youtube.com/watch?v=dfy8c7EviLs",
+    "published": "2026-03-04T07:55:35Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[애프터마켓 브리핑] 중동 사태에 VKOSPI 연일 최고치 경신",
+    "summary": "머니쇼+ '애프터마켓 브리핑' - 김유민 ◇ 머니쇼 플러스 (월~금) 15:30~16:45 홈페이지 바로가기: ...",
+    "link": "https://www.youtube.com/watch?v=tLv8jFN6M9g",
+    "published": "2026-03-04T07:44:20Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[뉴욕증시 전략] 엔비디아. 中 수출 제한·아마존. 데이터센터 피격",
+    "summary": "머니쇼+ '뉴욕증시 전략' - 안자은 ◇ 머니쇼 플러스 (월~금) 15:30~16:45 홈페이지 바로가기: ...",
+    "link": "https://www.youtube.com/watch?v=nvuMaHciC1M",
+    "published": "2026-03-04T07:43:40Z",
+    "is_stock_related": true
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[NEWS 15 다시보기] &#39;서킷브레이커&#39; 5천피 아슬아슬…환율 1480원 재돌파",
+    "summary": "NEWS 15 (월~금) 15:00~15:30 홈페이지 바로가기: https://programs.sbs.co.kr/sbsbiz/economy15.",
+    "link": "https://www.youtube.com/watch?v=ntUullzn3s8",
+    "published": "2026-03-04T06:41:06Z",
+    "is_stock_related": false
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "SBS_Biz",
+    "title": "[직설] 불안한 개미들에게 &quot;조정은 조정입니다&quot; #김장열",
+    "summary": "[직설] 불안한 개미들에게 \"조정은 조정입니다\" #김장열 #트럼프#이란#이란공습#이란폭격#중동전쟁#하메네이#하메네이사망#전쟁# ...",
+    "link": "https://www.youtube.com/watch?v=d87Xp8qV2Tk",
+    "published": "2026-03-04T06:06:23Z",
+    "is_stock_related": false
   },
   {
     "source_type": "애널리스트",
