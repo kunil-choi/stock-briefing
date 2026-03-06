@@ -22,28 +22,30 @@ NEWS_RSS_FEEDS = {
 
 # === 2~3. 유튜브 채널은 channels.json에서 로드 ===
 def load_channels():
-    """channels.json에서 방송/유튜버 채널 목록을 로드합니다."""
     default = {
         "broadcast": {
             "한국경제TV": {"id": "UCF8AeLlUbEpKju6v1H6p8Eg", "url": "https://www.youtube.com/@hkwowtv"},
             "SBS Biz": {"id": "UCbMjg2EvXs_RUGW-KrdM3pw", "url": "https://www.youtube.com/@SBSBiz2021"},
             "서울경제TV": {"id": "UCZKBS37Y0TmrFBfYBuBibtQ", "url": "https://www.youtube.com/@sentv"},
+            "머니투데이 방송(MTN)": {"id": "UClErHbdZKUnD1NyIUeQWvuQ", "url": "https://www.youtube.com/@mtn"},
+            "매일경제TV": {"id": "UCnMtEMnsGFjQgLJEEkMSHhQ", "url": "https://www.youtube.com/@MKeconomy_TV"},
+            "KBS 1라디오(성공예감 이대호)": {"id": "UCMLJc_D3jgFcS_48G7i4V0A", "url": "https://www.youtube.com/@KBS_1Radio"}
         },
         "youtuber": {
             "슈카월드": {"id": "UCsJ6RuBiTVWOlN3n3-BbELg", "url": "https://www.youtube.com/@syukaworld"},
             "삼프로TV": {"id": "UCTg-AH4JkXJMUWJsFQpABJw", "url": "https://www.youtube.com/@3PROTV"},
             "신사임당": {"id": "UCep5LSsJGJfuYjU8F4bXjzA", "url": "https://www.youtube.com/@SSID"},
+            "체슬리TV": {"id": "UCXST0Hq6CAmG0dmo3jgrlEw", "url": "https://www.youtube.com/@chesleytv"},
+            "채부심": {"id": "UCD9vzSxZ69pjcnf8hgCQXVQ", "url": "https://www.youtube.com/@chaeboosim"},
+            "김작가 TV": {"id": "UCvil4OAt-zShzkKHsg9EQAw", "url": "https://www.youtube.com/@lucky_tv"},
+            "KBS 경제한방": {"id": "UCn_38aaCktkBLPv3EtfmiUA", "url": "https://www.youtube.com/@e-hanbang"},
+            "하와이 대저택": {"id": "UCO-e0J-Qsilkv_4tBa3LyYw", "url": "https://www.youtube.com/@hawaiidjt"}
         }
     }
-
     try:
         with open(CHANNELS_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            print(f"  [채널 로드] channels.json에서 로드 완료")
-            print(f"    경제방송: {len(data.get('broadcast', {}))}개, 유튜버: {len(data.get('youtuber', {}))}개")
-            return data
+            return json.load(f)
     except FileNotFoundError:
-        print(f"  [채널 로드] channels.json 없음, 기본값 사용")
         with open(CHANNELS_FILE, "w", encoding="utf-8") as f:
             json.dump(default, f, ensure_ascii=False, indent=2)
         return default
@@ -57,3 +59,4 @@ ANALYST_SOURCES = {
 # === 수집 시간 범위 ===
 BROADCAST_HOURS = 24
 YOUTUBER_HOURS = 48
+
