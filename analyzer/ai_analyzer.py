@@ -3,6 +3,8 @@ import anthropic
 import json
 from datetime import datetime, timezone, timedelta
 
+from config import PANEL_PASSWORD
+
 KST = timezone(timedelta(hours=9))
 
 
