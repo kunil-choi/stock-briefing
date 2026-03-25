@@ -430,8 +430,21 @@ def generate_html(data, channels_data=None, gh_repo=""):
     <script>
         const REPO = "{gh_repo}";
         const FILE_PATH = "channels.json";
+        const PANEL_PASS = "{PANEL_PASSWORD}";
+        let panelUnlocked = false;
 
-        function openPanel() {{ document.getElementById('chPanel').classList.add('active'); }}
+        function openPanel() {{
+            if (!panelUnlocked) {{
+                const input = prompt('🔒 채널 관리 비밀번호를 입력하세요:');
+                if (input === null) return;
+                if (input !== PANEL_PASS) {{
+                    alert('❌ 비밀번호가 틀렸습니다.');
+                    return;
+                }}
+                panelUnlocked = true;
+            }}
+            document.getElementById('chPanel').classList.add('active');
+        }}
         function closePanel() {{ document.getElementById('chPanel').classList.remove('active'); }}
         document.getElementById('chPanel').addEventListener('click', function(e) {{
             if (e.target === this) closePanel();
@@ -450,19 +463,14 @@ def generate_html(data, channels_data=None, gh_repo=""):
 
         // URL에서 채널 ID 자동 추출
         async function extractChannelId(url) {{
-            // @handle 형식에서 채널 ID 추출 시도
-            // YouTube 페이지를 직접 조회할 수 없으므로 URL 자체를 ID 대용으로 사용
-            // 실제로는 YouTube API로 채널 검색하여 ID를 가져옴
-            const apiKey = ''; // 클라이언트에서는 API 키 없이 처리
-            
             // UC로 시작하는 ID가 URL에 있으면 추출
             const channelMatch = url.match(/channel\\/(UC[\\w-]+)/);
             if (channelMatch) return channelMatch[1];
-            
+
             // @handle 형식이면 handle 그대로 저장 (서버에서 변환)
             const handleMatch = url.match(/@([\\w-]+)/);
             if (handleMatch) return "@" + handleMatch[1];
-            
+
             // /c/ 형식
             const cMatch = url.match(/\\/c\\/([\\w-]+)/);
             if (cMatch) return "c/" + cMatch[1];
@@ -531,10 +539,10 @@ def generate_html(data, channels_data=None, gh_repo=""):
                     statusMsg.textContent = `✅ "${{name}}" 채널이 추가되었습니다! 다음 아침 브리핑부터 반영됩니다.`;
 
                     // 화면에 즉시 반영
-                    const targetDiv = type === 'broadcast' 
+                    const targetDiv = type === 'broadcast'
                         ? document.getElementById('dynamicBroadcast')
                         : document.getElementById('dynamicYoutuber');
-                    
+
                     const newItem = document.createElement('div');
                     newItem.className = 'ch-item new';
                     newItem.innerHTML = `<a href="${{url}}" target="_blank">${{name}}</a><span class="ch-id" style="color:var(--accent-green);">✅ 새로 추가됨</span>`;
