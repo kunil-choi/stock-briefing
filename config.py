@@ -60,3 +60,7 @@ ANALYST_SOURCES = {
 BROADCAST_HOURS = 24
 YOUTUBER_HOURS = 48
 
+# 채널 관리 패널 비밀번호 (원하는 값으로 변경 가능)
+PANEL_PASSWORD = "kbs2026!"
+
+
