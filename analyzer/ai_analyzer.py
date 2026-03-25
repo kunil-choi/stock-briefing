@@ -20,17 +20,20 @@ def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo="")
 
     summary_text = ""
     for source_type, items in by_type.items():
-        summary_text += f"\n\n=== [{source_type}] ===\n"
+        summary_text += f"\n\n=== [{source_type}] ({len(items)}건) ===\n"
         for item in items:
             summary_text += f"- 출처: {item['source_name']} | 제목: {item['title']} | 링크: {item.get('link','')}\n"
             if item.get('summary'):
                 summary_text += f"  내용: {item['summary'][:500]}\n"
+            if item.get('panelists'):
+                summary_text += f"  출연패널: {', '.join(item['panelists'])}\n"
 
     today = datetime.now(KST).strftime("%Y년 %m월 %d일")
 
     prompt = f"""당신은 한국 주식시장 전문 AI 브리핑 애널리스트입니다.
 
 아래는 오늘({today}) 수집된 4개 채널(뉴스, 경제방송, 증시유튜버, 애널리스트보고서)의 데이터입니다.
+유튜버 데이터는 구독자 상위 50개 오리지널 경제/주식 채널과 인기 패널 출연 영상에서 수집되었습니다.
 
 {summary_text}
 
@@ -88,6 +91,21 @@ def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo="")
       "signal": "매수추천/중립/매도추천 중 하나"
     }}
   ],
+  "hidden_picks": [
+    {{
+      "rank": 1,
+      "name": "종목명",
+      "description": "이 종목이 어떤 회사인지, 주요 사업영역 1~2문장",
+      "source_name": "언급한 채널/출처 이름",
+      "source_link": "해당 영상 또는 기사 URL",
+      "panelist": "출연 패널 이름 (있을 경우)",
+      "recommendation_reason": "해당 채널이 이 종목을 추천한 상세 사유 3~5문장. 왜 주목했는지, 어떤 모멘텀이 있는지, 타이밍은 어떤지 등을 상세히 서술",
+      "future_potential": "향후 성장 가능성과 시장 전망 분석 2~3문장",
+      "catalyst": "핵심 상승 촉매",
+      "risk": "주의할 리스크",
+      "signal": "매수추천/중립/매도추천 중 하나"
+    }}
+  ],
   "overlap_analysis": "여기에 매우 상세한 교차분석 인사이트를 작성해주세요. 최소 400자 이상으로 다음 내용을 포함하세요: (1) 오늘 4개 채널에서 공통적으로 주목하는 종목과 그 이유 분석, (2) 현재 시장에서 형성되고 있는 투자 심리와 자금 흐름의 방향, (3) 섹터별 순환매 패턴과 향후 주목할 테마 전망, (4) 개인 투자자가 오늘 주의해야 할 리스크 요인과 대응 전략, (5) 단기 트레이딩 관점에서의 시사점과 중장기 투자자에게 주는 메시지. 구체적인 종목명과 수치를 포함하여 실질적인 투자 참고가 되도록 작성하세요.",
   "disclaimer": "본 브리핑은 AI가 자동 생성한 참고자료이며, 투자 판단의 책임은 본인에게 있습니다."
 }}
@@ -97,19 +115,22 @@ def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo="")
 2. 같은 overlap_count면 언급 강도/빈도가 높은 순으로 정렬하세요.
 3. 실제 데이터에서 확인된 종목만 포함하세요. 추측하지 마세요.
 4. 각 채널에서 언급되지 않았으면 해당 reasons는 빈 객체로 두세요.
-5. 최소 5개 ~ 최대 20개 종목을 추출하세요.
+5. 최소 5개 ~ 최대 20개 종목을 stocks에 추출하세요.
 6. reasons의 link는 반드시 수집 데이터에 있는 실제 URL을 사용하세요.
 7. signal은 반드시 "매수추천", "중립", "매도추천" 중 하나만 사용하세요.
 8. description에는 해당 기업의 사업 내용과 최근 핵심 이슈를 포함하세요.
 9. price_trend에는 최근 주가 흐름, 시장 대비 강약, 거래량 변화 등을 포함하세요.
 10. overlap_analysis는 반드시 400자 이상 상세하게 작성하세요.
+11. hidden_picks에는 1개 채널에서만 언급되었지만 향후 가능성이 높아 보이는 종목을 최소 3개~최대 10개 선정하세요.
+12. hidden_picks는 유명 패널이 언급했거나, 구체적인 근거를 제시한 종목을 우선 선정하세요.
+13. hidden_picks의 recommendation_reason은 해당 채널/패널이 실제 말한 내용을 기반으로 상세하게 작성하세요.
 
 JSON만 출력하세요. 다른 텍스트는 포함하지 마세요.
 """
 
     message = client.messages.create(
         model="claude-sonnet-4-20250514",
-        max_tokens=8192,
+        max_tokens=12000,
         messages=[{"role": "user", "content": prompt}]
     )
 
@@ -166,7 +187,6 @@ def generate_html(data, channels_data=None, gh_repo=""):
         else:
             sig_color = "#f39c12"; sig_icon = "🟡"; sig_bg = "rgba(255,169,77,0.1)"
 
-        # 채널별 근거 (클릭 가능 링크)
         reasons_html = ""
         for channel, info in stock.get("reasons", {}).items():
             if isinstance(info, dict) and info.get("text"):
@@ -192,7 +212,6 @@ def generate_html(data, channels_data=None, gh_repo=""):
         for ch in stock.get("mentioned_in", []):
             mentioned_tags += f'<span class="channel-tag">{ch}</span>'
 
-        # 종목 설명 + 주가 동향
         description = stock.get("description", "")
         price_trend = stock.get("price_trend", "")
 
@@ -220,6 +239,49 @@ def generate_html(data, channels_data=None, gh_repo=""):
             <div class="reasons"><strong>📋 채널별 선정 근거:</strong>{reasons_html}</div>
         </div>"""
 
+    # === 히든 픽 (1곳 언급이지만 잠재력 높은 종목) ===
+    hidden_html = ""
+    for pick in data.get("hidden_picks", []):
+        signal = pick.get("signal", "중립")
+        if signal == "매수추천":
+            sig_color = "#27ae60"; sig_icon = "🟢"; sig_bg = "rgba(81,207,102,0.1)"
+        elif signal == "매도추천":
+            sig_color = "#e74c3c"; sig_icon = "🔴"; sig_bg = "rgba(255,107,107,0.1)"
+        else:
+            sig_color = "#f39c12"; sig_icon = "🟡"; sig_bg = "rgba(255,169,77,0.1)"
+
+        source_link = pick.get("source_link", "")
+        source_name = pick.get("source_name", "")
+        panelist = pick.get("panelist", "")
+        if source_link:
+            source_tag = f'<a href="{source_link}" target="_blank" class="reason-source">{source_name}</a>'
+        else:
+            source_tag = f'<span class="reason-source-nolink">{source_name}</span>'
+
+        panelist_tag = f'<span class="panelist-badge">🎙 {panelist}</span>' if panelist else ""
+
+        hidden_html += f"""
+        <div class="hidden-card">
+            <div class="hidden-header">
+                <div class="stock-rank">#{pick.get("rank","")}</div>
+                <div class="stock-name">{pick.get("name","")}</div>
+                <span class="hidden-badge">💎 히든 픽</span>
+                <span class="signal-badge" style="color:{sig_color};background:{sig_bg}">{sig_icon} {signal}</span>
+            </div>
+            <div class="hidden-source">{source_tag} {panelist_tag}</div>
+            <div class="hidden-desc">{pick.get("description","")}</div>
+            <div class="hidden-reason">
+                <strong>🔍 추천 사유</strong>
+                <p>{pick.get("recommendation_reason","")}</p>
+            </div>
+            <div class="hidden-potential">
+                <strong>🚀 향후 전망</strong>
+                <p>{pick.get("future_potential","")}</p>
+            </div>
+            <div class="catalyst"><strong>📈 촉매:</strong> {pick.get("catalyst","")}</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> {pick.get("risk","")}</div>
+        </div>"""
+
     sectors_html = ""
     for sector in data.get("hot_sectors", []):
         sectors_html += f'<span class="sector-tag">{sector}</span>'
@@ -235,9 +297,6 @@ def generate_html(data, channels_data=None, gh_repo=""):
         url = info.get("url", "")
         youtuber_list += f'<div class="ch-item"><a href="{url}" target="_blank">{name}</a><span class="ch-id">{info.get("id","")[:15]}...</span></div>'
 
-    channels_json_escaped = json.dumps(channels_data, ensure_ascii=False).replace("\\", "\\\\").replace("'", "\\'").replace("`", "\\`")
-
-    # 인사이트
     overlap_analysis = data.get("overlap_analysis", "")
 
     html = f"""<!DOCTYPE html>
@@ -247,7 +306,7 @@ def generate_html(data, channels_data=None, gh_repo=""):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 증시 모닝브리핑 - {data.get("briefing_date","")}</title>
     <style>
-        :root {{ --bg-primary:#0a0e17; --bg-card:#151b2b; --bg-card-hover:#1a2236; --text-primary:#e8eaf6; --text-secondary:#8892b0; --accent-red:#ff6b6b; --accent-orange:#ffa94d; --accent-green:#51cf66; --accent-blue:#4dabf7; --border:#2a3450; }}
+        :root {{ --bg-primary:#0a0e17; --bg-card:#151b2b; --bg-card-hover:#1a2236; --text-primary:#e8eaf6; --text-secondary:#8892b0; --accent-red:#ff6b6b; --accent-orange:#ffa94d; --accent-green:#51cf66; --accent-blue:#4dabf7; --accent-purple:#da77f2; --border:#2a3450; }}
         * {{ margin:0; padding:0; box-sizing:border-box; }}
         body {{ font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.7; padding:20px; }}
         .container {{ max-width:900px; margin:0 auto; }}
@@ -256,11 +315,11 @@ def generate_html(data, channels_data=None, gh_repo=""):
         .header h1 {{ font-size:28px; background:linear-gradient(135deg,#4dabf7,#da77f2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:8px; }}
         .header .date {{ color:var(--text-secondary); font-size:16px; }}
         .header .update-time {{ color:var(--accent-blue); font-size:13px; margin-top:4px; }}
+        .header .source-info {{ color:var(--text-secondary); font-size:11px; margin-top:4px; }}
 
         .ch-manage-btn {{ position:absolute; top:20px; right:20px; width:44px; height:44px; border-radius:50%; background:var(--bg-card); border:1px solid var(--border); color:var(--accent-blue); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; }}
         .ch-manage-btn:hover {{ background:var(--accent-blue); color:white; }}
 
-        /* 시장 요약 3주제 */
         .market-summary {{ margin-bottom:24px; }}
         .market-summary h2 {{ font-size:18px; color:var(--accent-blue); margin-bottom:16px; }}
         .topic-card {{ background:linear-gradient(135deg,#1a1f35,#1e2745); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:12px; }}
@@ -271,7 +330,8 @@ def generate_html(data, channels_data=None, gh_repo=""):
         .hot-sectors h2 {{ font-size:18px; margin-bottom:12px; }}
         .sector-tag {{ display:inline-block; background:rgba(77,171,247,0.15); color:var(--accent-blue); padding:6px 14px; border-radius:20px; font-size:13px; margin:4px; border:1px solid rgba(77,171,247,0.3); }}
 
-        /* 종목 카드 */
+        .section-title {{ font-size:20px; font-weight:700; margin:32px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--border); }}
+
         .stock-card {{ background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:16px; transition:all 0.2s; }}
         .stock-card:hover {{ background:var(--bg-card-hover); border-color:var(--accent-blue); }}
         .stock-card[data-overlap="4"] {{ border-left:4px solid var(--accent-red); }}
@@ -285,7 +345,6 @@ def generate_html(data, channels_data=None, gh_repo=""):
         .channel-tags {{ margin-bottom:12px; }}
         .channel-tag {{ display:inline-block; background:rgba(255,255,255,0.06); color:var(--text-secondary); padding:3px 10px; border-radius:8px; font-size:12px; margin-right:6px; }}
 
-        /* 종목 설명 + 주가 동향 */
         .stock-desc {{ margin-bottom:12px; }}
         .desc-section {{ background:rgba(255,255,255,0.03); border-radius:8px; padding:12px 14px; margin-bottom:8px; }}
         .desc-section strong {{ display:block; font-size:13px; margin-bottom:6px; color:var(--text-primary); }}
@@ -308,7 +367,19 @@ def generate_html(data, channels_data=None, gh_repo=""):
         .filter-btn {{ background:var(--bg-card); color:var(--text-secondary); border:1px solid var(--border); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:13px; transition:all 0.2s; }}
         .filter-btn:hover,.filter-btn.active {{ background:var(--accent-blue); color:white; border-color:var(--accent-blue); }}
 
-        /* 인사이트 (확장) */
+        /* 히든 픽 */
+        .hidden-section {{ margin-top:32px; }}
+        .hidden-card {{ background:linear-gradient(135deg,#1a1535,#1e2045); border:1px solid rgba(218,119,242,0.3); border-left:4px solid var(--accent-purple); border-radius:12px; padding:24px; margin-bottom:16px; transition:all 0.2s; }}
+        .hidden-card:hover {{ border-color:var(--accent-purple); }}
+        .hidden-header {{ display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap; }}
+        .hidden-badge {{ background:rgba(218,119,242,0.2); color:var(--accent-purple); padding:4px 12px; border-radius:12px; font-size:12px; font-weight:600; border:1px solid rgba(218,119,242,0.3); }}
+        .hidden-source {{ margin-bottom:12px; font-size:14px; }}
+        .hidden-desc {{ color:var(--text-secondary); font-size:13px; margin-bottom:12px; padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; }}
+        .hidden-reason,.hidden-potential {{ margin-bottom:12px; }}
+        .hidden-reason strong,.hidden-potential strong {{ display:block; font-size:13px; margin-bottom:6px; color:var(--accent-purple); }}
+        .hidden-reason p,.hidden-potential p {{ color:var(--text-secondary); font-size:13px; line-height:1.8; }}
+        .panelist-badge {{ background:rgba(77,171,247,0.15); color:var(--accent-blue); padding:3px 10px; border-radius:8px; font-size:12px; margin-left:8px; }}
+
         .insight {{ background:linear-gradient(135deg,#1e2745,#1a1f35); border:1px solid var(--border); border-radius:12px; padding:30px; margin-top:24px; }}
         .insight h2 {{ color:#da77f2; margin-bottom:16px; font-size:20px; }}
         .insight-content {{ color:var(--text-secondary); font-size:14px; line-height:2.0; white-space:pre-line; }}
@@ -340,14 +411,11 @@ def generate_html(data, channels_data=None, gh_repo=""):
         .status-msg.success {{ display:block; background:rgba(81,207,102,0.15); color:var(--accent-green); }}
         .status-msg.error {{ display:block; background:rgba(255,107,107,0.15); color:var(--accent-red); }}
         .help-text {{ color:var(--text-secondary); font-size:12px; margin-top:8px; line-height:1.6; }}
-
-        /* 동적 추가 채널 표시 */
-        #dynamicBroadcast, #dynamicYoutuber {{ }}
         .ch-item.new {{ border:1px solid var(--accent-green); }}
 
         @media (max-width:600px) {{
             body {{ padding:10px; }}
-            .stock-header {{ flex-direction:column; align-items:flex-start; gap:6px; }}
+            .stock-header,.hidden-header {{ flex-direction:column; align-items:flex-start; gap:6px; }}
             .header h1 {{ font-size:22px; }}
             .ch-manage-btn {{ top:10px; right:10px; width:36px; height:36px; font-size:16px; }}
             .reason-item {{ flex-direction:column; gap:4px; }}
@@ -361,23 +429,20 @@ def generate_html(data, channels_data=None, gh_repo=""):
             <h1>AI 증시 모닝브리핑</h1>
             <div class="date">{data.get("briefing_date","")}</div>
             <div class="update-time">자동 생성 시각(KST): {now_kst}</div>
+            <div class="source-info">📡 경제방송 6개 · 🎬 오리지널 경제유튜브 TOP50+ · 📰 뉴스 5개 · 📊 애널리스트 리포트</div>
             <button class="ch-manage-btn" onclick="openPanel()" title="수집 채널 관리">📡</button>
         </div>
 
-        <!-- 채널 관리 패널 -->
         <div class="ch-panel-overlay" id="chPanel">
             <div class="ch-panel">
                 <button class="close-btn" onclick="closePanel()">✕</button>
                 <h2>📡 수집 채널 관리</h2>
-
                 <h3>📺 경제전문방송</h3>
                 <div id="broadcastList">{broadcast_list}</div>
                 <div id="dynamicBroadcast"></div>
-
                 <h3>🎬 증시 유튜버</h3>
                 <div id="youtuberList">{youtuber_list}</div>
                 <div id="dynamicYoutuber"></div>
-
                 <div class="add-form">
                     <h3>➕ 새 채널 추가</h3>
                     <div class="form-row">
@@ -410,14 +475,20 @@ def generate_html(data, channels_data=None, gh_repo=""):
             {sectors_html}
         </div>
 
+        <h2 class="section-title">📋 다채널 교차 추천 종목</h2>
         <div class="filter-bar">
             <button class="filter-btn active" onclick="filterStocks('all')">전체</button>
             <button class="filter-btn" onclick="filterStocks(4)">⭐ 4채널</button>
             <button class="filter-btn" onclick="filterStocks(3)">🔥 3채널</button>
             <button class="filter-btn" onclick="filterStocks(2)">📌 2채널+</button>
         </div>
-
         <div id="stocks-container">{stocks_html}</div>
+
+        <div class="hidden-section">
+            <h2 class="section-title">💎 히든 픽 — 단독 언급이지만 주목할 종목</h2>
+            <p style="color:var(--text-secondary);font-size:13px;margin-bottom:16px;">1개 채널에서만 언급되었지만, 구체적 근거와 향후 가능성이 높아 보이는 종목들입니다.</p>
+            {hidden_html}
+        </div>
 
         <div class="insight">
             <h2>🧠 AI 교차분석 인사이트</h2>
@@ -461,21 +532,14 @@ def generate_html(data, channels_data=None, gh_repo=""):
             }});
         }}
 
-        // URL에서 채널 ID 자동 추출
         async function extractChannelId(url) {{
-            // UC로 시작하는 ID가 URL에 있으면 추출
             const channelMatch = url.match(/channel\\/(UC[\\w-]+)/);
             if (channelMatch) return channelMatch[1];
-
-            // @handle 형식이면 handle 그대로 저장 (서버에서 변환)
             const handleMatch = url.match(/@([\\w-]+)/);
             if (handleMatch) return "@" + handleMatch[1];
-
-            // /c/ 형식
             const cMatch = url.match(/\\/c\\/([\\w-]+)/);
             if (cMatch) return "c/" + cMatch[1];
-
-            return url; // 그대로 반환
+            return url;
         }}
 
         async function addChannel() {{
@@ -497,10 +561,8 @@ def generate_html(data, channels_data=None, gh_repo=""):
             statusMsg.style.display = 'none';
 
             try {{
-                // 채널 ID 추출
                 const channelId = await extractChannelId(url);
 
-                // 1. 현재 channels.json 가져오기
                 const getResp = await fetch(`https://api.github.com/repos/${{REPO}}/contents/${{FILE_PATH}}`, {{
                     headers: {{ 'Accept': 'application/vnd.github.v3+json' }}
                 }});
@@ -508,11 +570,9 @@ def generate_html(data, channels_data=None, gh_repo=""):
                 const sha = fileData.sha;
                 const content = JSON.parse(atob(fileData.content));
 
-                // 2. 새 채널 추가
                 if (!content[type]) content[type] = {{}};
                 content[type][name] = {{ id: channelId, url: url }};
 
-                // 3. GitHub에 저장
                 const token = prompt('GitHub Personal Access Token을 입력하세요:');
                 if (!token) {{
                     btn.disabled = false;
@@ -538,7 +598,6 @@ def generate_html(data, channels_data=None, gh_repo=""):
                     statusMsg.className = 'status-msg success';
                     statusMsg.textContent = `✅ "${{name}}" 채널이 추가되었습니다! 다음 아침 브리핑부터 반영됩니다.`;
 
-                    // 화면에 즉시 반영
                     const targetDiv = type === 'broadcast'
                         ? document.getElementById('dynamicBroadcast')
                         : document.getElementById('dynamicYoutuber');
@@ -548,7 +607,6 @@ def generate_html(data, channels_data=None, gh_repo=""):
                     newItem.innerHTML = `<a href="${{url}}" target="_blank">${{name}}</a><span class="ch-id" style="color:var(--accent-green);">✅ 새로 추가됨</span>`;
                     targetDiv.appendChild(newItem);
 
-                    // 입력 필드 초기화
                     document.getElementById('addName').value = '';
                     document.getElementById('addUrl').value = '';
                 }} else {{
