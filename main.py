@@ -19,8 +19,6 @@ def main():
     # 채널 목록 로드
     print("\n[채널 로드]")
     channels = load_channels()
-    broadcast_channels = {name: info["id"] for name, info in channels.get("broadcast", {}).items()}
-    youtuber_channels = {name: info["id"] for name, info in channels.get("youtuber", {}).items()}
 
     all_data = []
 
@@ -32,13 +30,13 @@ def main():
 
     # 2. 경제방송
     print(f"\n[2/4] 경제전문방송 유튜브 수집 중 (최근 {BROADCAST_HOURS}시간)...")
-    broadcast_data = collect_broadcast_youtube(broadcast_channels, YOUTUBE_API_KEY, hours=BROADCAST_HOURS)
+    broadcast_data = collect_broadcast_youtube()
     all_data.extend(broadcast_data)
     print(f"  → 총 {len(broadcast_data)}건")
 
-    # 3. 유튜버
-    print(f"\n[3/4] 증시 유튜버 수집 중 (최근 {YOUTUBER_HOURS}시간)...")
-    youtuber_data = collect_youtuber(youtuber_channels, YOUTUBE_API_KEY, hours=YOUTUBER_HOURS)
+    # 3. 유튜버 (TOP50 + 인기패널)
+    print(f"\n[3/4] 오리지널 경제유튜브 TOP50 + 인기패널 수집 중 (최근 {YOUTUBER_HOURS}시간)...")
+    youtuber_data = collect_youtuber()
     all_data.extend(youtuber_data)
     print(f"  → 총 {len(youtuber_data)}건")
 
