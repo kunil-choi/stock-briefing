@@ -192,15 +192,18 @@ def generate_html(data, channels_data=None, gh_repo=""):
             if isinstance(info, dict) and info.get("text"):
                 source = info.get("source", "")
                 link = info.get("link", "")
-                if link:
-                    source_tag = f'<a href="{link}" target="_blank" class="reason-source">[{source}]</a>'
+                               if link:
+                    source_tag = f'<span class="reason-source-nolink">[{source}]</span>'
+                    view_btn = f'<a href="{link}" target="_blank" class="view-btn">직접 보기 →</a>'
                 else:
                     source_tag = f'<span class="reason-source-nolink">[{source}]</span>'
+                    view_btn = ''
                 reasons_html += f"""
                 <div class="reason-item">
                     <span class="reason-channel">{channel}</span>
-                    <span class="reason-text">{source_tag} {info["text"]}</span>
+                    <span class="reason-text">{source_tag} {info["text"]} {view_btn}</span>
                 </div>"""
+
             elif isinstance(info, str) and info:
                 reasons_html += f"""
                 <div class="reason-item">
@@ -362,6 +365,8 @@ def generate_html(data, channels_data=None, gh_repo=""):
         .reason-source {{ color:var(--accent-orange); text-decoration:none; font-weight:600; cursor:pointer; }}
         .reason-source:hover {{ text-decoration:underline; color:var(--accent-blue); }}
         .reason-source-nolink {{ color:var(--accent-orange); font-weight:600; }}
+        .view-btn {{ display:inline-block; background:rgba(77,171,247,0.15); color:var(--accent-blue); padding:2px 10px; border-radius:6px; font-size:11px; font-weight:600; text-decoration:none; margin-left:6px; border:1px solid rgba(77,171,247,0.3); white-space:nowrap; }}
+        .view-btn:hover {{ background:var(--accent-blue); color:white; }}
 
         .filter-bar {{ margin-bottom:20px; display:flex; gap:8px; flex-wrap:wrap; }}
         .filter-btn {{ background:var(--bg-card); color:var(--text-secondary); border:1px solid var(--border); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:13px; transition:all 0.2s; }}
