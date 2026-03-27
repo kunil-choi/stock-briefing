@@ -192,7 +192,7 @@ def generate_html(data, channels_data=None, gh_repo=""):
             if isinstance(info, dict) and info.get("text"):
                 source = info.get("source", "")
                 link = info.get("link", "")
-                               if link:
+                if link:
                     source_tag = f'<span class="reason-source-nolink">[{source}]</span>'
                     view_btn = f'<a href="{link}" target="_blank" class="view-btn">직접 보기 →</a>'
                 else:
