@@ -61,6 +61,8 @@
         .reason-source { color:var(--accent-orange); text-decoration:none; font-weight:600; cursor:pointer; }
         .reason-source:hover { text-decoration:underline; color:var(--accent-blue); }
         .reason-source-nolink { color:var(--accent-orange); font-weight:600; }
+        .view-btn { display:inline-block; background:rgba(77,171,247,0.15); color:var(--accent-blue); padding:2px 10px; border-radius:6px; font-size:11px; font-weight:600; text-decoration:none; margin-left:6px; border:1px solid rgba(77,171,247,0.3); white-space:nowrap; }
+        .view-btn:hover { background:var(--accent-blue); color:white; }
 
         .filter-bar { margin-bottom:20px; display:flex; gap:8px; flex-wrap:wrap; }
         .filter-btn { background:var(--bg-card); color:var(--text-secondary); border:1px solid var(--border); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:13px; transition:all 0.2s; }
@@ -127,8 +129,8 @@
         <div class="header">
             <h1>AI 증시 모닝브리핑</h1>
             <div class="date">2026년 03월 27일</div>
-            <div class="update-time">자동 생성 시각(KST): 07:36</div>
-            <div class="source-info">📡 경제방송 6개 · 🎬 오리지널 경제유튜브 TOP50+ · 📰 뉴스 5개 · 📊 애널리스트 리포트</div>
+            <div class="update-time">자동 생성 시각(KST): 18:14</div>
+            <div class="source-info">📰 언론 뉴스 · 📡 경제방송 프로그램 · 🎬 경제 유튜브 TOP50 · 📊 애널리스트 리포트를 분석</div>
             <button class="ch-manage-btn" onclick="openPanel()" title="수집 채널 관리">📡</button>
         </div>
 
@@ -168,22 +170,22 @@
             <h2>📊 시장 요약</h2>
             
                 <div class="topic-card">
-                    <div class="topic-title">미국-이란 전쟁 여파로 유가 급등과 시장 불안 확산</div>
-                    <div class="topic-content">미국-이란 전쟁이 한 달째 지속되면서 국제유가가 급등하고 국내 휘발유·경유 가격이 리터당 2000원대에 진입했습니다. OECD는 한국 경제성장률 전망을 2.1%에서 1.7%로 하향조정하며 중동 에너지 의존도가 높은 한국의 취약성을 지적했습니다. 트럼프 대통령의 압박에도 불구하고 이란이 협상을 거부하면서 전쟁 장기화 우려가 커지고 있으며, 이는 글로벌 공급망 차질과 인플레이션 재점화 리스크로 이어지고 있습니다.</div>
+                    <div class="topic-title">구글 터보퀀트 쇼크로 반도체 급락</div>
+                    <div class="topic-content">구글이 AI 메모리 사용량을 줄일 수 있는 터보퀀트 신기술을 공개하며 반도체 시장이 크게 출렁였습니다. 삼성전자와 SK하이닉스 등 메모리 반도체 주식이 급락하며 외국인들의 대규모 매도세가 이어졌습니다. 그러나 전문가들은 시기상조라는 평가와 함께 기술적 조정 후 반등 기회로 보고 있습니다. 개인투자자들은 2조원 넘게 순매수하며 저가 매수에 나서는 모습을 보였습니다.</div>
                 </div>
                 <div class="topic-card">
-                    <div class="topic-title">구글 '터보퀀트' 기술 발표로 메모리 반도체 시장 충격</div>
-                    <div class="topic-content">구글이 AI 모델의 메모리 효율성을 획기적으로 높이는 '터보퀀트' 기술을 발표하면서 메모리 반도체 업계에 충격을 주고 있습니다. 삼성전자와 SK하이닉스 등 국내 메모리 반도체주가 급락했으며, 시장에서는 메모리 수요 감소 우려가 제기되고 있습니다. 다만 일부 전문가들은 이 기술이 오히려 더 복잡한 AI 모델 개발을 가능하게 해 중장기적으로는 메모리 수요 증가로 이어질 수 있다고 분석하고 있습니다.</div>
+                    <div class="topic-title">중동 전쟁 장기화로 에너지 비상</div>
+                    <div class="topic-content">미국과 이란의 전쟁이 불확실성 속에서 장기화 조짐을 보이며 국제유가가 급등하고 있습니다. 나프타 가격이 한 달 만에 30% 이상 급등하면서 석유화학 업계에 충격을 주고 있고, 애그플레이션 우려까지 부각되고 있습니다. 원달러 환율이 1500원대를 돌파하며 수입 인플레이션 압박도 커지고 있어 금융당국이 촉각을 곤두세우고 있습니다.</div>
                 </div>
                 <div class="topic-card">
-                    <div class="topic-title">외국인 대규모 매도와 원화 약세로 국내증시 압박</div>
-                    <div class="topic-content">외국인들이 2월에만 19.6조원을 순매도하며 두 달 연속 '팔자' 행진을 이어가고 있습니다. 원달러 환율은 1,508원까지 상승하며 고환율 기조가 고착화되고 있고, 코스피는 5500선을 하회하며 약세를 보이고 있습니다. 중동 리스크와 미국 금리 인상 우려가 맞물리면서 외국인 자금이 안전자산으로 회귀하는 현상이 뚜렷해지고 있어 당분간 국내증시의 부담 요인으로 작용할 전망입니다.</div>
+                    <div class="topic-title">외국인 3조원 매도 vs 개인 2.7조원 매수</div>
+                    <div class="topic-content">외국인들이 이번 달에만 30조원 넘게 매도하며 삼성전자 외국인 지분율이 49% 아래로 떨어졌습니다. 반면 개인투자자들은 하락장에서도 지속적으로 매수세를 이어가며 2.7조원을 순매수했습니다. 터보퀀트 충격과 중동 리스크에도 불구하고 개인들의 적극적인 매수세가 시장 하락폭을 제한하는 역할을 하고 있습니다.</div>
                 </div>
         </div>
 
         <div class="hot-sectors">
             <h2>🔥 오늘의 핫 섹터</h2>
-            <span class="sector-tag">바이오·제약</span><span class="sector-tag">방산·항공우주</span><span class="sector-tag">로봇·자동화</span><span class="sector-tag">에너지·유틸리티</span><span class="sector-tag">우주항공</span><span class="sector-tag">통신장비</span>
+            <span class="sector-tag">반도체</span><span class="sector-tag">에너지</span><span class="sector-tag">방산</span><span class="sector-tag">해운</span><span class="sector-tag">화장품</span><span class="sector-tag">바이오</span><span class="sector-tag">원전</span><span class="sector-tag">게임</span>
         </div>
 
         <h2 class="section-title">📋 다채널 교차 추천 종목</h2>
@@ -205,23 +207,27 @@
             <div class="stock-desc">
                 <div class="desc-section">
                     <strong>🏢 종목 소개</strong>
-                    <p>국내 최대 메모리 반도체 제조업체로 HBM, D램, 낸드플래시 등을 생산하며 글로벌 메모리 시장을 선도하고 있습니다. 최근 구글의 터보퀀트 기술 발표로 메모리 수요 감소 우려가 제기되면서 주가 하락 압력을 받고 있습니다.</p>
+                    <p>글로벌 1위 메모리 반도체 및 스마트폰 제조업체로, HBM과 파운드리 사업에서 AI 수혜를 받고 있습니다. 최근 구글의 터보퀀트 기술 발표로 메모리 수요 둔화 우려가 제기되며 주가가 급락했습니다.</p>
                 </div>
                 <div class="desc-section">
                     <strong>📉 최근 주가 동향</strong>
-                    <p>구글 터보퀀트 발표 이후 급락세를 보이며 8만원 돌파에 대한 기대감이 후퇴하고 있습니다. 외국인 매도세가 지속되면서 단기적으로는 조정 국면이 이어질 것으로 전망됩니다.</p>
+                    <p>터보퀀트 충격으로 급락했으나 전문가들은 기술적 조정으로 판단하며 매수 기회로 보고 있습니다. 외국인 지분율이 49% 아래로 떨어졌지만 개인투자자들의 적극적인 매수세가 이어지고 있습니다.</p>
                 </div>
             </div>
-            <div class="catalyst"><strong>📈 상승 촉매:</strong> AI 반도체 수요 회복과 HBM 시장 확대</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> 구글 터보퀀트 등 메모리 효율화 기술로 인한 수요 감소 우려</div>
+            <div class="catalyst"><strong>📈 상승 촉매:</strong> AI 반도체 수요 증가와 HBM 시장 독점적 지위</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 터보퀀트 등 메모리 효율화 기술로 인한 수요 둔화 우려</div>
             <div class="reasons"><strong>📋 채널별 선정 근거:</strong>
                 <div class="reason-item">
+                    <span class="reason-channel">뉴스</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[매일경제]</span> 터보퀀트 충격으로 외국인 지분율이 49% 아래로 하락, 12년 6개월 만의 최저치 기록 <a href="https://www.mk.co.kr/news/economy/12000594" target="_blank" class="view-btn">직접 보기 →</a></span>
+                </div>
+                <div class="reason-item">
                     <span class="reason-channel">경제방송</span>
-                    <span class="reason-text"><a href="https://www.youtube.com/watch?v=AF8d48XJAog" target="_blank" class="reason-source">[한국경제TV]</a> 구글 터보퀀트 기술로 인한 메모리 반도체 위기론과 8만 전자 달성 가능성에 대한 분석</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[한국경제TV]</span> 터보퀀트로 인한 하락을 엄청난 매수 기회로 평가하며 HBM 등 핵심 사업 강조 <a href="https://www.youtube.com/watch?v=8H4mRw9un2I" target="_blank" class="view-btn">직접 보기 →</a></span>
                 </div>
                 <div class="reason-item">
                     <span class="reason-channel">유튜버</span>
-                    <span class="reason-text"><a href="https://www.youtube.com/watch?v=KDWfHX_vhZw" target="_blank" class="reason-source">[박세익 체슬리]</a> 구글 신기술 등장으로 인한 삼성전자 급락 원인 분석 및 향후 전망</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[김작가 TV]</span> 위험 신호가 나오고 있어 지금 사야 할지 팔아야 할지 신중한 판단 필요 <a href="https://www.youtube.com/watch?v=XIA2i-_ytjA" target="_blank" class="view-btn">직접 보기 →</a></span>
                 </div></div>
         </div>
         <div class="stock-card" data-overlap="4">
@@ -229,115 +235,145 @@
                 <div class="stock-rank">#2</div>
                 <div class="stock-name">SK하이닉스</div>
                 <span class="overlap-badge" style="background:#e74c3c">⭐ 4채널 겹침</span>
-                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 매수추천</span>
+                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 긍정전망</span>
             </div>
             <div class="channel-tags"><span class="channel-tag">뉴스</span><span class="channel-tag">경제방송</span><span class="channel-tag">유튜버</span><span class="channel-tag">애널리스트</span></div>
             <div class="stock-desc">
                 <div class="desc-section">
                     <strong>🏢 종목 소개</strong>
-                    <p>메모리 반도체 전문기업으로 특히 HBM(고대역폭메모리) 시장에서 강점을 보이고 있습니다. AI 반도체 시장 성장과 함께 HBM 수요 급증의 수혜를 받고 있지만 최근 구글 기술 발표로 불안감이 확산되고 있습니다.</p>
+                    <p>글로벌 2위 메모리 반도체 업체로 HBM 시장에서 강력한 경쟁력을 보유하고 있습니다. AI 붐과 함께 HBM 수요가 급증하며 실적 개선을 이어가고 있으나, 최근 터보퀀트 이슈로 주가가 급락했습니다.</p>
                 </div>
                 <div class="desc-section">
                     <strong>📉 최근 주가 동향</strong>
-                    <p>노무라증권이 목표가를 193만원으로 상향조정했지만 구글 터보퀀트 충격으로 단기 조정을 받고 있습니다. PER 6배 수준으로 밸류에이션 매력은 여전히 유효한 상황입니다.</p>
+                    <p>구글 터보퀀트 발표 이후 삼성전자와 함께 급락세를 보였으나, 전문가들은 과도한 우려로 판단하며 매수 기회로 평가하고 있습니다. 미국 현지 투자로 AI 경쟁력 강화 계획도 주목받고 있습니다.</p>
                 </div>
             </div>
-            <div class="catalyst"><strong>📈 상승 촉매:</strong> HBM 시장 독점적 지위와 AI 반도체 수요 확대</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> 메모리 효율화 기술 확산으로 인한 수요 둔화 가능성</div>
-            <div class="reasons"><strong>📋 채널별 선정 근거:</strong>
-                <div class="reason-item">
-                    <span class="reason-channel">경제방송</span>
-                    <span class="reason-text"><a href="https://www.youtube.com/watch?v=rQeJSnNY_tU" target="_blank" class="reason-source">[SBS Biz]</a> 노무라증권 목표가 193만원 상향조정과 구글 터보퀀트 영향 분석</span>
-                </div>
-                <div class="reason-item">
-                    <span class="reason-channel">유튜버</span>
-                    <span class="reason-text"><a href="https://www.youtube.com/watch?v=KDWfHX_vhZw" target="_blank" class="reason-source">[박세익 체슬리]</a> 구글 터보퀀트 쇼크에도 불구하고 반도체 저점 매수 기회로 언급</span>
-                </div></div>
-        </div>
-        <div class="stock-card" data-overlap="2">
-            <div class="stock-header">
-                <div class="stock-rank">#3</div>
-                <div class="stock-name">현대자동차</div>
-                <span class="overlap-badge" style="background:#f39c12">📌 2채널 겹침</span>
-                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 매수추천</span>
-            </div>
-            <div class="channel-tags"><span class="channel-tag">뉴스</span><span class="channel-tag">애널리스트</span></div>
-            <div class="stock-desc">
-                <div class="desc-section">
-                    <strong>🏢 종목 소개</strong>
-                    <p>국내 최대 자동차 제조업체로 전기차와 자율주행 기술 개발에 집중하고 있습니다. 최근 제네시스 G90에 테슬라 FSD급 레벨2+ 자율주행 기술을 적용한다고 발표하며 기술력 향상을 과시했습니다.</p>
-                </div>
-                <div class="desc-section">
-                    <strong>📉 최근 주가 동향</strong>
-                    <p>자율주행 기술 발표와 전기차 판매 증가로 긍정적 모멘텀을 보이고 있으나 중동 전쟁으로 인한 원자재 가격 상승이 부담 요인으로 작용하고 있습니다.</p>
-                </div>
-            </div>
-            <div class="catalyst"><strong>📈 상승 촉매:</strong> 자율주행 기술 상용화와 전기차 라인업 확대</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> 원자재 가격 상승과 중국 전기차 업체와의 경쟁 심화</div>
+            <div class="catalyst"><strong>📈 상승 촉매:</strong> HBM 시장 성장과 AI 반도체 수요 확대</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 미국 현지 투자로 인한 주주가치 희석 우려</div>
             <div class="reasons"><strong>📋 채널별 선정 근거:</strong>
                 <div class="reason-item">
                     <span class="reason-channel">뉴스</span>
-                    <span class="reason-text"><a href="https://www.mk.co.kr/news/economy/11999880" target="_blank" class="reason-source">[매일경제]</a> 제네시스 G90에 FSD급 자율주행 기술 탑재 발표로 기술 경쟁력 강화</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[KBS 1라디오]</span> 미국 가는 하이닉스, AI 경쟁력 vs 주주가치 희석 논란 <a href="https://www.youtube.com/watch?v=B8BxoY0ZnvQ" target="_blank" class="view-btn">직접 보기 →</a></span>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-channel">경제방송</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[한국경제TV]</span> 메모리 반도체 대폭락 속에서도 지금 봐야 하는 핵심 종목으로 언급 <a href="https://www.youtube.com/watch?v=5h0aZIZK_sM" target="_blank" class="view-btn">직접 보기 →</a></span>
+                </div>
+                <div class="reason-item">
+                    <span class="reason-channel">유튜버</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[김작가 TV]</span> 삼성전자와 함께 위험 신호 발생, 매수 타이밍에 대한 신중한 판단 필요 <a href="https://www.youtube.com/watch?v=XIA2i-_ytjA" target="_blank" class="view-btn">직접 보기 →</a></span>
+                </div></div>
+        </div>
+        <div class="stock-card" data-overlap="3">
+            <div class="stock-header">
+                <div class="stock-rank">#3</div>
+                <div class="stock-name">한화솔루션</div>
+                <span class="overlap-badge" style="background:#e67e22">🔥 3채널 겹침</span>
+                <span class="signal-badge" style="color:#f39c12;background:rgba(255,169,77,0.1)">🟡 중립</span>
+            </div>
+            <div class="channel-tags"><span class="channel-tag">뉴스</span><span class="channel-tag">경제방송</span><span class="channel-tag">애널리스트</span></div>
+            <div class="stock-desc">
+                <div class="desc-section">
+                    <strong>🏢 종목 소개</strong>
+                    <p>태양광 모듈과 케미칼 사업을 영위하는 종합 에너지 기업입니다. 최근 2.4조원 규모의 대규모 유상증자를 결정하며 재무구조 개선과 미래 성장 투자를 위한 자금 확보에 나섰습니다.</p>
+                </div>
+                <div class="desc-section">
+                    <strong>📉 최근 주가 동향</strong>
+                    <p>유상증자 발표로 장 초반 급락했으나 저가 매수세에 힘입어 낙폭을 일부 만회했습니다. 시장에서는 필요한 자금 조달이었다는 평가와 함께 장기적 관점에서 긍정적으로 보는 시각이 많습니다.</p>
+                </div>
+            </div>
+            <div class="catalyst"><strong>📈 상승 촉매:</strong> 태양광 시장 성장과 탠덤셀 기술 개발</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 유상증자로 인한 지분 희석과 단기 수익성 악화</div>
+            <div class="reasons"><strong>📋 채널별 선정 근거:</strong>
+                <div class="reason-item">
+                    <span class="reason-channel">경제방송</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[한국경제TV]</span> 대규모 유상증자 결정에 대한 투자자들의 우려와 회사 대응 분석 <a href="https://www.youtube.com/watch?v=qgSvqFqJwOI" target="_blank" class="view-btn">직접 보기 →</a></span>
                 </div>
                 <div class="reason-item">
                     <span class="reason-channel">애널리스트</span>
-                    <span class="reason-text"><a href="https://finance.naver.com/research/industry_read.naver?nid=43884&page=2" target="_blank" class="reason-source">[IBK투자증권]</a> 현대차 날개를 달다! 성장 동력 분석</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[한화투자증권]</span> 필요했던 자금조달이며 업황 개선 기대, 단기 수익화 가시성은 제한적인 탠덤셀 투자 <a href="https://finance.naver.com/research/company_read.naver?nid=91102&page=1" target="_blank" class="view-btn">직접 보기 →</a></span>
                 </div></div>
         </div>
         <div class="stock-card" data-overlap="2">
             <div class="stock-header">
                 <div class="stock-rank">#4</div>
-                <div class="stock-name">삼천당제약</div>
+                <div class="stock-name">대한항공</div>
                 <span class="overlap-badge" style="background:#f39c12">📌 2채널 겹침</span>
-                <span class="signal-badge" style="color:#f39c12;background:rgba(255,169,77,0.1)">🟡 중립</span>
-            </div>
-            <div class="channel-tags"><span class="channel-tag">경제방송</span><span class="channel-tag">유튜버</span></div>
-            <div class="stock-desc">
-                <div class="desc-section">
-                    <strong>🏢 종목 소개</strong>
-                    <p>중견 제약회사로 최근 바이오 관련 호재로 급등을 보이며 시장의 주목을 받고 있습니다. 과거 증권사 객장 할머니의 쪽지로도 화제가 된 종목입니다.</p>
-                </div>
-                <div class="desc-section">
-                    <strong>📉 최근 주가 동향</strong>
-                    <p>최근 바이오 섹터 강세와 함께 급등세를 보이며 '황제주'로 불리고 있습니다. 단기 과열 양상을 보이고 있어 변동성이 큰 상황입니다.</p>
-                </div>
-            </div>
-            <div class="catalyst"><strong>📈 상승 촉매:</strong> 바이오 섹터 전반의 관심 증가와 개발 파이프라인 기대감</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> 급등 이후 조정 위험과 실적 대비 과도한 주가 상승</div>
-            <div class="reasons"><strong>📋 채널별 선정 근거:</strong>
-                <div class="reason-item">
-                    <span class="reason-channel">경제방송</span>
-                    <span class="reason-text"><a href="https://www.youtube.com/watch?v=9HwrVpInSh0" target="_blank" class="reason-source">[SBS Biz]</a> 황제주로 급부상한 삼천당제약의 지속 가능성과 투자 전략 분석</span>
-                </div></div>
-        </div>
-        <div class="stock-card" data-overlap="2">
-            <div class="stock-header">
-                <div class="stock-rank">#5</div>
-                <div class="stock-name">알테오젠</div>
-                <span class="overlap-badge" style="background:#f39c12">📌 2채널 겹침</span>
-                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 매수추천</span>
+                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 긍정전망</span>
             </div>
             <div class="channel-tags"><span class="channel-tag">경제방송</span><span class="channel-tag">애널리스트</span></div>
             <div class="stock-desc">
                 <div class="desc-section">
                     <strong>🏢 종목 소개</strong>
-                    <p>바이오의약품 개발 전문기업으로 ADC(항체약물접합체) 기술 플랫폼을 보유하고 있습니다. 글로벌 제약회사들과의 기술이전 계약을 통해 안정적인 수익 모델을 구축하고 있습니다.</p>
+                    <p>국내 1위 항공사로 국제선 여객 및 화물 운송 사업을 영위하고 있습니다. 최근 중동 전쟁으로 인한 항공료 상승과 여행 수요 회복으로 실적 개선이 기대되고 있습니다.</p>
                 </div>
                 <div class="desc-section">
                     <strong>📉 최근 주가 동향</strong>
-                    <p>바이오 섹터 강세 속에서 견조한 상승세를 보이고 있으며, 기술력 인정받으며 꾸준한 관심을 받고 있습니다.</p>
+                    <p>1분기 국제선 여객 호조가 예상되며 중동 리스크에도 불구하고 항공업계 전반에 대한 긍정적 전망이 이어지고 있습니다. 전쟁이 촉발한 트리거 효과로 수혜가 예상됩니다.</p>
                 </div>
             </div>
-            <div class="catalyst"><strong>📈 상승 촉매:</strong> ADC 기술 플랫폼의 글로벌 기술이전 확대</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> 바이오 섹터 조정 시 동반 하락 위험</div>
+            <div class="catalyst"><strong>📈 상승 촉매:</strong> 국제선 여객 수요 회복과 항공료 상승</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 유가 상승으로 인한 연료비 부담 증가</div>
+            <div class="reasons"><strong>📋 채널별 선정 근거:</strong>
+                <div class="reason-item">
+                    <span class="reason-channel">애널리스트</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[유안타증권]</span> 1Q26 Preview에서 국제선 여객 호조 전망 <a href="https://finance.naver.com/research/company_read.naver?nid=91101&page=1" target="_blank" class="view-btn">직접 보기 →</a></span>
+                </div></div>
+        </div>
+        <div class="stock-card" data-overlap="2">
+            <div class="stock-header">
+                <div class="stock-rank">#5</div>
+                <div class="stock-name">현대건설</div>
+                <span class="overlap-badge" style="background:#f39c12">📌 2채널 겹침</span>
+                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 긍정전망</span>
+            </div>
+            <div class="channel-tags"><span class="channel-tag">경제방송</span><span class="channel-tag">애널리스트</span></div>
+            <div class="stock-desc">
+                <div class="desc-section">
+                    <strong>🏢 종목 소개</strong>
+                    <p>국내 건설업계 선두 기업으로 해외 플랜트와 원전 건설 사업에서 강점을 보이고 있습니다. 2026년 미국 원전 진출과 가시적 성과가 기대되고 있어 주목받고 있습니다.</p>
+                </div>
+                <div class="desc-section">
+                    <strong>📉 최근 주가 동향</strong>
+                    <p>원전 관련 수주 기대감과 해외 EPC 사업 호조로 긍정적 흐름을 보이고 있습니다. K-원전의 글로벌 진출 확대와 함께 중장기 성장 모멘텀이 부각되고 있습니다.</p>
+                </div>
+            </div>
+            <div class="catalyst"><strong>📈 상승 촉매:</strong> 미국 원전 진출과 해외 원전 수주 확대</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 건설 원자재 가격 상승과 공사비 증가</div>
+            <div class="reasons"><strong>📋 채널별 선정 근거:</strong>
+                <div class="reason-item">
+                    <span class="reason-channel">애널리스트</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[미래에셋증권]</span> 2026년 미국 원전 진출과 가시적 성과 기대 <a href="https://finance.naver.com/research/company_read.naver?nid=91087&page=1" target="_blank" class="view-btn">직접 보기 →</a></span>
+                </div></div>
+        </div>
+        <div class="stock-card" data-overlap="2">
+            <div class="stock-header">
+                <div class="stock-rank">#6</div>
+                <div class="stock-name">알테오젠</div>
+                <span class="overlap-badge" style="background:#f39c12">📌 2채널 겹침</span>
+                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 긍정전망</span>
+            </div>
+            <div class="channel-tags"><span class="channel-tag">경제방송</span><span class="channel-tag">애널리스트</span></div>
+            <div class="stock-desc">
+                <div class="desc-section">
+                    <strong>🏢 종목 소개</strong>
+                    <p>바이오 의약품 개발 및 제조 전문 기업으로 독자적인 플랫폼 기술을 보유하고 있습니다. 최근 한 분기에 2건의 라이선스 아웃을 체결하며 기술력을 입증했습니다.</p>
+                </div>
+                <div class="desc-section">
+                    <strong>📉 최근 주가 동향</strong>
+                    <p>기술 이전 성과와 파이프라인 확장으로 바이오 섹터에서 주목받고 있습니다. 플랫폼 기술의 확장성과 수익화 가능성이 높아 중장기 성장 동력이 탄탄합니다.</p>
+                </div>
+            </div>
+            <div class="catalyst"><strong>📈 상승 촉매:</strong> 라이선스 아웃 확대와 플랫폼 기술 활용</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 임상시험 결과에 따른 변동성</div>
             <div class="reasons"><strong>📋 채널별 선정 근거:</strong>
                 <div class="reason-item">
                     <span class="reason-channel">경제방송</span>
-                    <span class="reason-text"><a href="https://www.youtube.com/watch?v=ekyZNc5KStA" target="_blank" class="reason-source">[한국경제TV]</a> 바이오 섹터 폭등과 함께 주목받는 대표 종목으로 분석</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[머니투데이 방송]</span> 제2의 알테오젠을 찾는 RNA 비만치료제 관련 분석에서 언급 <a href="https://www.youtube.com/watch?v=Fl6pFs7KKP4" target="_blank" class="view-btn">직접 보기 →</a></span>
                 </div>
                 <div class="reason-item">
                     <span class="reason-channel">애널리스트</span>
-                    <span class="reason-text"><a href="https://finance.naver.com/research/company_read.naver?nid=91082&page=1" target="_blank" class="reason-source">[하나증권]</a> 진짜가 돌아온다, 아직 더 남은 호재 이벤트</span>
+                    <span class="reason-text"><span class="reason-source-nolink">[신한투자증권]</span> 한 분기에 2건 L/O 체결, 간담회 내용 정리 <a href="https://finance.naver.com/research/company_read.naver?nid=91095&page=1" target="_blank" class="view-btn">직접 보기 →</a></span>
                 </div></div>
         </div></div>
 
@@ -348,68 +384,72 @@
         <div class="hidden-card">
             <div class="hidden-header">
                 <div class="stock-rank">#1</div>
-                <div class="stock-name">오이솔루션</div>
+                <div class="stock-name">동성화인텍</div>
                 <span class="hidden-badge">💎 히든 픽</span>
-                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 매수추천</span>
+                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 긍정전망</span>
             </div>
-            <div class="hidden-source"><a href="https://finance.naver.com/research/company_read.naver?nid=91081&page=1" target="_blank" class="reason-source">하나증권</a> </div>
-            <div class="hidden-desc">디스플레이 및 반도체 검사장비 전문업체로 최근 AI 반도체 검사 수요 증가의 수혜를 받고 있습니다.</div>
+            <div class="hidden-source"><a href="https://finance.naver.com/research/company_read.naver?nid=91103&page=1" target="_blank" class="reason-source">미래에셋증권</a> </div>
+            <div class="hidden-desc">LNG선용 보냉재 및 단열재를 생산하는 전문 업체입니다. LNGC(LNG 운반선) 시장의 호황으로 수혜가 예상되고 있습니다.</div>
             <div class="hidden-reason">
                 <strong>🔍 추천 사유</strong>
-                <p>하나증권은 오이솔루션에 대해 '아직 본 게임은 시작도 안했다'라는 제목의 리포트를 발표하며 강한 투자 의견을 제시했습니다. AI 반도체 시장이 본격화되면서 관련 검사장비 수요가 급증할 것으로 예상되며, 동사가 보유한 기술력과 시장 지위를 고려할 때 향후 성장 가능성이 매우 높다고 분석했습니다. 특히 현재 주가 수준은 미래 성장성 대비 저평가되어 있어 투자 기회로 판단됩니다.</p>
+                <p>중동 전쟁으로 인한 에너지 운송 경로 변화와 LNG 수요 증가로 LNGC 호황이 지속되고 있습니다. 동성화인텍은 LNG선에 필수적인 보냉재 분야에서 독점적 지위를 갖고 있어 직접적인 수혜가 예상됩니다. 글로벌 에너지 안보 이슈가 부각되면서 LNG 운반선 발주가 크게 늘어날 전망이며, 이는 동사의 실적 개선으로 직결될 것으로 분석됩니다.</p>
             </div>
             <div class="hidden-potential">
                 <strong>🚀 향후 전망</strong>
-                <p>AI 반도체 시장 확산과 함께 검사장비 수요가 기하급수적으로 증가할 전망입니다. 글로벌 반도체 업체들의 품질 관리 강화로 고정밀 검사장비에 대한 니즈가 더욱 커질 것으로 예상됩니다.</p>
+                <p>전 세계적인 LNG 수요 증가와 에너지 전환 정책으로 향후 수년간 LNG선 발주 증가가 예상됩니다. 특히 아시아 지역의 LNG 도입 확대로 중장기 성장 동력이 탄탄합니다.</p>
             </div>
-            <div class="catalyst"><strong>📈 촉매:</strong> AI 반도체 검사장비 시장 확대와 기술 경쟁력</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> 반도체 시장 변동성과 대형 고객사 의존도</div>
+            <div class="catalyst"><strong>📈 촉매:</strong> LNGC 호황과 LNG 운송 수요 급증</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 원자재 가격 상승과 경쟁 심화</div>
         </div>
         <div class="hidden-card">
             <div class="hidden-header">
                 <div class="stock-rank">#2</div>
-                <div class="stock-name">엔비알모션</div>
+                <div class="stock-name">장금상선</div>
                 <span class="hidden-badge">💎 히든 픽</span>
-                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 매수추천</span>
+                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 긍정전망</span>
             </div>
-            <div class="hidden-source"><a href="https://finance.naver.com/research/company_read.naver?nid=91075&page=1" target="_blank" class="reason-source">신한투자증권</a> </div>
-            <div class="hidden-desc">로봇용 모션 컨트롤러 및 자동화 솔루션 전문기업으로 제조업 자동화 트렌드의 핵심 수혜주입니다.</div>
+            <div class="hidden-source"><a href="https://www.youtube.com/watch?v=SJwLC8rdEuY" target="_blank" class="reason-source">KBS 경제한방</a> </div>
+            <div class="hidden-desc">벌크 및 컨테이너 해운업을 영위하는 해운사입니다. 중동 전쟁으로 인한 해운 물동량 증가와 운임료 상승의 수혜를 받고 있습니다.</div>
             <div class="hidden-reason">
                 <strong>🔍 추천 사유</strong>
-                <p>신한투자증권은 '설명할 시간 없어, 빨리 타(feat. 로봇)'라는 강력한 제목의 리포트를 통해 엔비알모션에 대한 적극적인 투자 의견을 제시했습니다. 글로벌 제조업 자동화 가속화와 휴머노이드 로봇 시장 개화를 앞두고 모션 컨트롤 기술의 중요성이 급부상하고 있다고 분석했습니다. 동사의 기술력과 고객 기반을 고려할 때 로봇 시대의 핵심 부품 공급업체로 성장할 가능성이 매우 높다고 평가했습니다.</p>
+                <p>중동 전쟁과 호르무즈 해협 긴장으로 해상 운송 경로가 우회되면서 운임료가 상승하고 있습니다. 장금상선은 이러한 지정학적 리스크 상황에서 뜻밖의 수혜를 받는 대표적인 해운사로 부각되고 있습니다. 전쟁이 장기화될수록 대체 운송 경로 수요가 늘어나며, 이는 해운업계 전반에 호재로 작용하고 있습니다.</p>
             </div>
             <div class="hidden-potential">
                 <strong>🚀 향후 전망</strong>
-                <p>휴머노이드 로봇 상용화가 본격화되면서 정밀 모션 컨트롤 시장이 폭발적으로 성장할 전망입니다. 제조업 스마트팩토리 구축 가속화도 추가 성장 동력이 될 것입니다.</p>
+                <p>글로벌 공급망 불안정성이 지속되면서 해운업체들의 수익성이 크게 개선될 전망입니다. 특히 아시아-유럽 항로의 우회 운송 증가로 추가 수익 창출이 가능합니다.</p>
             </div>
-            <div class="catalyst"><strong>📈 촉매:</strong> 로봇 시장 확산과 제조업 자동화 가속화</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> 기술 변화 속도와 대형 경쟁사 진입 위험</div>
+            <div class="catalyst"><strong>📈 촉매:</strong> 중동 전쟁 장기화와 해운 운임료 상승</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 유가 상승으로 인한 연료비 부담 증가</div>
         </div>
         <div class="hidden-card">
             <div class="hidden-header">
                 <div class="stock-rank">#3</div>
-                <div class="stock-name">SGC에너지</div>
+                <div class="stock-name">한국콜마</div>
                 <span class="hidden-badge">💎 히든 픽</span>
-                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 매수추천</span>
+                <span class="signal-badge" style="color:#27ae60;background:rgba(81,207,102,0.1)">🟢 긍정전망</span>
             </div>
-            <div class="hidden-source"><a href="https://finance.naver.com/research/company_read.naver?nid=91077&page=1" target="_blank" class="reason-source">SK증권</a> </div>
-            <div class="hidden-desc">에너지 솔루션 전문기업으로 최근 데이터센터 신사업 진출로 새로운 성장 동력을 확보하고 있습니다.</div>
+            <div class="hidden-source"><a href="https://www.youtube.com/watch?v=idUBuXM4RTA" target="_blank" class="reason-source">머니투데이 방송</a> <span class="panelist-badge">🎙 이동근</span></div>
+            <div class="hidden-desc">화장품 ODM 전문 기업으로 K-뷰티 글로벌 확산의 핵심 수혜 기업입니다. 해외 시장 확대에 따른 수요 증가로 주목받고 있습니다.</div>
             <div class="hidden-reason">
                 <strong>🔍 추천 사유</strong>
-                <p>SK증권은 'SGC에너지 데이터센터 신사업이 여는 성장의 문'이라는 제목으로 동사의 새로운 성장 스토리를 조명했습니다. AI 시대 도래로 데이터센터 수요가 급증하면서 관련 에너지 인프라 시장도 함께 성장하고 있다고 분석했습니다. SGC에너지가 기존 에너지 사업 노하우를 바탕으로 데이터센터 에너지 솔루션 시장에 본격 진출하면서 새로운 수익 창출 기회를 확보했다고 평가했습니다. 특히 정부의 K-클라우드 정책과도 부합해 정책적 지원도 기대된다고 분석했습니다.</p>
+                <p>K-뷰티의 글로벌 확산과 해외 시장 확대로 화장품 ODM 수요가 크게 증가하고 있습니다. 한국콜마는 기술력과 품질에서 경쟁 우위를 갖고 있어 글로벌 브랜드들의 수주가 늘어나고 있습니다. 특히 중국과 동남아 시장에서의 K-뷰티 인기가 지속되면서 중장기 성장 모멘텀이 탄탄한 상황입니다. 분할 매수 전략이 유효하다고 전문가들이 평가하고 있습니다.</p>
             </div>
             <div class="hidden-potential">
                 <strong>🚀 향후 전망</strong>
-                <p>국내 데이터센터 시장이 연평균 15% 이상 성장할 것으로 전망되며, 에너지 효율성이 핵심 경쟁 요소로 부상하고 있습니다. SGC에너지의 기술력과 경험을 바탕으로 시장 점유율 확대가 기대됩니다.</p>
+                <p>아시아를 넘어 유럽, 미주 지역까지 K-뷰티 확산이 이어지면서 ODM 사업의 글로벌 확장이 가속화될 전망입니다. ESG 경영과 친환경 제품 개발로 차별화된 경쟁력을 확보하고 있습니다.</p>
             </div>
-            <div class="catalyst"><strong>📈 촉매:</strong> 데이터센터 시장 확산과 에너지 효율화 니즈 증가</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> 데이터센터 투자 둔화와 경쟁 심화 위험</div>
+            <div class="catalyst"><strong>📈 촉매:</strong> K-뷰티 글로벌 확산과 ODM 수주 증가</div>
+            <div class="risk"><strong>⚠️ 리스크:</strong> 원자재 가격 상승과 환율 변동성</div>
         </div>
         </div>
 
         <div class="insight">
             <h2>🧠 AI 교차분석 인사이트</h2>
-            <div class="insight-content">오늘 4개 채널 분석 결과, 국내 증시는 구글의 터보퀀트 기술 발표와 미국-이란 전쟁 장기화라는 이중 악재에 직면해 있습니다. 특히 삼성전자와 SK하이닉스 등 메모리 반도체주가 모든 채널에서 동시에 언급되며 시장의 핵심 관심사로 부상했습니다. 흥미로운 점은 단기 충격론과 중장기 기회론이 공존하고 있다는 것입니다. 경제방송과 유튜버들은 구글 쇼크의 일시적 성격을 강조하며 저가 매수 기회로 해석하는 반면, 애널리스트들은 보다 신중한 접근을 제시하고 있습니다. 섹터별로는 반도체 조정과 대조적으로 바이오·제약 섹터가 강세를 보이며 자금 이동 현상이 뚜렷합니다. 삼천당제약, 알테오젠 등이 대표적인 수혜주로 부각되고 있으며, 이는 포트폴리오 다각화 니즈를 반영한 것으로 분석됩니다. 중동 전쟁 리스크는 유가 상승을 통해 에너지·화학주에는 호재로, 운송·항공주에는 악재로 작용하는 양면성을 보이고 있습니다. 외국인 매도세가 지속되면서 개인 투자자들은 단기 변동성 확대에 대비해야 하며, 특히 레버리지 투자는 신중히 접근할 필요가 있습니다. 향후 주목할 테마로는 AI 효율화 기술 확산에 따른 새로운 수혜주 발굴과 로봇·자동화 관련주의 부상이 예상됩니다.</div>
+            <div class="insight-content">오늘 한국 증시는 구글의 터보퀀트 기술 발표와 중동 전쟁 장기화라는 두 가지 대형 악재가 동시에 충돌하면서 극심한 변동성을 보였습니다. 4개 채널 모두에서 공통적으로 주목한 삼성전자와 SK하이닉스는 터보퀀트 충격으로 급락했지만, 전문가들은 이를 과도한 우려로 판단하며 오히려 매수 기회로 평가하고 있습니다. 특히 개인투자자들이 2.7조원을 순매수하며 외국인의 3조원 매도에 맞서는 양상이 뚜렷하게 나타났습니다. 
+
+현재 시장에서는 단기 충격보다는 중장기 펀더멘털을 중시하는 투자 심리가 형성되고 있습니다. AI 반도체 수요의 구조적 증가 트렌드는 변하지 않는다는 판단 하에, 기술적 조정 국면을 매수 기회로 활용하려는 움직임이 강합니다. 섹터 순환 측면에서는 반도체 조정과 함께 에너지, 방산, 해운 등 지정학적 리스크 수혜 섹터로 자금이 이동하고 있습니다.
+
+개인투자자들은 현재의 하락을 '초특가 세일'로 인식하고 적극적인 매수에 나서고 있지만, 중동 전쟁 장기화에 따른 인플레이션 재점화 리스크와 환율 상승 압박을 주의해야 합니다. 단기 트레이딩 관점에서는 변동성이 극도로 높은 상황이므로 분할 매수와 리스크 관리가 필수적이며, 중장기 투자자들에게는 우량주 저가 매수의 기회가 될 수 있습니다.</div>
         </div>
 
         <div class="disclaimer">본 브리핑은 AI가 자동 생성한 참고자료이며, 투자 판단의 책임은 본인에게 있습니다.</div>
