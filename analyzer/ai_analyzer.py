@@ -88,7 +88,7 @@ def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo="")
       }},
       "catalyst": "주요 상승 촉매/모멘텀",
       "risk": "주의해야 할 리스크",
-      "signal": "매수추천/중립/매도추천 중 하나"
+      "signal": "긍정전망/중립/부정전망 중 하나"
     }}
   ],
   "hidden_picks": [
@@ -103,7 +103,7 @@ def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo="")
       "future_potential": "향후 성장 가능성과 시장 전망 분석 2~3문장",
       "catalyst": "핵심 상승 촉매",
       "risk": "주의할 리스크",
-      "signal": "매수추천/중립/매도추천 중 하나"
+      "signal": "긍정전망/중립/부정전망 중 하나"
     }}
   ],
   "overlap_analysis": "여기에 매우 상세한 교차분석 인사이트를 작성해주세요. 최소 400자 이상으로 다음 내용을 포함하세요: (1) 오늘 4개 채널에서 공통적으로 주목하는 종목과 그 이유 분석, (2) 현재 시장에서 형성되고 있는 투자 심리와 자금 흐름의 방향, (3) 섹터별 순환매 패턴과 향후 주목할 테마 전망, (4) 개인 투자자가 오늘 주의해야 할 리스크 요인과 대응 전략, (5) 단기 트레이딩 관점에서의 시사점과 중장기 투자자에게 주는 메시지. 구체적인 종목명과 수치를 포함하여 실질적인 투자 참고가 되도록 작성하세요.",
@@ -117,7 +117,7 @@ def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo="")
 4. 각 채널에서 언급되지 않았으면 해당 reasons는 빈 객체로 두세요.
 5. 최소 5개 ~ 최대 20개 종목을 stocks에 추출하세요.
 6. reasons의 link는 반드시 수집 데이터에 있는 실제 URL을 사용하세요.
-7. signal은 반드시 "매수추천", "중립", "매도추천" 중 하나만 사용하세요.
+7. signal은 반드시 "긍정전망", "중립", "부정전망" 중 하나만 사용하세요.
 8. description에는 해당 기업의 사업 내용과 최근 핵심 이슈를 포함하세요.
 9. price_trend에는 최근 주가 흐름, 시장 대비 강약, 거래량 변화 등을 포함하세요.
 10. overlap_analysis는 반드시 400자 이상 상세하게 작성하세요.
@@ -180,9 +180,9 @@ def generate_html(data, channels_data=None, gh_repo=""):
             badge_color = "#95a5a6"; badge_label = "1채널 언급"
 
         signal = stock.get("signal", "중립")
-        if signal == "매수추천":
+        if signal == "긍정전망":
             sig_color = "#27ae60"; sig_icon = "🟢"; sig_bg = "rgba(81,207,102,0.1)"
-        elif signal == "매도추천":
+        elif signal == "부정전망":
             sig_color = "#e74c3c"; sig_icon = "🔴"; sig_bg = "rgba(255,107,107,0.1)"
         else:
             sig_color = "#f39c12"; sig_icon = "🟡"; sig_bg = "rgba(255,169,77,0.1)"
@@ -243,9 +243,9 @@ def generate_html(data, channels_data=None, gh_repo=""):
     hidden_html = ""
     for pick in data.get("hidden_picks", []):
         signal = pick.get("signal", "중립")
-        if signal == "매수추천":
+        if signal == "긍정전망":
             sig_color = "#27ae60"; sig_icon = "🟢"; sig_bg = "rgba(81,207,102,0.1)"
-        elif signal == "매도추천":
+        elif signal == "부정전망":
             sig_color = "#e74c3c"; sig_icon = "🔴"; sig_bg = "rgba(255,107,107,0.1)"
         else:
             sig_color = "#f39c12"; sig_icon = "🟡"; sig_bg = "rgba(255,169,77,0.1)"
