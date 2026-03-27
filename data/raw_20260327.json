@@ -90,7 +90,7 @@
   {
     "source_type": "뉴스",
     "source_name": "매일경제",
-    "title": "[단독] 서울 최대 실버타운, KB가 짓는다…금융권 판 커지는 요양원 대전",
+    "title": "[단독] 금융권 판 커지는 요양원 대전…KB가 서울 최대 규모로 짓는다",
     "summary": "새 먹거리로 떠오른 요양원  KB, 송파에 정원 350명 규모 2028년 하반기에 개원 목표  신한도 은평·송파·해운대 등 3곳 2030년까지 추가 개설  초고령사회 요양수요 크고..",
     "link": "https://www.mk.co.kr/news/economy/12000604",
     "published": "2026-03-27T08:43:08"
@@ -238,6 +238,22 @@
     "summary": "주총서 기술 로드맵 공개 테슬라 수준 차량 실전 도입현대자동차그룹이 연내 제네시스 ‘G90’ 부분변경(페이스리프트) 모델부터 ‘레벨 2+’ 자율주행 기술을 적용한다. 최근 테슬라가..",
     "link": "https://www.mk.co.kr/news/economy/11999880",
     "published": "2026-03-26T21:22:44"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스 경제",
+    "title": "[BlaccTV] 유조트럭에 90도로 끌려간 승용차…설상가상 날아간 재판권",
+    "summary": "(서울=연합뉴스) 유조트럭이 옆 차선을 달리던 승용차를 들이받고 밀고 가는 아찔한 사고가 발생했습니다.",
+    "link": "https://www.yna.co.kr/view/AKR20260327160700797",
+    "published": "2026-03-27T09:46:27"
+  },
+  {
+    "source_type": "뉴스",
+    "source_name": "연합뉴스 경제",
+    "title": "알에프텍, 70억원 유상증자…나디아 신기술조합 제68호에 제3자배정",
+    "summary": "(서울=연합뉴스) 코스닥 상장사 알에프텍[061040]은 운영자금 약 70억원을 조달하고자 제3자배정 유상증자를 결정했다고 27일 공시했다.",
+    "link": "https://www.yna.co.kr/view/AKR20260327158900008",
+    "published": "2026-03-27T09:29:57"
   },
   {
     "source_type": "뉴스",
@@ -464,20 +480,20 @@
     "published": "2026-03-27T06:33:09"
   },
   {
-    "source_type": "뉴스",
-    "source_name": "연합뉴스 경제",
-    "title": "동해해경청, 경비함정 유류 절감 대응…전기 추진 장비 활용",
-    "summary": "(동해=연합뉴스) 유형재 기자 = 동해지방해양경찰청은 최근 중동 지역 전쟁 장기화에 따른 국제유가 상승에 대응하고자 경비함정 유류 통제 1단계(...",
-    "link": "https://www.yna.co.kr/view/AKR20260327120300062",
-    "published": "2026-03-27T06:31:54"
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "[투자의 재발견] 연금 고민, 노후 걱정, 수익률을 한 번에! 노후를 위한 연금계좌 필승 투자 전략  / 심경민 미래에셋증권 팀장, 임규순 미래에셋증권 수석 매니저 | 03.27",
+    "summary": "etf #투자의재발견 #한국경제tv 여러분들은 투자, 어디까지 해보셨습니까? 돈이 없어서 문제지, 투자할 곳은 의외로 많습니다!",
+    "link": "https://www.youtube.com/watch?v=fG4Z2ogTbPU",
+    "published": "2026-03-27T10:07:16Z"
   },
   {
-    "source_type": "뉴스",
-    "source_name": "연합뉴스 경제",
-    "title": "[외환] 원/달러 환율 1.9원 오른 1,508.9원(15:30 종가)",
-    "summary": "(",
-    "link": "https://www.yna.co.kr/view/AKR20260327120700002",
-    "published": "2026-03-27T06:30:32"
+    "source_type": "경제방송",
+    "source_name": "한국경제TV",
+    "title": "[킥] 메모리 흔들려도 왜 삼성인가 | 신창환 고려대학교 전기전자공학부 교수",
+    "summary": "삼성 파운드리의 반격 이번엔 '진짜'인가 AI 반도체 시장이 폭발적으로 성장하는 가운데 굳건했던 TSMC의 독주 체제에 균열 조짐이 ...",
+    "link": "https://www.youtube.com/watch?v=JqREnXE6_HQ",
+    "published": "2026-03-27T09:30:00Z"
   },
   {
     "source_type": "경제방송",
@@ -577,19 +593,11 @@
   },
   {
     "source_type": "경제방송",
-    "source_name": "한국경제TV",
-    "title": "중동 리스크 3가지 시나리오, 지금 이렇게 대응하세요 | 박세익 체슬리투자자문 대표",
-    "summary": "출발증시 앵커 : 하경민 출연자: 박세익 체슬리투자자문 대표 #중동전쟁 #이란사태 #OECD #연준 #FOMC #에너지인플레이션 ...",
-    "link": "https://www.youtube.com/watch?v=hbviSFghy2w",
-    "published": "2026-03-27T01:32:52Z"
-  },
-  {
-    "source_type": "경제방송",
-    "source_name": "한국경제TV",
-    "title": "전쟁 끝? 이제는 &#39;돈&#39;이 움직입니다 | 감은숙의 &#39;계좌 역전&#39; 260326",
-    "summary": "주식투자 #종목상담 #증권방송 #한국경제TV ⏰한국경제TV 와우넷｜감은숙파트너 ✓매주 목요일 밤 8시｜장 끝나고 시작되는 진짜 ...",
-    "link": "https://www.youtube.com/watch?v=0jVzGySH1wM",
-    "published": "2026-03-27T00:18:36Z"
+    "source_name": "SBS Biz",
+    "title": "[이슈체크] &#39;美 1만명 vs 이란 100만명&#39;…앞에선 협상, 뒤에선 지상군 집결, 확전으로 번지나?",
+    "summary": "[이슈체크] 앞에선 협상, 뒤에선 전쟁 준비하는 미국-이란…확전으로 번지나? - 백승훈 한국외대 중동연구소 전임연구원 ◇ 경제현장 ...",
+    "link": "https://www.youtube.com/watch?v=mJLYw_wDWtU",
+    "published": "2026-03-27T09:19:03Z"
   },
   {
     "source_type": "경제방송",
@@ -665,51 +673,27 @@
   },
   {
     "source_type": "경제방송",
-    "source_name": "SBS Biz",
-    "title": "[뉴욕증시 전략] 美, 이란 공격 연기…&#39;불확실성&#39; 속 시장 촉각",
-    "summary": "머니쇼+ '뉴욕증시 전략' - 안자은 ◇ 머니쇼 플러스 (월~금) 15:30~16:45 홈페이지 바로가기: ...",
-    "link": "https://www.youtube.com/watch?v=T6K7UaecDQo",
-    "published": "2026-03-27T07:53:32Z"
+    "source_name": "머니투데이 방송(MTN)",
+    "title": "[에디터 PICK] &quot;삼성전자 18조 던진 외국인, &#39;이곳&#39;은 몰래 샀다? 코스닥 반등의 실체&quot; / 머니투데이방송 (증시, 증권)",
+    "summary": "[에디터 한줄평] “지금 반도체 아닙니다… 돈은 이미 '이쪽'으로 이동 중” 삼성전자가 주춤하는 사이, 외국인의 자금은 이미 '이곳'으로 ...",
+    "link": "https://www.youtube.com/watch?v=X2Otl2sysKg",
+    "published": "2026-03-27T09:50:04Z"
   },
   {
     "source_type": "경제방송",
-    "source_name": "SBS Biz",
-    "title": "[애프터마켓 브리핑] 개인 2.7조원 또 &#39;폭풍&#39; 매수…또 &#39;롤러코스피&#39;",
-    "summary": "머니쇼+ '애프터마켓 브리핑' - 김유민 ◇ 머니쇼 플러스 (월~금) 15:30~16:45 홈페이지 바로가기: ...",
-    "link": "https://www.youtube.com/watch?v=PrsrFAD4t_I",
-    "published": "2026-03-27T07:54:10Z"
+    "source_name": "머니투데이 방송(MTN)",
+    "title": "[K디펜스] KF-21 &#39;시작은 조롱&#39;..마침내 세계시장 향해 &#39;위대한 이륙&#39; / 머니투데이방송",
+    "summary": "\"대한민국이 전투기를 만든다고?\" 한때 우리의 비전은 조롱의 대상이었습니다. 하지만 지금 대한민국의 최신예 전투기가 실제로 영공 ...",
+    "link": "https://www.youtube.com/watch?v=rKlJtD_erzI",
+    "published": "2026-03-27T09:30:00Z"
   },
   {
     "source_type": "경제방송",
-    "source_name": "SBS Biz",
-    "title": "[투자의 날 (刃)] &#39;터보퀀트 충격&#39; 소화해내는 국내 반도체",
-    "summary": "머니쇼+ '투자의 날 (刃)' - 강성호 ◇ 머니쇼 플러스 (월~금) 15:30~16:45 홈페이지 바로가기: ...",
-    "link": "https://www.youtube.com/watch?v=c3tLdOfDkSc",
-    "published": "2026-03-27T07:52:54Z"
-  },
-  {
-    "source_type": "경제방송",
-    "source_name": "SBS Biz",
-    "title": "외국인 3.8조 매도 폭탄…코스피 이틀째 &#39;흔들&#39; [SBS Biz News 18]",
-    "summary": "NEWS 18 (월~금) 17:55~18:25 홈페이지 바로가기: https://programs.sbs.co.kr/sbsbiz/news18.",
-    "link": "https://www.youtube.com/watch?v=acDrUQHul5A",
-    "published": "2026-03-27T07:50:39Z"
-  },
-  {
-    "source_type": "경제방송",
-    "source_name": "SBS Biz",
-    "title": "[머니숏] &quot;조정 나왔을 때가 기회&quot; 지금 놓치면 안되는 3박자",
-    "summary": "[머니쇼] #구글 #터보퀀트 #반도체 #hbm #d램 #낸드 #파운드리 #삼성전자 #sk하이닉스 #메모리 #사이드카 #셀코리아 #증권가 ...",
-    "link": "https://www.youtube.com/watch?v=7ceKyn0Ku9o",
-    "published": "2026-03-27T06:51:13Z"
-  },
-  {
-    "source_type": "경제방송",
-    "source_name": "SBS Biz",
-    "title": "[머니숏] 외국인 수급보다 중요하다 &quot;국내증시 올라오려면..&quot;",
-    "summary": "[머니쇼] #구글 #터보퀀트 #반도체 #hbm #d램 #낸드 #파운드리 #삼성전자 #sk하이닉스 #메모리 #사이드카 #셀코리아 #증권가 ...",
-    "link": "https://www.youtube.com/watch?v=LAe9mJuA16w",
-    "published": "2026-03-27T06:51:49Z"
+    "source_name": "머니투데이 방송(MTN)",
+    "title": "AI 등 산업용 수요 확대… &#39;은&#39; ETF 뜬다 / 머니투데이방송 (뉴스)",
+    "summary": "03/27 MTN 핫라인 5 은은 산업 수요와 투자 수요가 결합된 자산으로 알려져 있습니다. 최근 AI 수요와 맞물려 은에 대한 활용도가 급증 ...",
+    "link": "https://www.youtube.com/watch?v=vf5_OPvoNts",
+    "published": "2026-03-27T08:42:50Z"
   },
   {
     "source_type": "경제방송",
@@ -761,43 +745,19 @@
   },
   {
     "source_type": "경제방송",
-    "source_name": "머니투데이 방송(MTN)",
-    "title": "[내 수익을 부탁해] 오늘의  테마 &#39;화장품&#39; vs &#39;방산&#39;/ 머니투데이방송 (증시, 증권)",
-    "summary": "03/27 내 수익을 부탁해 ▷ YouTube '내 수익을 부탁해' ...",
-    "link": "https://www.youtube.com/watch?v=57MirLK-UU8",
-    "published": "2026-03-27T08:01:13Z"
-  },
-  {
-    "source_type": "경제방송",
-    "source_name": "머니투데이 방송(MTN)",
-    "title": "[에디터 PICK] &quot;안 먹고는 못 배길걸?&quot; 비만치료제 판도 바꿀 RNA, 제2의 알테오젠은 누구? / 머니투데이방송 (증시, 증권)",
-    "summary": "[에디터 한줄평] \"단순 신약을 넘어 확장성이 무궁무진한 '플랫폼' 기술의 시대입니다. 알테오젠과 삼천당제약이 증명한 재형 변경의 ...",
-    "link": "https://www.youtube.com/watch?v=Fl6pFs7KKP4",
-    "published": "2026-03-27T07:36:58Z"
-  },
-  {
-    "source_type": "경제방송",
-    "source_name": "머니투데이 방송(MTN)",
-    "title": "[오늘의 단서, 내일의 섹터] 존재감 드러내는 바이오 아직 기회 남은 &#39;이 종목&#39;  / 머니투데이방송 (증시, 증권)",
-    "summary": "03/27 성공! 마감전략 진행 : 이화선 앵커 출연 : 김민수 / 레몬리서치 대표 오늘의 단서 #1. '봄바람 솔솔' 슬슬 몸 푸는 여행·카지노?",
-    "link": "https://www.youtube.com/watch?v=hlKjmgyPSNg",
-    "published": "2026-03-27T07:20:30Z"
-  },
-  {
-    "source_type": "경제방송",
-    "source_name": "머니투데이 방송(MTN)",
-    "title": "[마감 스퍼트] 해외시장 확대 따른 K-뷰티 수요 증가 수혜 한국콜마 &quot;분할 매수 유효&quot;/ 머니투데이방송 (증시, 증권)",
-    "summary": "03/27 성공! 마감전략 진행 : 이화선 앵커 (출연) 이동근 / 퍼스트프라임리서치 대표, (출연) 윤혜림 / 온리윤컨설팅 대표 Q. 기술이전 ...",
-    "link": "https://www.youtube.com/watch?v=idUBuXM4RTA",
-    "published": "2026-03-27T07:20:28Z"
-  },
-  {
-    "source_type": "경제방송",
     "source_name": "KBS 1라디오(성공예감 이대호)",
     "title": "[성기영의 경제쇼] 풀영상 - 코스피, 전쟁 불확실성 극복...막판 상승 전환 外ㅣKBS 260327 방송",
     "summary": "2026년 3월 27일 성기영의 경제쇼 KBS 1 Radio1 FM 97.3MHz 월~금 16:05-16:55 경제 뉴스 브리핑 - 코스피, 전쟁 불확실성 극복.",
     "link": "https://www.youtube.com/watch?v=qwYwC4Wk9MI",
     "published": "2026-03-27T08:03:33Z"
+  },
+  {
+    "source_type": "경제방송",
+    "source_name": "KBS 1라디오(성공예감 이대호)",
+    "title": "🔴[열린토론] BTS 광화문 공연이 남긴 것 | KBS 260327 방송",
+    "summary": "토론 1. BTS 광화문 공연이 남긴 것 - 'K컬처의 힘' BTS 컴백이 가져온 경제효과? - 민간 행사에 공권력 남용 논란...BTS공연의 명암 ...",
+    "link": "https://www.youtube.com/watch?v=G6x-4efCc0I",
+    "published": "2026-03-27T08:03:20Z"
   },
   {
     "source_type": "경제방송",
@@ -856,20 +816,13 @@
     "published": "2026-03-27T02:37:52Z"
   },
   {
-    "source_type": "경제방송",
-    "source_name": "KBS 1라디오(성공예감 이대호)",
-    "title": "[성공예감 이대호입니다] 1부 풀영상｜미국 가는 하이닉스…AI 경쟁력 vs 주주가치 희석｜중동발 에너지 비상｜타이밍부터 내부 관리까지, 세차의 모든 것｜KBS 260327 방송",
-    "summary": "2026년 3월 27일 [성공예감 이대호입니다] KBS 1 Radio1 FM 97.3MHz 월~금 09:05-10:53 1부 *원탁의 기자들 미국 가는 하이닉스…",
-    "link": "https://www.youtube.com/watch?v=B8BxoY0ZnvQ",
-    "published": "2026-03-27T01:03:05Z"
-  },
-  {
-    "source_type": "경제방송",
-    "source_name": "KBS 1라디오(성공예감 이대호)",
-    "title": "[전격시사] 풀버전-여권 100여 명, &#39;조희대 탄핵안&#39; 서명…탄핵 이유는?+국힘 대구 공천 &#39;혼란&#39;, 주호영 가처분 신청…전망은? 外 | KBS 260327 방송",
-    "summary": "1부 [뉴스브리핑] 트럼프 \"4월 6일까지 이란발전소 안 때린다\"…중동사태 전망?-이현미 세계일보 기자 [이 시각 증시 따라잡기] 美 증시, ...",
-    "link": "https://www.youtube.com/watch?v=cVmxHN4DKwo",
-    "published": "2026-03-27T00:01:58Z"
+    "source_type": "유튜버",
+    "source_name": "김작가 TV",
+    "title": "삼성전자 &#39;이때는&#39; 사고 파세요, 그냥 사놓고 기다리면 큰돈 잃는다 (무극선생 이승조)",
+    "summary": "삼성전자 '이때는' 사고 파세요, 그냥 사놓고 기다리면 큰돈 잃는다 (무극선생 이승조 1부) - 촬영일시: 3월 24일 김작가 저서 『머니 ...",
+    "link": "https://www.youtube.com/watch?v=8ii2ClqY7cc",
+    "published": "2026-03-27T10:00:10Z",
+    "panelists": []
   },
   {
     "source_type": "유튜버",
@@ -891,15 +844,6 @@
   },
   {
     "source_type": "유튜버",
-    "source_name": "김작가 TV",
-    "title": "주식시장 조정받고 있는 지금, 반드시 &#39;이 주식만&#39; 사모으세요 (슈퍼개미 이정윤 세무사)",
-    "summary": "주식시장 조정받고 있는 지금, 반드시 '이 주식만' 사모으세요 (슈퍼개미 이정윤 세무사 2부) - 촬영일시: 3월 25일 4/5(일) 슈퍼개미 ...",
-    "link": "https://www.youtube.com/watch?v=1YhYkRez0ac",
-    "published": "2026-03-26T10:00:03Z",
-    "panelists": []
-  },
-  {
-    "source_type": "유튜버",
     "source_name": "KBS 경제한방",
     "title": "중동 전쟁에 웃는 해운사? 장금상선 전략과 흥아해운 급등의 배경",
     "summary": "본 영상은 3월 25일 녹화본입니다. 시청에 참고하시기 바랍니다. 중동 전쟁과 호르무즈 해협 긴장 속에서 뜻밖의 승자가 등장했다.",
@@ -909,15 +853,6 @@
   },
   {
     "source_type": "유튜버",
-    "source_name": "채부심",
-    "title": "서울, 공시가격 상승에도 끄떡없었다. 국토부는 일 하십시다. ",
-    "summary": "[채상욱의 머니버스] 머니버스 운전기삽니다. 얼른 탑승하세요 1억으로 평생월급 만드는 전략과 전술 대방출 http://bit.ly/46ux77C ...",
-    "link": "https://www.youtube.com/watch?v=Q9OTGUfTJZI",
-    "published": "2026-03-26T09:30:10Z",
-    "panelists": []
-  },
-  {
-    "source_type": "유튜버",
     "source_name": "체슬리TV",
     "title": "“두고보세요, 연내 코스피 6천대 후반갑니다”…운용사 본부장, 호언장담 배경 들어보니",
     "summary": "[주식으로 부자 됩시다] 신간 서적 신청: [예스24] https://vo.la/ZhxvZDw [교보문고] https://vo.la/Xzd67Js □ [체슬리인턴] 오피셜멤버십 ...",
@@ -947,17 +882,6 @@
   },
   {
     "source_type": "유튜버",
-    "source_name": "체슬리TV (패널: 박세익)",
-    "title": "겨우 조금 샀는데 헐값에 팔겠다고요?  #박세익",
-    "summary": "[주식으로 부자 됩시다] 신간 서적 신청 [예스24] https://vo.la/ZhxvZDw [교보문고] https://vo.la/Xzd67Js 2026 03 10 워매신박 #박세익 ...",
-    "link": "https://www.youtube.com/watch?v=UjruTgs9riA",
-    "published": "2026-03-26T10:00:45Z",
-    "panelists": [
-      "박세익"
-    ]
-  },
-  {
-    "source_type": "유튜버",
     "source_name": "박세익 체슬리",
     "title": "“두고보세요, 연내 코스피 6천대 후반갑니다”…운용사 본부장, 호언장담 배경 들어보니",
     "summary": "[주식으로 부자 됩시다] 신간 서적 신청: [예스24] https://vo.la/ZhxvZDw [교보문고] https://vo.la/Xzd67Js □ [체슬리인턴] 오피셜멤버십 ...",
@@ -984,72 +908,6 @@
     "link": "https://www.youtube.com/watch?v=gP_m9zGp_zI",
     "published": "2026-03-27T00:54:44Z",
     "panelists": []
-  },
-  {
-    "source_type": "유튜버",
-    "source_name": "박세익 체슬리 (패널: 박세익)",
-    "title": "겨우 조금 샀는데 헐값에 팔겠다고요?  #박세익",
-    "summary": "[주식으로 부자 됩시다] 신간 서적 신청 [예스24] https://vo.la/ZhxvZDw [교보문고] https://vo.la/Xzd67Js 2026 03 10 워매신박 #박세익 ...",
-    "link": "https://www.youtube.com/watch?v=UjruTgs9riA",
-    "published": "2026-03-26T10:00:45Z",
-    "panelists": [
-      "박세익"
-    ]
-  },
-  {
-    "source_type": "유튜버",
-    "source_name": "홍춘욱의 경제강의노트 (패널: 홍춘욱)",
-    "title": "에너지 충격 공포 확산, 한국 증시 지금 사도 될까요? (홍춘욱 박사)",
-    "summary": "홍춘욱 박사는〈홍춘욱의 경제강의노트〉단 하나의 유튜브 채널만 운영하고 있습니다. 최근 늘어나고 있는 사칭 계정으로 인한 피해 ...",
-    "link": "https://www.youtube.com/watch?v=ulAjgX7l_GM",
-    "published": "2026-03-27T01:55:05Z",
-    "panelists": [
-      "홍춘욱"
-    ]
-  },
-  {
-    "source_type": "유튜버",
-    "source_name": "한국경제TV (패널: 박세익)",
-    "title": "중동 리스크 3가지 시나리오, 지금 이렇게 대응하세요 | 박세익 체슬리투자자문 대표",
-    "summary": "출발증시 앵커 : 하경민 출연자: 박세익 체슬리투자자문 대표 #중동전쟁 #이란사태 #OECD #연준 #FOMC #에너지인플레이션 ...",
-    "link": "https://www.youtube.com/watch?v=hbviSFghy2w",
-    "published": "2026-03-27T01:32:52Z",
-    "panelists": [
-      "박세익"
-    ]
-  },
-  {
-    "source_type": "유튜버",
-    "source_name": "정치인사이드 (패널: 곽상준)",
-    "title": "곽상준 뉴스하이킥 | 권순표 뉴스하이킥 곽상준 | 미국 이란 전쟁 주식 | 삼성전자 주가 전망",
-    "summary": "곽상준#개미투자자 #경제뉴스 #shorts.",
-    "link": "https://www.youtube.com/watch?v=enuT9qyvemw",
-    "published": "2026-03-26T13:40:44Z",
-    "panelists": [
-      "곽상준"
-    ]
-  },
-  {
-    "source_type": "유튜버",
-    "source_name": "한경 글로벌마켓 (패널: 김현석)",
-    "title": "[김현석의 월스트리트나우-3월27일] 선택지 없는 트럼프 &quot;공격 열흘 더 연기&quot;, 마이크론 무너질 땐 답 없다",
-    "summary": "미국주식 #월스트리트나우 #한경글로벌마켓 #김현석 #뉴욕증시 #고용 #채권 #금리 #달러 ☕커피 한 잔 가격으로 밀리의서재까지!",
-    "link": "https://www.youtube.com/watch?v=4pU5E-wBJ28",
-    "published": "2026-03-26T22:22:09Z",
-    "panelists": [
-      "김현석"
-    ]
-  },
-  {
-    "source_type": "유튜버",
-    "source_name": "시그널 경제분석실 (패널: 이창용)",
-    "title": "이창용 나쁘다.#shorts #shortvideo #short #shortsvideo #shortsviral",
-    "summary": "미국주식, 한국주식 전문 경제 유튜버 실시간 경제시황, 금리, 환율, 증시전망, 투자전략 #차트분석 #종목분석 #주식 #경제 #메타 ...",
-    "link": "https://www.youtube.com/watch?v=VRjQlf_fwqM",
-    "published": "2026-03-26T14:05:01Z",
-    "panelists": [
-      "이창용"
-    ]
   },
   {
     "source_type": "애널리스트",
