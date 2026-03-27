@@ -1,639 +1,696 @@
-# analyzer/ai_analyzer.py
 import anthropic
 import json
 from datetime import datetime, timezone, timedelta
-
 from config import PANEL_PASSWORD
 
 KST = timezone(timedelta(hours=9))
 
-
 def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo=""):
-    client = anthropic.Anthropic(api_key=api_key)
-
-    by_type = {}
+    """Claude API를 사용하여 데이터를 분석하고 HTML을 생성합니다."""
+    
+    # 데이터를 소스 타입별로 그룹화
+    grouped = {}
     for item in all_data:
-        t = item["source_type"]
-        if t not in by_type:
-            by_type[t] = []
-        by_type[t].append(item)
-
-    summary_text = ""
-    for source_type, items in by_type.items():
-        summary_text += f"\n\n=== [{source_type}] ({len(items)}건) ===\n"
+        source_type = item.get("source_type", "unknown")
+        if source_type not in grouped:
+            grouped[source_type] = []
+        grouped[source_type].append(item)
+    
+    # 요약 텍스트 생성
+    summary_parts = []
+    for source_type, items in grouped.items():
+        summary_parts.append(f"\n=== {source_type} ({len(items)}건) ===")
         for item in items:
-            summary_text += f"- 출처: {item['source_name']} | 제목: {item['title']} | 링크: {item.get('link','')}\n"
-            if item.get('summary'):
-                summary_text += f"  내용: {item['summary'][:500]}\n"
-            if item.get('panelists'):
-                summary_text += f"  출연패널: {', '.join(item['panelists'])}\n"
+            title = item.get("title", "")
+            content = item.get("content", "")[:500]
+            channel = item.get("channel_name", "")
+            link = item.get("link", "")
+            summary_parts.append(f"[{channel}] {title}")
+            if content:
+                summary_parts.append(f"  내용: {content}")
+            if link:
+                summary_parts.append(f"  링크: {link}")
+    
+    full_summary = "\n".join(summary_parts)
+    
+    prompt = f"""당신은 한국 주식시장 전문 AI 애널리스트입니다.
 
-    today = datetime.now(KST).strftime("%Y년 %m월 %d일")
+아래는 오늘 수집된 경제 뉴스, 방송, 유튜브, 애널리스트 리포트 데이터입니다:
 
-    prompt = f"""당신은 한국 주식시장 전문 AI 브리핑 애널리스트입니다.
+{full_summary}
 
-아래는 오늘({today}) 수집된 4개 채널(뉴스, 경제방송, 증시유튜버, 애널리스트보고서)의 데이터입니다.
-유튜버 데이터는 구독자 상위 50개 오리지널 경제/주식 채널과 인기 패널 출연 영상에서 수집되었습니다.
-
-{summary_text}
-
-위 데이터를 분석하여 아래 형식의 JSON을 생성해주세요:
+위 데이터를 종합 분석하여 아래 JSON 형식으로 결과를 작성해주세요:
 
 {{
-  "briefing_date": "{today}",
-  "market_summary": {{
-    "topic1": {{
-      "title": "첫 번째 핵심 주제 제목",
-      "content": "해당 주제에 대한 상세 분석 3~5문장"
-    }},
-    "topic2": {{
-      "title": "두 번째 핵심 주제 제목",
-      "content": "해당 주제에 대한 상세 분석 3~5문장"
-    }},
-    "topic3": {{
-      "title": "세 번째 핵심 주제 제목",
-      "content": "해당 주제에 대한 상세 분석 3~5문장"
-    }}
-  }},
-  "hot_sectors": ["주목받는 섹터/테마 리스트"],
+  "briefing_date": "YYYY년 MM월 DD일",
+  "market_summary": [
+    {{"title": "주제1", "content": "설명 (200자 이상)"}},
+    {{"title": "주제2", "content": "설명 (200자 이상)"}},
+    {{"title": "주제3", "content": "설명 (200자 이상)"}}
+  ],
+  "hot_sectors": ["섹터1", "섹터2", "섹터3", "섹터4", "섹터5"],
   "stocks": [
     {{
       "rank": 1,
       "name": "종목명",
-      "description": "이 종목이 어떤 회사인지, 주요 사업영역, 최근 이슈 등 2~3문장 설명",
-      "price_trend": "최근 주가 동향과 증시 흐름 속에서의 위치 2~3문장",
       "overlap_count": 4,
-      "mentioned_in": ["뉴스", "경제방송", "유튜버", "애널리스트"],
       "reasons": {{
-        "뉴스": {{
-          "text": "뉴스에서 언급된 이유/맥락 요약",
-          "": "출처 매체명",
-          "link": "해당 기사 또는 영상 URL"
-        }},
-        "경제방송": {{
-          "text": "방송에서 언급된 이유/맥락 요약",
-          "": "출처 방송명",
-          "link": "해당 영상 URL"
-        }},
-        "유튜버": {{
-          "text": "유튜버가 언급한 이유/맥락 요약",
-          "": "출처 유튜버명",
-          "link": "해당 영상 URL"
-        }},
-        "애널리스트": {{
-          "text": "리포트 투자의견/목표가 요약",
-          "": "출처 증권사명",
-          "link": "해당 리포트 URL"
-        }}
+        "채널명1": {{"text": "추천 사유", "source": "출처명", "link": "URL"}},
+        "채널명2": {{"text": "추천 사유", "source": "출처명", "link": "URL"}}
       }},
-      "catalyst": "주요 상승 촉매/모멘텀",
-      "risk": "주의해야 할 리스크",
+      "description": "종목 설명 (100자 이상)",
+      "price_trend": "최근 주가 흐름",
+      "catalyst": "상승 촉매",
+      "risk": "리스크 요인",
       "signal": "긍정전망/중립/부정전망 중 하나"
     }}
   ],
   "hidden_picks": [
     {{
-      "rank": 1,
       "name": "종목명",
-      "description": "이 종목이 어떤 회사인지, 주요 사업영역 1~2문장",
-      "_name": "언급한 채널/출처 이름",
-      "_link": "해당 영상 또는 기사 URL",
-      "panelist": "출연 패널 이름 (있을 경우)",
-      "recommendation_reason": "해당 채널이 이 종목을 추천한 상세 사유 3~5문장. 왜 주목했는지, 어떤 모멘텀이 있는지, 타이밍은 어떤지 등을 상세히 서술",
-      "future_potential": "향후 성장 가능성과 시장 전망 분석 2~3문장",
-      "catalyst": "핵심 상승 촉매",
-      "risk": "주의할 리스크",
+      "source_name": "발굴 채널명",
+      "source_link": "URL",
+      "reason": "추천 사유 (200자 이상)",
+      "potential": "향후 가능성 분석 (200자 이상)",
+      "catalyst": "핵심 촉매",
+      "risk": "리스크",
       "signal": "긍정전망/중립/부정전망 중 하나"
     }}
   ],
-  "overlap_analysis": "여기에 매우 상세한 교차분석 인사이트를 작성해주세요. 최소 400자 이상으로 다음 내용을 포함하세요: (1) 오늘 4개 채널에서 공통적으로 주목하는 종목과 그 이유 분석, (2) 현재 시장에서 형성되고 있는 투자 심리와 자금 흐름의 방향, (3) 섹터별 순환매 패턴과 향후 주목할 테마 전망, (4) 개인 투자자가 오늘 주의해야 할 리스크 요인과 대응 전략, (5) 단기 트레이딩 관점에서의 시사점과 중장기 투자자에게 주는 메시지. 구체적인 종목명과 수치를 포함하여 실질적인 투자 참고가 되도록 작성하세요.",
-  "disclaimer": "본 브리핑은 AI가 자동 생성한 참고자료이며, 투자 판단의 책임은 본인에게 있습니다."
+  "overlap_analysis": "겹침 종목 심층 분석 (400자 이상)",
+  "disclaimer": "본 브리핑은 AI가 자동 생성한 참고 자료이며, 투자 판단의 근거로 사용할 수 없습니다."
 }}
 
-중요 규칙:
-1. overlap_count가 높은 종목을 우선 순위로 배치하세요.
-2. 같은 overlap_count면 언급 강도/빈도가 높은 순으로 정렬하세요.
-3. 실제 데이터에서 확인된 종목만 포함하세요. 추측하지 마세요.
-4. 각 채널에서 언급되지 않았으면 해당 reasons는 빈 객체로 두세요.
-5. 최소 5개 ~ 최대 20개 종목을 stocks에 추출하세요.
-6. reasons의 link는 반드시 수집 데이터에 있는 실제 URL을 사용하세요.
-7. signal은 반드시 "긍정전망", "중립", "부정전망" 중 하나만 사용하세요.
-8. description에는 해당 기업의 사업 내용과 최근 핵심 이슈를 포함하세요.
-9. price_trend에는 최근 주가 흐름, 시장 대비 강약, 거래량 변화 등을 포함하세요.
-10. overlap_analysis는 반드시 400자 이상 상세하게 작성하세요.
-11. hidden_picks에는 1개 채널에서만 언급되었지만 향후 가능성이 높아 보이는 종목을 최소 3개~최대 10개 선정하세요.
-12. hidden_picks는 유명 패널이 언급했거나, 구체적인 근거를 제시한 종목을 우선 선정하세요.
-13. hidden_picks의 recommendation_reason은 해당 채널/패널이 실제 말한 내용을 기반으로 상세하게 작성하세요.
+규칙:
+1. stocks는 overlap_count가 높은 순으로 최대 10개
+2. hidden_picks는 1개 채널에서만 언급됐지만 잠재력 높은 종목 최대 5개
+3. 모든 텍스트는 한국어로 작성
+4. reasons의 각 채널별 text는 해당 채널에서 실제 언급된 내용 기반
+5. link는 실제 수집된 URL만 사용 (없으면 빈 문자열)
+6. hot_sectors는 가장 많이 언급된 섹터 5개
+7. signal은 "긍정전망", "중립", "부정전망" 중 하나만 사용
+8. JSON만 출력하고 다른 텍스트는 포함하지 마세요"""
 
-JSON만 출력하세요. 다른 텍스트는 포함하지 마세요.
-"""
-
+    client = anthropic.Anthropic(api_key=api_key)
+    
     message = client.messages.create(
         model="claude-sonnet-4-20250514",
-        max_tokens=12000,
-        messages=[{"role": "user", "content": prompt}]
+        max_tokens=8000,
+        messages=[
+            {"role": "user", "content": prompt}
+        ]
     )
-
+    
     response_text = message.content[0].text
-    if "```json" in response_text:
-        response_text = response_text.split("```json")[1].split("```")[0]
-    elif "```" in response_text:
-        response_text = response_text.split("```")[1].split("```")[0]
-
-    analysis = json.loads(response_text.strip())
- 
-# ↓ 이 두 줄 추가
-with open("briefing_data.json", "w", encoding="utf-8") as f:
-    json.dump(analysis, f, ensure_ascii=False, indent=2)
-
-    html = generate_html(analysis, channels_data, gh_repo)
+    
+    # JSON 추출
+    try:
+        if "```json" in response_text:
+            json_str = response_text.split("```json")[1].split("```")[0]
+        elif "```" in response_text:
+            json_str = response_text.split("```")[1].split("```")[0]
+        else:
+            json_str = response_text
+        
+        data = json.loads(json_str.strip())
+    except json.JSONDecodeError:
+        data = {
+            "briefing_date": datetime.now(KST).strftime("%Y년 %m월 %d일"),
+            "market_summary": [{"title": "데이터 파싱 오류", "content": "AI 응답을 파싱하는 중 오류가 발생했습니다."}],
+            "hot_sectors": [],
+            "stocks": [],
+            "hidden_picks": [],
+            "overlap_analysis": "",
+            "disclaimer": "본 브리핑은 AI가 자동 생성한 참고 자료이며, 투자 판단의 근거로 사용할 수 없습니다."
+        }
+    
+    # briefing_data.json 저장
+    with open("data/briefing_data.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    html = generate_html(data, channels_data, gh_repo)
     return html
 
 
 def generate_html(data, channels_data=None, gh_repo=""):
-    if channels_data is None:
-        channels_data = {"broadcast": {}, "youtuber": {}}
-
-    now_kst = datetime.now(KST).strftime("%H:%M")
-
-    # === 시장 요약 (3가지 주제) ===
-    market_summary = data.get("market_summary", {})
-    if isinstance(market_summary, str):
-        market_html = f"<p>{market_summary}</p>"
-    else:
-        market_html = ""
-        for key in ["topic1", "topic2", "topic3"]:
-            topic = market_summary.get(key, {})
-            if topic:
-                market_html += f"""
-                <div class="topic-card">
-                    <div class="topic-title">{topic.get("title","")}</div>
-                    <div class="topic-content">{topic.get("content","")}</div>
-                </div>"""
-
-    # === 종목 카드 ===
+    """분석 데이터를 HTML 페이지로 변환합니다."""
+    
+    now = datetime.now(KST)
+    update_time = now.strftime("%Y-%m-%d %H:%M KST")
+    briefing_date = data.get("briefing_date", now.strftime("%Y년 %m월 %d일"))
+    market_summary = data.get("market_summary", [])
+    hot_sectors = data.get("hot_sectors", [])
+    stocks = data.get("stocks", [])
+    hidden_picks = data.get("hidden_picks", [])
+    overlap_analysis = data.get("overlap_analysis", "")
+    disclaimer = data.get("disclaimer", "")
+    
+    # 채널 데이터 처리
+    broadcast_channels = {}
+    youtuber_channels = {}
+    if channels_data:
+        broadcast_channels = channels_data.get("broadcast", {})
+        youtuber_channels = channels_data.get("youtuber", {})
+    
+    # --- CSS ---
+    css = """
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent-blue: #4dabf7;
+            --accent-orange: #ffa94d;
+            --accent-green: #51cf66;
+            --accent-red: #ff6b6b;
+            --accent-purple: #b197fc;
+            --border-color: rgba(255,255,255,0.08);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary); color: var(--text-primary);
+            line-height: 1.7; min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
+        
+        /* Header */
+        .header { text-align: center; padding: 30px 0 20px; position: relative; }
+        .header h1 { font-size: 1.8em; font-weight: 800; margin-bottom: 8px; }
+        .header h1 span { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .update-time { color: var(--text-secondary); font-size: 0.85em; }
+        .source-info { color: var(--text-secondary); font-size: 0.8em; margin-top: 4px; }
+        .settings-btn {
+            position: absolute; top: 30px; right: 0;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            color: var(--text-secondary); width: 40px; height: 40px;
+            border-radius: 10px; cursor: pointer; font-size: 1.2em;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .settings-btn:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+        
+        /* Summary Cards */
+        .summary-section { margin: 24px 0; }
+        .summary-section h2 { font-size: 1.2em; margin-bottom: 12px; color: var(--accent-blue); }
+        .summary-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 16px; margin-bottom: 10px;
+        }
+        .summary-card h3 { font-size: 1em; color: var(--accent-orange); margin-bottom: 6px; }
+        .summary-card p { font-size: 0.9em; color: var(--text-secondary); }
+        
+        /* Sectors */
+        .sectors { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+        .sector-tag {
+            background: rgba(77,171,247,0.1); border: 1px solid rgba(77,171,247,0.3);
+            color: var(--accent-blue); padding: 6px 14px; border-radius: 20px;
+            font-size: 0.82em; font-weight: 600;
+        }
+        
+        /* Filter */
+        .filter-bar { display: flex; gap: 8px; margin: 20px 0 12px; flex-wrap: wrap; }
+        .filter-btn {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            color: var(--text-secondary); padding: 6px 14px; border-radius: 8px;
+            font-size: 0.82em; cursor: pointer; transition: all 0.2s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent-blue); color: white; border-color: var(--accent-blue);
+        }
+        
+        /* Stock Cards */
+        .stock-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 14px; padding: 18px; margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .stock-card:hover { border-color: var(--accent-blue); }
+        .stock-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .stock-rank {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white; width: 28px; height: 28px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 0.85em;
+        }
+        .stock-name { font-size: 1.15em; font-weight: 700; }
+        .badge {
+            padding: 3px 10px; border-radius: 6px; font-size: 0.75em; font-weight: 700;
+        }
+        .badge-overlap { background: rgba(255,169,77,0.15); color: var(--accent-orange); }
+        .badge-signal {
+            padding: 3px 10px; border-radius: 6px; font-size: 0.75em; font-weight: 700;
+        }
+        .stock-desc { color: var(--text-secondary); font-size: 0.88em; margin-bottom: 10px; }
+        .stock-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+        .meta-item { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; }
+        .meta-label { font-size: 0.75em; color: var(--text-secondary); margin-bottom: 3px; }
+        .meta-value { font-size: 0.85em; }
+        
+        /* Reasons */
+        .reasons-section { border-top: 1px solid var(--border-color); padding-top: 10px; }
+        .reasons-title { font-size: 0.82em; color: var(--accent-blue); margin-bottom: 8px; font-weight: 600; }
+        .reason-item { 
+            display: flex; align-items: flex-start; gap: 8px; 
+            margin-bottom: 6px; font-size: 0.85em; 
+        }
+        .reason-channel {
+            background: rgba(177,151,252,0.15); color: var(--accent-purple);
+            padding: 2px 8px; border-radius: 4px; font-size: 0.78em;
+            font-weight: 600; white-space: nowrap; flex-shrink: 0;
+        }
+        .reason-text { color: var(--text-secondary); }
+        .reason-source-nolink { color: var(--accent-orange); font-weight: 600; }
+        .view-btn {
+            display: inline-block; background: rgba(77,171,247,0.15);
+            color: var(--accent-blue); padding: 2px 10px; border-radius: 6px;
+            font-size: 11px; font-weight: 600; text-decoration: none;
+            margin-left: 6px; border: 1px solid rgba(77,171,247,0.3);
+            white-space: nowrap;
+        }
+        .view-btn:hover { background: var(--accent-blue); color: white; }
+        
+        /* Hidden Picks */
+        .hidden-section { margin: 30px 0; }
+        .hidden-section h2 { font-size: 1.2em; color: var(--accent-purple); margin-bottom: 12px; }
+        .hidden-card {
+            background: var(--bg-card); border: 1px solid rgba(177,151,252,0.3);
+            border-radius: 14px; padding: 18px; margin-bottom: 12px;
+        }
+        .hidden-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .hidden-name { font-size: 1.1em; font-weight: 700; }
+        .hidden-source { font-size: 0.85em; color: var(--text-secondary); }
+        .hidden-reason, .hidden-potential { font-size: 0.88em; color: var(--text-secondary); margin-bottom: 8px; }
+        .hidden-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        
+        /* Analysis */
+        .analysis-section {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 14px; padding: 20px; margin: 24px 0;
+        }
+        .analysis-section h2 { font-size: 1.1em; color: var(--accent-green); margin-bottom: 10px; }
+        .analysis-section p { font-size: 0.9em; color: var(--text-secondary); }
+        
+        /* Disclaimer */
+        .disclaimer {
+            text-align: center; color: var(--text-secondary);
+            font-size: 0.78em; padding: 20px 0; border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+        
+        /* Panel Overlay */
+        .panel-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 1000; overflow-y: auto;
+        }
+        .panel-content {
+            max-width: 600px; margin: 40px auto; background: var(--bg-secondary);
+            border-radius: 16px; padding: 24px; border: 1px solid var(--border-color);
+        }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .panel-header h2 { font-size: 1.2em; }
+        .panel-close {
+            background: none; border: none; color: var(--text-secondary);
+            font-size: 1.5em; cursor: pointer;
+        }
+        .channel-group { margin-bottom: 20px; }
+        .channel-group h3 { font-size: 0.95em; color: var(--accent-blue); margin-bottom: 8px; }
+        .channel-item {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg-card); padding: 10px 14px; border-radius: 8px;
+            margin-bottom: 6px; font-size: 0.85em;
+        }
+        .add-form { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+        .add-form input, .add-form select {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            color: var(--text-primary); padding: 8px 12px; border-radius: 8px;
+            font-size: 0.85em; flex: 1; min-width: 120px;
+        }
+        .add-form button {
+            background: var(--accent-blue); color: white; border: none;
+            padding: 8px 16px; border-radius: 8px; cursor: pointer;
+            font-weight: 600; font-size: 0.85em;
+        }
+        .token-input {
+            width: 100%; background: var(--bg-card); border: 1px solid var(--border-color);
+            color: var(--text-primary); padding: 8px 12px; border-radius: 8px;
+            font-size: 0.85em; margin-bottom: 12px;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 12px 10px; }
+            .header h1 { font-size: 1.4em; }
+            .stock-meta, .hidden-meta { grid-template-columns: 1fr; }
+        }
+    </style>
+    """
+    
+    # --- Market Summary HTML ---
+    summary_html = ""
+    for item in market_summary:
+        summary_html += f"""
+        <div class="summary-card">
+            <h3>{item.get("title", "")}</h3>
+            <p>{item.get("content", "")}</p>
+        </div>"""
+    
+    # --- Sectors HTML ---
+    sectors_html = ""
+    for sector in hot_sectors:
+        sectors_html += f'<span class="sector-tag">{sector}</span>'
+    
+    # --- Stock Cards HTML ---
     stocks_html = ""
-    for stock in data.get("stocks", []):
-        overlap = stock.get("overlap_count", 1)
-        if overlap >= 4:
-            badge_color = "#e74c3c"; badge_label = "⭐ 4채널 겹침"
-        elif overlap >= 3:
-            badge_color = "#e67e22"; badge_label = "🔥 3채널 겹침"
-        elif overlap >= 2:
-            badge_color = "#f39c12"; badge_label = "📌 2채널 겹침"
-        else:
-            badge_color = "#95a5a6"; badge_label = "1채널 언급"
-
+    all_signals = set()
+    for stock in stocks:
+        rank = stock.get("rank", "")
+        name = stock.get("name", "")
+        overlap = stock.get("overlap_count", 0)
         signal = stock.get("signal", "중립")
-        if signal == "긍정전망":
-            sig_color = "#27ae60"; sig_icon = "🟢"; sig_bg = "rgba(81,207,102,0.1)"
-        elif signal == "부정전망":
-            sig_color = "#e74c3c"; sig_icon = "🔴"; sig_bg = "rgba(255,107,107,0.1)"
-        else:
-            sig_color = "#f39c12"; sig_icon = "🟡"; sig_bg = "rgba(255,169,77,0.1)"
-
-        reasons_html = ""
-        for channel, info in stock.get("reasons", {}).items():
-            if isinstance(info, dict) and info.get("text"):
-                 = info.get("", "")
-                link = info.get("link", "")
-                if link:
-                    _tag = f'<span class="reason-source-nolink">[{source}]</span>'
-                    view_btn = f'<a href="{link}" target="_blank" class="view-btn">직접 보기 →</a>'
-                else:
-                    source_tag = f'<span class="reason-source-nolink">[{source}]</span>'
-                    view_btn = ''
-                reasons_html += f"""
-                <div class="reason-item">
-                    <span class="reason-channel">{channel}</span>
-                    <span class="reason-text">{source_tag} {info["text"]} {view_btn}</span>
-                </div>"""
-
-            elif isinstance(info, str) and info:
-                reasons_html += f"""
-                <div class="reason-item">
-                    <span class="reason-channel">{channel}</span>
-                    <span class="reason-text">{info}</span>
-                </div>"""
-
-        mentioned_tags = ""
-        for ch in stock.get("mentioned_in", []):
-            mentioned_tags += f'<span class="channel-tag">{ch}</span>'
-
         description = stock.get("description", "")
         price_trend = stock.get("price_trend", "")
-
-        stocks_html += f"""
-        <div class="stock-card" data-overlap="{overlap}">
-            <div class="stock-header">
-                <div class="stock-rank">#{stock.get("rank","")}</div>
-                <div class="stock-name">{stock.get("name","")}</div>
-                <span class="overlap-badge" style="background:{badge_color}">{badge_label}</span>
-                <span class="signal-badge" style="color:{sig_color};background:{sig_bg}">{sig_icon} {signal}</span>
-            </div>
-            <div class="channel-tags">{mentioned_tags}</div>
-            <div class="stock-desc">
-                <div class="desc-section">
-                    <strong>🏢 종목 소개</strong>
-                    <p>{description}</p>
-                </div>
-                <div class="desc-section">
-                    <strong>📉 최근 주가 동향</strong>
-                    <p>{price_trend}</p>
-                </div>
-            </div>
-            <div class="catalyst"><strong>📈 상승 촉매:</strong> {stock.get("catalyst","")}</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> {stock.get("risk","")}</div>
-            <div class="reasons"><strong>📋 채널별 선정 근거:</strong>{reasons_html}</div>
-        </div>"""
-
-    # === 히든 픽 (1곳 언급이지만 잠재력 높은 종목) ===
-    hidden_html = ""
-    for pick in data.get("hidden_picks", []):
-        signal = pick.get("signal", "중립")
+        catalyst = stock.get("catalyst", "")
+        risk = stock.get("risk", "")
+        reasons = stock.get("reasons", {})
+        
+        all_signals.add(signal)
+        
         if signal == "긍정전망":
             sig_color = "#27ae60"; sig_icon = "🟢"; sig_bg = "rgba(81,207,102,0.1)"
         elif signal == "부정전망":
             sig_color = "#e74c3c"; sig_icon = "🔴"; sig_bg = "rgba(255,107,107,0.1)"
         else:
             sig_color = "#f39c12"; sig_icon = "🟡"; sig_bg = "rgba(255,169,77,0.1)"
-
-        source_link = pick.get("source_link", "")
+        
+        # Reasons HTML
+        reasons_html = ""
+        for channel, info in reasons.items():
+            if isinstance(info, dict):
+                text = info.get("text", "")
+                source = info.get("source", "")
+                link = info.get("link", "")
+            else:
+                text = str(info)
+                source = ""
+                link = ""
+            
+            if link:
+                source_tag = f'<span class="reason-source-nolink">[{source}]</span>'
+                view_btn = f'<a href="{link}" target="_blank" class="view-btn">직접 보기 →</a>'
+            else:
+                source_tag = f'<span class="reason-source-nolink">[{source}]</span>'
+                view_btn = ""
+            
+            reasons_html += f"""
+                <div class="reason-item">
+                    <span class="reason-channel">{channel}</span>
+                    <span class="reason-text">{source_tag} {text} {view_btn}</span>
+                </div>"""
+        
+        stocks_html += f"""
+        <div class="stock-card" data-signal="{signal}">
+            <div class="stock-header">
+                <div class="stock-rank">{rank}</div>
+                <span class="stock-name">{name}</span>
+                <span class="badge badge-overlap">{overlap}개 채널</span>
+                <span class="badge-signal" style="background:{sig_bg}; color:{sig_color};">{sig_icon} {signal}</span>
+            </div>
+            <div class="stock-desc">{description}</div>
+            <div class="stock-meta">
+                <div class="meta-item"><div class="meta-label">📈 주가 흐름</div><div class="meta-value">{price_trend}</div></div>
+                <div class="meta-item"><div class="meta-label">🚀 촉매</div><div class="meta-value">{catalyst}</div></div>
+                <div class="meta-item"><div class="meta-label">⚠️ 리스크</div><div class="meta-value">{risk}</div></div>
+                <div class="meta-item"><div class="meta-label">📊 시그널</div><div class="meta-value" style="color:{sig_color};">{sig_icon} {signal}</div></div>
+            </div>
+            <div class="reasons-section">
+                <div class="reasons-title">📋 채널별 선정 근거</div>
+                {reasons_html}
+            </div>
+        </div>"""
+    
+    # --- Hidden Picks HTML ---
+    hidden_html = ""
+    for pick in hidden_picks:
+        pname = pick.get("name", "")
         source_name = pick.get("source_name", "")
-        panelist = pick.get("panelist", "")
+        source_link = pick.get("source_link", "")
+        reason = pick.get("reason", "")
+        potential = pick.get("potential", "")
+        p_catalyst = pick.get("catalyst", "")
+        p_risk = pick.get("risk", "")
+        p_signal = pick.get("signal", "중립")
+        
+        if p_signal == "긍정전망":
+            ps_color = "#27ae60"; ps_icon = "🟢"; ps_bg = "rgba(81,207,102,0.1)"
+        elif p_signal == "부정전망":
+            ps_color = "#e74c3c"; ps_icon = "🔴"; ps_bg = "rgba(255,107,107,0.1)"
+        else:
+            ps_color = "#f39c12"; ps_icon = "🟡"; ps_bg = "rgba(255,169,77,0.1)"
+        
         if source_link:
             source_tag = f'<span class="reason-source-nolink">{source_name}</span> <a href="{source_link}" target="_blank" class="view-btn">직접 보기 →</a>'
         else:
-           source_tag = f'<span class="reason-source-nolink">{source_name}</span>'
-
-
-        panelist_tag = f'<span class="panelist-badge">🎙 {panelist}</span>' if panelist else ""
-
+            source_tag = f'<span class="reason-source-nolink">{source_name}</span>'
+        
         hidden_html += f"""
         <div class="hidden-card">
             <div class="hidden-header">
-                <div class="stock-rank">#{pick.get("rank","")}</div>
-                <div class="stock-name">{pick.get("name","")}</div>
-                <span class="hidden-badge">💎 히든 픽</span>
-                <span class="signal-badge" style="color:{sig_color};background:{sig_bg}">{sig_icon} {signal}</span>
+                <span class="hidden-name">💎 {pname}</span>
+                <span class="badge-signal" style="background:{ps_bg}; color:{ps_color};">{ps_icon} {p_signal}</span>
             </div>
-            <div class="hidden-source">{source_tag} {panelist_tag}</div>
-            <div class="hidden-desc">{pick.get("description","")}</div>
-            <div class="hidden-reason">
-                <strong>🔍 추천 사유</strong>
-                <p>{pick.get("recommendation_reason","")}</p>
+            <div class="hidden-source">발굴: {source_tag}</div>
+            <div class="hidden-reason"><strong>선정 사유:</strong> {reason}</div>
+            <div class="hidden-potential"><strong>향후 가능성:</strong> {potential}</div>
+            <div class="hidden-meta">
+                <div class="meta-item"><div class="meta-label">🚀 촉매</div><div class="meta-value">{p_catalyst}</div></div>
+                <div class="meta-item"><div class="meta-label">⚠️ 리스크</div><div class="meta-value">{p_risk}</div></div>
             </div>
-            <div class="hidden-potential">
-                <strong>🚀 향후 전망</strong>
-                <p>{pick.get("future_potential","")}</p>
-            </div>
-            <div class="catalyst"><strong>📈 촉매:</strong> {pick.get("catalyst","")}</div>
-            <div class="risk"><strong>⚠️ 리스크:</strong> {pick.get("risk","")}</div>
         </div>"""
-
-    sectors_html = ""
-    for sector in data.get("hot_sectors", []):
-        sectors_html += f'<span class="sector-tag">{sector}</span>'
-
-    # === 채널 목록 ===
-    broadcast_list = ""
-    for name, info in channels_data.get("broadcast", {}).items():
-        url = info.get("url", "")
-        broadcast_list += f'<div class="ch-item"><a href="{url}" target="_blank">{name}</a><span class="ch-id">{info.get("id","")[:15]}...</span></div>'
-
-    youtuber_list = ""
-    for name, info in channels_data.get("youtuber", {}).items():
-        url = info.get("url", "")
-        youtuber_list += f'<div class="ch-item"><a href="{url}" target="_blank">{name}</a><span class="ch-id">{info.get("id","")[:15]}...</span></div>'
-
-    overlap_analysis = data.get("overlap_analysis", "")
-
+    
+    # --- Filter buttons ---
+    filter_html = '<button class="filter-btn active" onclick="filterStocks(\'all\')">전체</button>'
+    for sig in ["긍정전망", "중립", "부정전망"]:
+        filter_html += f'<button class="filter-btn" onclick="filterStocks(\'{sig}\')">{sig}</button>'
+    
+    # --- Channel list for panel ---
+    broadcast_list_html = ""
+    for name, info in broadcast_channels.items():
+        ch_id = info.get("id", "") if isinstance(info, dict) else info
+        broadcast_list_html += f'<div class="channel-item"><span>{name}</span><span style="color:var(--text-secondary);font-size:0.8em;">{ch_id}</span></div>'
+    
+    youtuber_list_html = ""
+    for name, info in youtuber_channels.items():
+        ch_id = info.get("id", "") if isinstance(info, dict) else info
+        youtuber_list_html += f'<div class="channel-item"><span>{name}</span><span style="color:var(--text-secondary);font-size:0.8em;">{ch_id}</span></div>'
+    
+    # --- Full HTML ---
     html = f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 증시 모닝브리핑 - {data.get("briefing_date","")}</title>
-    <style>
-        :root {{ --bg-primary:#0a0e17; --bg-card:#151b2b; --bg-card-hover:#1a2236; --text-primary:#e8eaf6; --text-secondary:#8892b0; --accent-red:#ff6b6b; --accent-orange:#ffa94d; --accent-green:#51cf66; --accent-blue:#4dabf7; --accent-purple:#da77f2; --border:#2a3450; }}
-        * {{ margin:0; padding:0; box-sizing:border-box; }}
-        body {{ font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.7; padding:20px; }}
-        .container {{ max-width:900px; margin:0 auto; }}
-
-        .header {{ text-align:center; padding:40px 20px 30px; border-bottom:1px solid var(--border); margin-bottom:30px; position:relative; }}
-        .header h1 {{ font-size:28px; background:linear-gradient(135deg,#4dabf7,#da77f2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:8px; }}
-        .header .date {{ color:var(--text-secondary); font-size:16px; }}
-        .header .update-time {{ color:var(--accent-blue); font-size:13px; margin-top:4px; }}
-        .header .source-info {{ color:var(--text-secondary); font-size:11px; margin-top:4px; }}
-
-        .ch-manage-btn {{ position:absolute; top:20px; right:20px; width:44px; height:44px; border-radius:50%; background:var(--bg-card); border:1px solid var(--border); color:var(--accent-blue); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; }}
-        .ch-manage-btn:hover {{ background:var(--accent-blue); color:white; }}
-
-        .market-summary {{ margin-bottom:24px; }}
-        .market-summary h2 {{ font-size:18px; color:var(--accent-blue); margin-bottom:16px; }}
-        .topic-card {{ background:linear-gradient(135deg,#1a1f35,#1e2745); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:12px; }}
-        .topic-title {{ font-size:16px; font-weight:700; color:var(--accent-orange); margin-bottom:8px; }}
-        .topic-content {{ color:var(--text-secondary); font-size:14px; line-height:1.8; }}
-
-        .hot-sectors {{ margin-bottom:24px; }}
-        .hot-sectors h2 {{ font-size:18px; margin-bottom:12px; }}
-        .sector-tag {{ display:inline-block; background:rgba(77,171,247,0.15); color:var(--accent-blue); padding:6px 14px; border-radius:20px; font-size:13px; margin:4px; border:1px solid rgba(77,171,247,0.3); }}
-
-        .section-title {{ font-size:20px; font-weight:700; margin:32px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--border); }}
-
-        .stock-card {{ background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:16px; transition:all 0.2s; }}
-        .stock-card:hover {{ background:var(--bg-card-hover); border-color:var(--accent-blue); }}
-        .stock-card[data-overlap="4"] {{ border-left:4px solid var(--accent-red); }}
-        .stock-card[data-overlap="3"] {{ border-left:4px solid var(--accent-orange); }}
-        .stock-card[data-overlap="2"] {{ border-left:4px solid var(--accent-blue); }}
-        .stock-header {{ display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap; }}
-        .stock-rank {{ font-size:24px; font-weight:800; color:var(--accent-blue); min-width:40px; }}
-        .stock-name {{ font-size:20px; font-weight:700; }}
-        .overlap-badge {{ color:white; padding:4px 12px; border-radius:12px; font-size:12px; font-weight:600; }}
-        .signal-badge {{ padding:4px 14px; border-radius:12px; font-size:13px; font-weight:700; }}
-        .channel-tags {{ margin-bottom:12px; }}
-        .channel-tag {{ display:inline-block; background:rgba(255,255,255,0.06); color:var(--text-secondary); padding:3px 10px; border-radius:8px; font-size:12px; margin-right:6px; }}
-
-        .stock-desc {{ margin-bottom:12px; }}
-        .desc-section {{ background:rgba(255,255,255,0.03); border-radius:8px; padding:12px 14px; margin-bottom:8px; }}
-        .desc-section strong {{ display:block; font-size:13px; margin-bottom:6px; color:var(--text-primary); }}
-        .desc-section p {{ color:var(--text-secondary); font-size:13px; line-height:1.7; }}
-
-        .catalyst,.risk {{ font-size:14px; margin-bottom:8px; padding:8px 12px; border-radius:8px; }}
-        .catalyst {{ background:rgba(81,207,102,0.08); color:var(--accent-green); }}
-        .risk {{ background:rgba(255,107,107,0.08); color:var(--accent-red); }}
-
-        .reasons {{ margin-top:12px; font-size:14px; }}
-        .reasons strong {{ display:block; margin-bottom:8px; }}
-        .reason-item {{ display:flex; gap:10px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.04); }}
-        .reason-channel {{ min-width:80px; color:var(--accent-blue); font-weight:600; font-size:13px; }}
-        .reason-text {{ color:var(--text-secondary); font-size:13px; line-height:1.6; }}
-        .reason-source {{ color:var(--accent-orange); text-decoration:none; font-weight:600; cursor:pointer; }}
-        .reason-source:hover {{ text-decoration:underline; color:var(--accent-blue); }}
-        .reason-source-nolink {{ color:var(--accent-orange); font-weight:600; }}
-        .view-btn {{ display:inline-block; background:rgba(77,171,247,0.15); color:var(--accent-blue); padding:2px 10px; border-radius:6px; font-size:11px; font-weight:600; text-decoration:none; margin-left:6px; border:1px solid rgba(77,171,247,0.3); white-space:nowrap; }}
-        .view-btn:hover {{ background:var(--accent-blue); color:white; }}
-
-        .filter-bar {{ margin-bottom:20px; display:flex; gap:8px; flex-wrap:wrap; }}
-        .filter-btn {{ background:var(--bg-card); color:var(--text-secondary); border:1px solid var(--border); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:13px; transition:all 0.2s; }}
-        .filter-btn:hover,.filter-btn.active {{ background:var(--accent-blue); color:white; border-color:var(--accent-blue); }}
-
-        /* 히든 픽 */
-        .hidden-section {{ margin-top:32px; }}
-        .hidden-card {{ background:linear-gradient(135deg,#1a1535,#1e2045); border:1px solid rgba(218,119,242,0.3); border-left:4px solid var(--accent-purple); border-radius:12px; padding:24px; margin-bottom:16px; transition:all 0.2s; }}
-        .hidden-card:hover {{ border-color:var(--accent-purple); }}
-        .hidden-header {{ display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap; }}
-        .hidden-badge {{ background:rgba(218,119,242,0.2); color:var(--accent-purple); padding:4px 12px; border-radius:12px; font-size:12px; font-weight:600; border:1px solid rgba(218,119,242,0.3); }}
-        .hidden-source {{ margin-bottom:12px; font-size:14px; }}
-        .hidden-desc {{ color:var(--text-secondary); font-size:13px; margin-bottom:12px; padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; }}
-        .hidden-reason,.hidden-potential {{ margin-bottom:12px; }}
-        .hidden-reason strong,.hidden-potential strong {{ display:block; font-size:13px; margin-bottom:6px; color:var(--accent-purple); }}
-        .hidden-reason p,.hidden-potential p {{ color:var(--text-secondary); font-size:13px; line-height:1.8; }}
-        .panelist-badge {{ background:rgba(77,171,247,0.15); color:var(--accent-blue); padding:3px 10px; border-radius:8px; font-size:12px; margin-left:8px; }}
-
-        .insight {{ background:linear-gradient(135deg,#1e2745,#1a1f35); border:1px solid var(--border); border-radius:12px; padding:30px; margin-top:24px; }}
-        .insight h2 {{ color:#da77f2; margin-bottom:16px; font-size:20px; }}
-        .insight-content {{ color:var(--text-secondary); font-size:14px; line-height:2.0; white-space:pre-line; }}
-
-        .disclaimer {{ text-align:center; color:var(--text-secondary); font-size:12px; margin-top:30px; padding:20px; border-top:1px solid var(--border); }}
-
-        /* 채널 관리 패널 */
-        .ch-panel-overlay {{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000; }}
-        .ch-panel-overlay.active {{ display:flex; align-items:center; justify-content:center; }}
-        .ch-panel {{ background:var(--bg-primary); border:1px solid var(--border); border-radius:16px; width:90%; max-width:600px; max-height:85vh; overflow-y:auto; padding:30px; }}
-        .ch-panel h2 {{ font-size:20px; color:var(--accent-blue); margin-bottom:20px; }}
-        .ch-panel h3 {{ font-size:16px; color:var(--accent-orange); margin:20px 0 10px; }}
-        .ch-panel .close-btn {{ float:right; background:none; border:none; color:var(--text-secondary); font-size:24px; cursor:pointer; }}
-        .ch-panel .close-btn:hover {{ color:var(--accent-red); }}
-        .ch-item {{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:var(--bg-card); border-radius:8px; margin-bottom:8px; }}
-        .ch-item a {{ color:var(--accent-blue); text-decoration:none; font-weight:600; font-size:14px; }}
-        .ch-item a:hover {{ text-decoration:underline; }}
-        .ch-id {{ color:var(--text-secondary); font-size:11px; font-family:monospace; }}
-        .add-form {{ background:var(--bg-card); border-radius:12px; padding:20px; margin-top:16px; }}
-        .add-form h3 {{ color:var(--accent-green); margin:0 0 12px 0; }}
-        .form-row {{ display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; }}
-        .form-row select,.form-row input {{ background:var(--bg-primary); border:1px solid var(--border); color:var(--text-primary); padding:10px 12px; border-radius:8px; font-size:14px; }}
-        .form-row select {{ width:130px; }}
-        .form-row input {{ flex:1; min-width:150px; }}
-        .add-btn {{ background:var(--accent-green); color:#000; border:none; padding:10px 24px; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer; width:100%; margin-top:8px; transition:all 0.2s; }}
-        .add-btn:hover {{ background:#40c057; }}
-        .add-btn:disabled {{ background:var(--text-secondary); cursor:not-allowed; }}
-        .status-msg {{ margin-top:12px; padding:10px; border-radius:8px; font-size:13px; display:none; }}
-        .status-msg.success {{ display:block; background:rgba(81,207,102,0.15); color:var(--accent-green); }}
-        .status-msg.error {{ display:block; background:rgba(255,107,107,0.15); color:var(--accent-red); }}
-        .help-text {{ color:var(--text-secondary); font-size:12px; margin-top:8px; line-height:1.6; }}
-        .ch-item.new {{ border:1px solid var(--accent-green); }}
-
-        @media (max-width:600px) {{
-            body {{ padding:10px; }}
-            .stock-header,.hidden-header {{ flex-direction:column; align-items:flex-start; gap:6px; }}
-            .header h1 {{ font-size:22px; }}
-            .ch-manage-btn {{ top:10px; right:10px; width:36px; height:36px; font-size:16px; }}
-            .reason-item {{ flex-direction:column; gap:4px; }}
-            .reason-channel {{ min-width:auto; }}
-        }}
-    </style>
+    <title>AI 주식 브리핑</title>
+    {css}
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>AI 증시 모닝브리핑</h1>
-            <div class="date">{data.get("briefing_date","")}</div>
-            <div class="update-time">자동 생성 시각(KST): {now_kst}</div>
+            <h1><span>AI 주식 브리핑</span></h1>
+            <div class="update-time">자동 생성: {update_time}</div>
             <div class="source-info">📰 언론 뉴스 · 📡 경제방송 프로그램 · 🎬 경제 유튜브 TOP50 · 📊 애널리스트 리포트를 분석</div>
-            <button class="ch-manage-btn" onclick="openPanel()" title="수집 채널 관리">📡</button>
+            <button class="settings-btn" onclick="openPanel()">📡</button>
         </div>
-
-        <div class="ch-panel-overlay" id="chPanel">
-            <div class="ch-panel">
-                <button class="close-btn" onclick="closePanel()">✕</button>
-                <h2>📡 수집 채널 관리</h2>
-                <h3>📺 경제전문방송</h3>
-                <div id="broadcastList">{broadcast_list}</div>
-                <div id="dynamicBroadcast"></div>
-                <h3>🎬 증시 유튜버</h3>
-                <div id="youtuberList">{youtuber_list}</div>
-                <div id="dynamicYoutuber"></div>
+        
+        <div class="summary-section">
+            <h2>📊 시장 요약</h2>
+            {summary_html}
+        </div>
+        
+        <div class="summary-section">
+            <h2>🔥 HOT 섹터</h2>
+            <div class="sectors">{sectors_html}</div>
+        </div>
+        
+        <div class="filter-bar">
+            {filter_html}
+        </div>
+        
+        <div id="stockList">
+            {stocks_html}
+        </div>
+        
+        <div class="hidden-section">
+            <h2>💎 히든 픽 — 잠재력 발굴 종목</h2>
+            {hidden_html}
+        </div>
+        
+        <div class="analysis-section">
+            <h2>🔍 AI 겹침 분석</h2>
+            <p>{overlap_analysis}</p>
+        </div>
+        
+        <div class="disclaimer">{disclaimer}</div>
+    </div>
+    
+    <!-- Channel Management Panel -->
+    <div class="panel-overlay" id="panelOverlay">
+        <div class="panel-content">
+            <div class="panel-header">
+                <h2>📡 채널 관리</h2>
+                <button class="panel-close" onclick="closePanel()">✕</button>
+            </div>
+            
+            <input type="password" class="token-input" id="ghToken" placeholder="GitHub Personal Access Token">
+            
+            <div class="channel-group">
+                <h3>📺 경제방송</h3>
+                <div id="broadcastList">{broadcast_list_html}</div>
+            </div>
+            
+            <div class="channel-group">
+                <h3>🎬 유튜버</h3>
+                <div id="youtuberList">{youtuber_list_html}</div>
+            </div>
+            
+            <div class="channel-group">
+                <h3>➕ 채널 추가</h3>
                 <div class="add-form">
-                    <h3>➕ 새 채널 추가</h3>
-                    <div class="form-row">
-                        <select id="addType">
-                            <option value="broadcast">경제방송</option>
-                            <option value="youtuber">유튜버</option>
-                        </select>
-                        <input type="text" id="addName" placeholder="채널 이름 (예: 머니투데이)">
-                    </div>
-                    <div class="form-row">
-                        <input type="text" id="addUrl" placeholder="유튜브 채널 주소 (예: https://www.youtube.com/@channelname)">
-                    </div>
-                    <button class="add-btn" id="addBtn" onclick="addChannel()">채널 추가 (다음 브리핑부터 반영)</button>
-                    <div class="status-msg" id="statusMsg"></div>
-                    <div class="help-text">
-                        💡 유튜브 채널 주소만 입력하면 됩니다. 채널 ID는 자동으로 추출됩니다.<br>
-                        ⏰ 추가한 채널은 <strong>다음 날 아침 브리핑</strong>부터 데이터 수집에 반영됩니다.
-                    </div>
+                    <select id="addType">
+                        <option value="broadcast">경제방송</option>
+                        <option value="youtuber">유튜버</option>
+                    </select>
+                    <input type="text" id="addName" placeholder="채널 이름">
+                    <input type="text" id="addUrl" placeholder="YouTube 채널 URL">
+                    <button onclick="addChannel()">추가</button>
                 </div>
             </div>
         </div>
-
-        <div class="market-summary">
-            <h2>📊 시장 요약</h2>
-            {market_html}
-        </div>
-
-        <div class="hot-sectors">
-            <h2>🔥 오늘의 핫 섹터</h2>
-            {sectors_html}
-        </div>
-
-        <h2 class="section-title">📋 다채널 교차 추천 종목</h2>
-        <div class="filter-bar">
-            <button class="filter-btn active" onclick="filterStocks('all')">전체</button>
-            <button class="filter-btn" onclick="filterStocks(4)">⭐ 4채널</button>
-            <button class="filter-btn" onclick="filterStocks(3)">🔥 3채널</button>
-            <button class="filter-btn" onclick="filterStocks(2)">📌 2채널+</button>
-        </div>
-        <div id="stocks-container">{stocks_html}</div>
-
-        <div class="hidden-section">
-            <h2 class="section-title">💎 히든 픽 — 단독 언급이지만 주목할 종목</h2>
-            <p style="color:var(--text-secondary);font-size:13px;margin-bottom:16px;">1개 채널에서만 언급되었지만, 구체적 근거와 향후 가능성이 높아 보이는 종목들입니다.</p>
-            {hidden_html}
-        </div>
-
-        <div class="insight">
-            <h2>🧠 AI 교차분석 인사이트</h2>
-            <div class="insight-content">{overlap_analysis}</div>
-        </div>
-
-        <div class="disclaimer">{data.get("disclaimer","본 브리핑은 AI가 자동 생성한 참고자료이며, 투자 판단의 책임은 본인에게 있습니다.")}</div>
     </div>
-
+    
     <script>
         const REPO = "{gh_repo}";
-        const FILE_PATH = "channels.json";
         const PANEL_PASS = "{PANEL_PASSWORD}";
         let panelUnlocked = false;
-
+        
+        let channelsData = {{
+            broadcast: {json.dumps(broadcast_channels, ensure_ascii=False)},
+            youtuber: {json.dumps(youtuber_channels, ensure_ascii=False)}
+        }};
+        
         function openPanel() {{
             if (!panelUnlocked) {{
-                const input = prompt('🔒 채널 관리 비밀번호를 입력하세요:');
-                if (input === null) return;
-                if (input !== PANEL_PASS) {{
-                    alert('❌ 비밀번호가 틀렸습니다.');
+                const pw = prompt("관리자 비밀번호를 입력하세요:");
+                if (pw === null) return;
+                if (pw !== PANEL_PASS) {{
+                    alert("비밀번호가 틀렸습니다.");
                     return;
                 }}
                 panelUnlocked = true;
             }}
-            document.getElementById('chPanel').classList.add('active');
+            document.getElementById('panelOverlay').style.display = 'block';
         }}
-        function closePanel() {{ document.getElementById('chPanel').classList.remove('active'); }}
-        document.getElementById('chPanel').addEventListener('click', function(e) {{
-            if (e.target === this) closePanel();
-        }});
-
-        function filterStocks(min) {{
-            const cards = document.querySelectorAll('.stock-card');
-            const btns = document.querySelectorAll('.filter-btn');
-            btns.forEach(b => b.classList.remove('active'));
+        
+        function closePanel() {{
+            document.getElementById('panelOverlay').style.display = 'none';
+        }}
+        
+        function filterStocks(signal) {{
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            cards.forEach(c => {{
-                const o = parseInt(c.dataset.overlap);
-                c.style.display = (min === 'all' || o >= min) ? 'block' : 'none';
+            document.querySelectorAll('.stock-card').forEach(card => {{
+                if (signal === 'all' || card.dataset.signal === signal) {{
+                    card.style.display = 'block';
+                }} else {{
+                    card.style.display = 'none';
+                }}
             }});
         }}
-
-        async function extractChannelId(url) {{
-            const channelMatch = url.match(/channel\\/(UC[\\w-]+)/);
-            if (channelMatch) return channelMatch[1];
+        
+        function extractChannelId(url) {{
+            // Handle @handle format
             const handleMatch = url.match(/@([\\w-]+)/);
-            if (handleMatch) return "@" + handleMatch[1];
-            const cMatch = url.match(/\\/c\\/([\\w-]+)/);
-            if (cMatch) return "c/" + cMatch[1];
+            if (handleMatch) return url;
+            
+            // Handle /channel/ID format
+            const channelMatch = url.match(/\\/channel\\/([\\w-]+)/);
+            if (channelMatch) return channelMatch[1];
+            
             return url;
         }}
-
+        
         async function addChannel() {{
             const type = document.getElementById('addType').value;
             const name = document.getElementById('addName').value.trim();
             const url = document.getElementById('addUrl').value.trim();
-            const statusMsg = document.getElementById('statusMsg');
-            const btn = document.getElementById('addBtn');
-
+            const token = document.getElementById('ghToken').value.trim();
+            
             if (!name || !url) {{
-                statusMsg.className = 'status-msg error';
-                statusMsg.textContent = '채널 이름과 유튜브 주소는 필수입니다.';
+                alert("채널 이름과 URL을 입력해주세요.");
                 return;
             }}
-
-            btn.disabled = true;
-            btn.textContent = '저장 중...';
-            statusMsg.className = 'status-msg';
-            statusMsg.style.display = 'none';
-
+            if (!token) {{
+                alert("GitHub Token을 입력해주세요.");
+                return;
+            }}
+            
+            const channelId = extractChannelId(url);
+            channelsData[type][name] = {{
+                "id": channelId,
+                "url": url
+            }};
+            
+            // Save to GitHub
             try {{
-                const channelId = await extractChannelId(url);
-
-                const getResp = await fetch(`https://api.github.com/repos/${{REPO}}/contents/${{FILE_PATH}}`, {{
-                    headers: {{ 'Accept': 'application/vnd.github.v3+json' }}
+                const apiUrl = `https://api.github.com/repos/${{REPO}}/contents/channels.json`;
+                
+                // Get current file SHA
+                const getResp = await fetch(apiUrl, {{
+                    headers: {{ 'Authorization': `token ${{token}}` }}
                 }});
-                const fileData = await getResp.json();
-                const sha = fileData.sha;
-                const content = JSON.parse(atob(fileData.content));
-
-                if (!content[type]) content[type] = {{}};
-                content[type][name] = {{ id: channelId, url: url }};
-
-                const token = prompt('GitHub Personal Access Token을 입력하세요:');
-                if (!token) {{
-                    btn.disabled = false;
-                    btn.textContent = '채널 추가 (다음 브리핑부터 반영)';
-                    return;
-                }}
-
-                const updateResp = await fetch(`https://api.github.com/repos/${{REPO}}/contents/${{FILE_PATH}}`, {{
+                const getData = await getResp.json();
+                const sha = getData.sha;
+                
+                // Update file
+                const content = btoa(unescape(encodeURIComponent(JSON.stringify(channelsData, null, 2))));
+                const putResp = await fetch(apiUrl, {{
                     method: 'PUT',
                     headers: {{
-                        'Accept': 'application/vnd.github.v3+json',
                         'Authorization': `token ${{token}}`,
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                     }},
                     body: JSON.stringify({{
-                        message: `📡 채널 추가: ${{name}}`,
-                        content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))),
+                        message: `Add channel: ${{name}}`,
+                        content: content,
                         sha: sha
                     }})
                 }});
-
-                if (updateResp.ok) {{
-                    statusMsg.className = 'status-msg success';
-                    statusMsg.textContent = `✅ "${{name}}" 채널이 추가되었습니다! 다음 아침 브리핑부터 반영됩니다.`;
-
-                    const targetDiv = type === 'broadcast'
-                        ? document.getElementById('dynamicBroadcast')
-                        : document.getElementById('dynamicYoutuber');
-
+                
+                if (putResp.ok) {{
+                    alert(`${{name}} 채널이 추가되었습니다!`);
+                    // Update UI
+                    const listId = type === 'broadcast' ? 'broadcastList' : 'youtuberList';
                     const newItem = document.createElement('div');
-                    newItem.className = 'ch-item new';
-                    newItem.innerHTML = `<a href="${{url}}" target="_blank">${{name}}</a><span class="ch-id" style="color:var(--accent-green);">✅ 새로 추가됨</span>`;
-                    targetDiv.appendChild(newItem);
-
+                    newItem.className = 'channel-item';
+                    newItem.innerHTML = `<span>${{name}}</span><span style="color:var(--text-secondary);font-size:0.8em;">${{channelId}}</span>`;
+                    document.getElementById(listId).appendChild(newItem);
                     document.getElementById('addName').value = '';
                     document.getElementById('addUrl').value = '';
                 }} else {{
-                    const err = await updateResp.json();
-                    statusMsg.className = 'status-msg error';
-                    statusMsg.textContent = `❌ 저장 실패: ${{err.message}}`;
+                    throw new Error('저장 실패');
                 }}
             }} catch (e) {{
-                statusMsg.className = 'status-msg error';
-                statusMsg.textContent = `❌ 오류: ${{e.message}}`;
+                alert("저장 실패: " + e.message);
             }}
-
-            btn.disabled = false;
-            btn.textContent = '채널 추가 (다음 브리핑부터 반영)';
         }}
+        
+        // Close panel on overlay click
+        document.getElementById('panelOverlay').addEventListener('click', function(e) {{
+            if (e.target === this) closePanel();
+        }});
     </script>
 </body>
 </html>"""
+    
     return html
