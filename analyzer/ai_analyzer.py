@@ -429,7 +429,7 @@ def generate_html(data, channels_data=None, gh_repo=""):
             <h1>AI 증시 모닝브리핑</h1>
             <div class="date">{data.get("briefing_date","")}</div>
             <div class="update-time">자동 생성 시각(KST): {now_kst}</div>
-            <div class="source-info">📡 경제방송 6개 · 🎬 오리지널 경제유튜브 TOP50+ · 📰 뉴스 5개 · 📊 애널리스트 리포트</div>
+            <div class="source-info">📰 언론 뉴스 · 📡 경제방송 프로그램 · 🎬 경제 유튜브 TOP50 · 📊 애널리스트 리포트를 분석</div>
             <button class="ch-manage-btn" onclick="openPanel()" title="수집 채널 관리">📡</button>
         </div>
 
