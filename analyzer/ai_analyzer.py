@@ -141,6 +141,11 @@ JSON만 출력하세요. 다른 텍스트는 포함하지 마세요.
         response_text = response_text.split("```")[1].split("```")[0]
 
     analysis = json.loads(response_text.strip())
+ 
+# ↓ 이 두 줄 추가
+with open("briefing_data.json", "w", encoding="utf-8") as f:
+    json.dump(analysis, f, ensure_ascii=False, indent=2)
+
     html = generate_html(analysis, channels_data, gh_repo)
     return html
 
