@@ -67,22 +67,22 @@ def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo="")
       "reasons": {{
         "뉴스": {{
           "text": "뉴스에서 언급된 이유/맥락 요약",
-          "source": "출처 매체명",
+          "": "출처 매체명",
           "link": "해당 기사 또는 영상 URL"
         }},
         "경제방송": {{
           "text": "방송에서 언급된 이유/맥락 요약",
-          "source": "출처 방송명",
+          "": "출처 방송명",
           "link": "해당 영상 URL"
         }},
         "유튜버": {{
           "text": "유튜버가 언급한 이유/맥락 요약",
-          "source": "출처 유튜버명",
+          "": "출처 유튜버명",
           "link": "해당 영상 URL"
         }},
         "애널리스트": {{
           "text": "리포트 투자의견/목표가 요약",
-          "source": "출처 증권사명",
+          "": "출처 증권사명",
           "link": "해당 리포트 URL"
         }}
       }},
@@ -96,8 +96,8 @@ def analyze_and_generate_html(all_data, api_key, channels_data=None, gh_repo="")
       "rank": 1,
       "name": "종목명",
       "description": "이 종목이 어떤 회사인지, 주요 사업영역 1~2문장",
-      "source_name": "언급한 채널/출처 이름",
-      "source_link": "해당 영상 또는 기사 URL",
+      "_name": "언급한 채널/출처 이름",
+      "_link": "해당 영상 또는 기사 URL",
       "panelist": "출연 패널 이름 (있을 경우)",
       "recommendation_reason": "해당 채널이 이 종목을 추천한 상세 사유 3~5문장. 왜 주목했는지, 어떤 모멘텀이 있는지, 타이밍은 어떤지 등을 상세히 서술",
       "future_potential": "향후 성장 가능성과 시장 전망 분석 2~3문장",
@@ -190,10 +190,10 @@ def generate_html(data, channels_data=None, gh_repo=""):
         reasons_html = ""
         for channel, info in stock.get("reasons", {}).items():
             if isinstance(info, dict) and info.get("text"):
-                source = info.get("source", "")
+                 = info.get("", "")
                 link = info.get("link", "")
                 if link:
-                    source_tag = f'<span class="reason-source-nolink">[{source}]</span>'
+                    _tag = f'<span class="reason-source-nolink">[{source}]</span>'
                     view_btn = f'<a href="{link}" target="_blank" class="view-btn">직접 보기 →</a>'
                 else:
                     source_tag = f'<span class="reason-source-nolink">[{source}]</span>'
@@ -257,9 +257,10 @@ def generate_html(data, channels_data=None, gh_repo=""):
         source_name = pick.get("source_name", "")
         panelist = pick.get("panelist", "")
         if source_link:
-            source_tag = f'<a href="{source_link}" target="_blank" class="reason-source">{source_name}</a>'
+            source_tag = f'<span class="reason-source-nolink">{source_name}</span> <a href="{source_link}" target="_blank" class="view-btn">직접 보기 →</a>'
         else:
-            source_tag = f'<span class="reason-source-nolink">{source_name}</span>'
+           source_tag = f'<span class="reason-source-nolink">{source_name}</span>'
+
 
         panelist_tag = f'<span class="panelist-badge">🎙 {panelist}</span>' if panelist else ""
 
